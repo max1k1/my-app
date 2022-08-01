@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
-import Content from "./components/content";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import ProfileContent from "./components/ProfileContent/Profile";
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+
 
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
     <div className="app-wrapper">
       <Header/>
       <Navbar/> 
-      <Content/>
+      <ProfileContent/>
     </div>
   );
 };
