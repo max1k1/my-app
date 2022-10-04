@@ -9,13 +9,13 @@
 }
 
 .dialog{
-
+    color:rgb(0, 0, 0);
 }
 
 .messages{
-
+ color:rgb(51, 24, 24);
 }
 
 .messages .message{
-
+ color: black;
 }

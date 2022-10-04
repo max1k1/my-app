@@ -12,21 +12,21 @@ import Settings from "./components/Settings/Settings";
 const App = () => {
   return (
     <BrowserRouter>
-    <div className="app-wrapper">
-      <Header/>
-      <Navbar/> 
-      <div className="app-wrapper-content">
-      <Routes>
-				<Route path="/profile" element = {<Profile />}/>
-				<Route path="/dialogs" element = {<Dialogs />}/>
-        <Route path="/news" element = {<News />}/>
-        <Route path="/music" element = {<Music />}/>
-        <Route path="/settings" element = {<Settings />}/>
-        </Routes>
+      <div className="app-wrapper">
+        <Header />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Routes>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dialogs" element={<Dialogs />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </div>
       </div>
-    </div>
     </BrowserRouter>
-  ); 
+  );
 };
 
 export default App;
