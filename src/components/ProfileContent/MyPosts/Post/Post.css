@@ -4,4 +4,10 @@
 
 .post img{
     width: 100px;
+    margin-right: 10px;
+}
+
+.postDescription{
+    display: flex;
+    color: aqua;
 }

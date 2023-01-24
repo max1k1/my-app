@@ -2,15 +2,22 @@ import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post.jsx";
 
-const MyPosts = () => {
+const MyPosts = ({postsDate}) => {
+const postsElements = postsDate.map((postDate) => 
+  <Post text={postDate.text} likeCount={postDate.likeCount} />);
   return (
-    <div>
-      My posts
-      <div>New post</div>
+    <div className="postsBlock">
+      <h3>My posts</h3>
+      <div className="addPostBlock">  
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>New post</button>
+        </div>
+      </div>
       <div className="posts">
-        <Post text="First post using props" likeCount="5"/>
-        <Post text="My story" likeCount="3"/>
-        <Post text="Feel better than ever" likeCount="1"/>
+        {postsElements}
       </div>
     </div>
   );

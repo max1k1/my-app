@@ -1,13 +1,16 @@
 import React from "react";
-import './Profile.css';
-import MyPosts from './MyPosts/MyPosts.jsx';  
+import "./Profile.css";
+import MyPosts from "./MyPosts/MyPosts.jsx";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () =>{
-    return <div className="Profile">
-    <img src="https://dhjhkxawhe8q4.cloudfront.net/penguinteen-wp/wp-content/uploads/2021/12/17142625/Screen-Shot-2020-11-04-at-3.39.40-PM.png" />
-    <div>ava + discrtiption</div>
-    <MyPosts/>
-  </div>
-}
+const Profile = ({state}) => {
+
+  return (
+    <div>
+      <ProfileInfo />
+      <MyPosts postsDate={state.postsDate}/>
+    </div>
+  );
+};
 
 export default Profile;
