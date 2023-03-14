@@ -1,6 +1,6 @@
 .nav{
   grid-area: n;
-  background-color: aqua;
+  background-color: rgb(67, 8, 118);
 }
 
 .item{
@@ -8,7 +8,7 @@
  margin: 10px;  
  color: white;
  text-decoration: none;
-}
+} 
 
 .active{
   text-decoration: none;

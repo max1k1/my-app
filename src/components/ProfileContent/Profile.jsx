@@ -3,12 +3,11 @@ import "./Profile.css";
 import MyPosts from "./MyPosts/MyPosts.jsx";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({state}) => {
-
+const Profile = ({profilePage, addPost, updateNewPostText}) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts postsDate={state.postsDate}/>
+      <MyPosts postsDate={profilePage.postsDate} addPost={addPost} newPostText={profilePage.newPostText} updateNewPostText={updateNewPostText}/>
     </div>
   );
 };
