@@ -11,10 +11,7 @@ import Settings from "./components/Settings/Settings";
 
 const App = ({
   state,
-  addPost,
-  updateNewPostText,
-  sendMessage,
-  updateNewMessageText,
+  dispatch
 }) => {
   return (
     <BrowserRouter>
@@ -28,8 +25,7 @@ const App = ({
               element={
                 <Profile
                   profilePage={state.profilePage}
-                  addPost={addPost}
-                  updateNewPostText={updateNewPostText}
+                  dispatch={dispatch}
                 />
               }
             />
@@ -38,8 +34,7 @@ const App = ({
               element={
                 <Dialogs
                   dialogsPage={state.dialogsPage}
-                  sendMessage={sendMessage}
-                  updateNewMessageText={updateNewMessageText}
+                  dispatch={dispatch}
                 />
               }
             />

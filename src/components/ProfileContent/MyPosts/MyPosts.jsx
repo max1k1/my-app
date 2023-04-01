@@ -2,26 +2,31 @@ import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post.jsx";
 
-const MyPosts = ({ postsDate, addPost, newPostText, updateNewPostText }) => {
+const MyPosts = ({ postsDate, dispatch, newPostText }) => {
   const postsElements = postsDate.map((postDate) => (
     <Post text={postDate.text} likeCount={postDate.likeCount} />
   ));
   const newPostElement = React.createRef();
-
+  const addPostCreator ={type: "ADD-POST"}
+  const updateNewPostTextCreator ={ type: "UPDATE-NEW-POST-TEXT", text: "text" }
   const addPostElement = () => {
-    addPost();
+    dispatch(addPostCreator);
   };
 
   const changeText = () => {
-    const text = newPostElement.current.value;
-    updateNewPostText(text);
+    updateNewPostTextCreator.text = newPostElement.current.value;
+    dispatch(updateNewPostTextCreator);
   };
   return (
     <div className="postsBlock">
       <h3>My posts</h3>
       <div className="addPostBlock">
         <div>
-          <textarea ref={newPostElement} value={newPostText} onChange={changeText}></textarea>
+          <textarea
+            ref={newPostElement}
+            value={newPostText}
+            onChange={changeText}
+          ></textarea>
         </div>
         <div>
           <button onClick={addPostElement}>New post</button>

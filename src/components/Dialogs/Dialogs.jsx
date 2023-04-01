@@ -3,7 +3,7 @@ import styles from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
 
-const Dialogs = ({ dialogsPage, sendMessage, updateNewMessageText }) => {
+const Dialogs = ({ dialogsPage, dispatch}) => {
   const messagesElements = dialogsPage.messagesData.map((message) => (
     <MessageItem message={message.message} />
   ));
@@ -11,12 +11,14 @@ const Dialogs = ({ dialogsPage, sendMessage, updateNewMessageText }) => {
     <DialogItem id={dialog.id} userName={dialog.userName}></DialogItem>
   ));
   const newMessageElement = React.createRef();
+  const sendMessageCreator = {type: "SEND-MESSAGE"}
+  const updateNewMessageTextCreator = {type: "UPDATE-NEW-MESSAGE-TEXT", text: "text"}
   const sendMessageElement = () => {
-    sendMessage();
+    dispatch(sendMessageCreator)
   };
   const changeText = () => {
-    const text = newMessageElement.current.value;
-    updateNewMessageText(text);
+    updateNewMessageTextCreator.text = newMessageElement.current.value;
+    dispatch(updateNewMessageTextCreator)
   };
   return (
     <div className={styles.dialogs}>

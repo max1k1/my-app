@@ -31,14 +31,24 @@ let store = {
     },
     sidebar: {},
   },
-  getState(){
+  getState() {
     return this._state;
   },
-  // window._state = _state // just for easier date checking from browser console
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-  sendMessage() {
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      this._addPost();
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._updateNewPostText(action.text);
+    } else if (action.type === "SEND-MESSAGE") {
+      this._sendMessage();
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._updateNewMessageText(action.text);
+    }
+  },
+  _sendMessage() {
     debugger;
     const newMessage = {
       id: this._state.dialogsPage.messagesData.length + 1,
@@ -48,11 +58,11 @@ let store = {
     this._state.dialogsPage.newMessageText = "";
     this._callSubscriber(this._state);
   },
-  updateNewMessageText(newText) {
+  _updateNewMessageText(newText) {
     this._state.dialogsPage.newMessageText = newText;
     this._callSubscriber(this._state);
   },
-  addPost() {
+  _addPost() {
     const newPost = {
       id: this._state.profilePage.postsDate.length + 1,
       text: this._state.profilePage.newPostText,
@@ -62,10 +72,10 @@ let store = {
     this._state.profilePage.newPostText = "";
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
   },
 };
-
+window.store = store // just for easier date checking from browser console
 export default store;
