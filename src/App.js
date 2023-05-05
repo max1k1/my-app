@@ -9,10 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-const App = ({
-  state,
-  dispatch
-}) => {
+const App = ({ store, dispatch, state }) => { 
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -23,19 +20,13 @@ const App = ({
             <Route
               path="/profile/*"
               element={
-                <Profile
-                  profilePage={state.profilePage}
-                  dispatch={dispatch}
-                />
+                <Profile profilePage={state.profilePage} dispatch={dispatch} />
               }
             />
             <Route
               path="/dialogs/*"
               element={
-                <Dialogs
-                  dialogsPage={state.dialogsPage}
-                  dispatch={dispatch}
-                />
+                <Dialogs dialogsPage={state.dialogsPage} dispatch={dispatch} />
               }
             />
             <Route path="/news/*" element={<News />} />

@@ -1,18 +1,19 @@
 import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post.jsx";
+import {
+  addPostCreator,
+  updateNewPostTextCreator,
+} from "../../../redux/Profile-reducer";
 
 const MyPosts = ({ postsDate, dispatch, newPostText }) => {
   const postsElements = postsDate.map((postDate) => (
     <Post text={postDate.text} likeCount={postDate.likeCount} />
   ));
   const newPostElement = React.createRef();
-  const addPostCreator ={type: "ADD-POST"}
-  const updateNewPostTextCreator ={ type: "UPDATE-NEW-POST-TEXT", text: "text" }
   const addPostElement = () => {
     dispatch(addPostCreator);
   };
-
   const changeText = () => {
     updateNewPostTextCreator.text = newPostElement.current.value;
     dispatch(updateNewPostTextCreator);
