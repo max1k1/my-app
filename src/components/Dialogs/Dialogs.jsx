@@ -2,22 +2,27 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
-import { sendMessageCreator, updateNewMessageTextCreator } from "../../redux/Dialog-reducer";
 
-const Dialogs = ({ dialogsPage, dispatch}) => {
-  const messagesElements = dialogsPage.messagesData.map((message) => (
+const Dialogs = ({
+  messagesData,
+  dialogsData,
+  changeText,
+  sendMessage,
+  newMessageText,
+}) => {
+  const messagesElements = messagesData.map((message) => (
     <MessageItem message={message.message} />
   ));
-  const dialogsElements = dialogsPage.dialogsData.map((dialog) => (
+  const dialogsElements = dialogsData.map((dialog) => (
     <DialogItem id={dialog.id} userName={dialog.userName}></DialogItem>
   ));
-  const newMessageElement = React.createRef();
   const sendMessageElement = () => {
-    dispatch(sendMessageCreator)
-  };  
-  const changeText = () => {
-    updateNewMessageTextCreator.text = newMessageElement.current.value;
-    dispatch(updateNewMessageTextCreator);
+    sendMessage();
+  };
+  const newMessageElement = React.createRef();
+  const onChangeText = () => {
+    let messageText = newMessageElement.current.value;
+    changeText(messageText);
   };
   return (
     <div className={styles.dialogs}>
@@ -27,8 +32,8 @@ const Dialogs = ({ dialogsPage, dispatch}) => {
         <div className={styles.addMessageField}>
           <textarea
             ref={newMessageElement}
-            value={dialogsPage.newMessageText}
-            onChange={changeText}
+            value={newMessageText}
+            onChange={onChangeText}
           ></textarea>
           <button onClick={sendMessageElement}>Send</button>
         </div>

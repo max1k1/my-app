@@ -2,12 +2,12 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./components/ProfileContent/Profile";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = ({ store, dispatch, state }) => { 
   return (
@@ -20,13 +20,13 @@ const App = ({ store, dispatch, state }) => {
             <Route
               path="/profile/*"
               element={
-                <Profile profilePage={state.profilePage} dispatch={dispatch} />
+                <Profile store={store} dispatch={dispatch} />
               }
             />
             <Route
               path="/dialogs/*"
               element={
-                <Dialogs dialogsPage={state.dialogsPage} dispatch={dispatch} />
+                <DialogsContainer store={store} dispatch={dispatch} />
               }
             />
             <Route path="/news/*" element={<News />} />

@@ -1,22 +1,18 @@
 import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post.jsx";
-import {
-  addPostCreator,
-  updateNewPostTextCreator,
-} from "../../../redux/Profile-reducer";
 
-const MyPosts = ({ postsDate, dispatch, newPostText }) => {
+const MyPosts = ({ changeText, addPost, postsDate, newPostText }) => {
   const postsElements = postsDate.map((postDate) => (
     <Post text={postDate.text} likeCount={postDate.likeCount} />
   ));
-  const newPostElement = React.createRef();
   const addPostElement = () => {
-    dispatch(addPostCreator);
+    addPost();
   };
-  const changeText = () => {
-    updateNewPostTextCreator.text = newPostElement.current.value;
-    dispatch(updateNewPostTextCreator);
+  const newPostElement = React.createRef();
+  const onChangeText = () => {
+    let postText = newPostElement.current.value;
+    changeText(postText);
   };
   return (
     <div className="postsBlock">
@@ -26,7 +22,7 @@ const MyPosts = ({ postsDate, dispatch, newPostText }) => {
           <textarea
             ref={newPostElement}
             value={newPostText}
-            onChange={changeText}
+            onChange={onChangeText}
           ></textarea>
         </div>
         <div>

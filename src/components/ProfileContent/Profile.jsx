@@ -1,15 +1,14 @@
 import React from "react";
 import "./Profile.css";
-import MyPosts from "./MyPosts/MyPosts.jsx";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = ({profilePage, dispatch}) => {
+const Profile = ({store, dispatch}) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts postsDate={profilePage.postsDate} dispatch={dispatch} newPostText={profilePage.newPostText} />
+      <MyPostsContainer store={store} dispatch={dispatch} />
     </div>
   );
 };
-
 export default Profile;
