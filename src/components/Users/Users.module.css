@@ -1,0 +1,58 @@
+.usersList{
+    
+}
+.users{
+    border: rgb(67, 8, 118);
+    padding: 10px;
+    
+}
+.user{
+    display: flex;   
+    width: 100%;
+}
+.user .active{
+    color: blue;
+}
+.user .ava{
+    background-color: aliceblue;
+}
+.user button{
+    background-color: rgb(67, 8, 118);
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+}
+.user .name{
+    font-size: large;
+}
+.user .status{
+    font-size: medium;
+}
+.user .livingPlace{
+    font-size: larger;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+   justify-content: space-between;
+   justify-content: space-around;
+}
+img{
+    height: 100px;
+    width: 100px;
+}
+.user .firstArea{
+    display: flex;
+    flex-direction: column;
+}
+.user .secondArea{
+    display: flex;
+    background-color: rgb(128, 91, 237);
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+.user .thirdArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

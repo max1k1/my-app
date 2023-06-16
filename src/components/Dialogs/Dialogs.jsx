@@ -3,17 +3,11 @@ import styles from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
 
-const Dialogs = ({
-  messagesData,
-  dialogsData,
-  changeText,
-  sendMessage,
-  newMessageText,
-}) => {
-  const messagesElements = messagesData.map((message) => (
+const Dialogs = ({ changeText, sendMessage, dialogsPage }) => {
+  const messagesElements = dialogsPage.messagesData.map((message) => (
     <MessageItem message={message.message} />
   ));
-  const dialogsElements = dialogsData.map((dialog) => (
+  const dialogsElements = dialogsPage.dialogsData.map((dialog) => (
     <DialogItem id={dialog.id} userName={dialog.userName}></DialogItem>
   ));
   const sendMessageElement = () => {
@@ -32,7 +26,7 @@ const Dialogs = ({
         <div className={styles.addMessageField}>
           <textarea
             ref={newMessageElement}
-            value={newMessageText}
+            value={dialogsPage.newMessageText}
             onChange={onChangeText}
           ></textarea>
           <button onClick={sendMessageElement}>Send</button>

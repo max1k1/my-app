@@ -2,8 +2,8 @@ import React from "react";
 import "./MyPosts.css";
 import Post from "./Post/Post.jsx";
 
-const MyPosts = ({ changeText, addPost, postsDate, newPostText }) => {
-  const postsElements = postsDate.map((postDate) => (
+const MyPosts = ({ profilePage, changeText, addPost}) => {
+  const postsElements = profilePage.postsDate.map(postDate => (
     <Post text={postDate.text} likeCount={postDate.likeCount} />
   ));
   const addPostElement = () => {
@@ -21,7 +21,7 @@ const MyPosts = ({ changeText, addPost, postsDate, newPostText }) => {
         <div>
           <textarea
             ref={newPostElement}
-            value={newPostText}
+            value={profilePage.newPostText}
             onChange={onChangeText}
           ></textarea>
         </div>
