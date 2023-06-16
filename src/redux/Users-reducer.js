@@ -5,14 +5,13 @@ const initialState = {
   usersDate: [ ],
 };
 const usersReducer = (state = initialState, action) => {
-  debugger
   switch (action.type) {
     case FOLLOW:
       return {
         ...state,
         usersDate: state.usersDate.map(u => {
-            if (u.userId === action.userId) {
-              return { ...u, followStatus: true };
+            if (u.id === action.id) {
+              return { ...u, followed: true };
             }
             return u;
           })
@@ -21,8 +20,8 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         usersDate: state.usersDate.map(u => {
-            if (u.userId === action.userId) {
-              return { ...u, followStatus: false };
+            if (u.id === action.id) {
+              return { ...u, followed: false };
             }
             return u;
           })
@@ -38,10 +37,10 @@ export const setUsers =(usersDate) =>({
   type: SET_USERS,
   usersDate
 });
-export const follow = (userId) => ({ type: FOLLOW, userId });
-export const unFollow = (userId) => ({
+export const follow = (id) => ({ type: FOLLOW, id });
+export const unFollow = (id) => ({
   type: UNFOLLOW,
-  userId,
+  id,
 });
 
 export default usersReducer; 
