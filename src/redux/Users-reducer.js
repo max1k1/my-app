@@ -1,8 +1,13 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_PAGE = "SET_PAGE";
+const SET_TOTAL_USERS_COUNT="SET_TOTAL_USERS_COUNT";
 const initialState = {
   usersDate: [ ],
+  totalUsersCount: 10,
+  pageSize: 5,
+  currentPage: 100,
 };
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -27,8 +32,12 @@ const usersReducer = (state = initialState, action) => {
           })
         }
       case SET_USERS:
-        if (state.usersDate.length==0) return {...state, usersDate: [...state.usersDate, ...action.usersDate]}
-        return {...state}
+        return {...state, usersDate: action.usersDate}
+      case SET_PAGE:
+        return {...state, currentPage: action.pageNumber}
+      case SET_TOTAL_USERS_COUNT: 
+      debugger
+      return {...state, totalUsersCount: action.totalUsersCount}
     default:
       return state;
   }
@@ -41,6 +50,14 @@ export const follow = (id) => ({ type: FOLLOW, id });
 export const unFollow = (id) => ({
   type: UNFOLLOW,
   id,
+});
+export const setPage =(pageNumber) =>({
+  type: SET_PAGE,
+  pageNumber
+});
+export const setTotalUsersCount =(totalUsersCount)=>({
+  type: SET_TOTAL_USERS_COUNT,
+  totalUsersCount
 });
 
 export default usersReducer; 

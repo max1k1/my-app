@@ -11,8 +11,7 @@ const MyPosts = ({ profilePage, changeText, addPost}) => {
   };
   const newPostElement = React.createRef();
   const onChangeText = () => {
-    let postText = newPostElement.current.value;
-    changeText(postText);
+    changeText(newPostElement.current.value);
   };
   return (
     <div className="postsBlock">
