@@ -12,6 +12,8 @@
 }
 .user .ava{
     background-color: aliceblue;
+    height: 100px;
+    width: 100px;
 }
 .user button{
     background-color: rgb(67, 8, 118);
@@ -32,10 +34,6 @@
     flex-direction: column;
    justify-content: space-between;
    justify-content: space-around;
-}
-img{
-    height: 100px;
-    width: 100px;
 }
 .user .firstArea{
     display: flex;

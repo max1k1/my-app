@@ -1,3 +1,33 @@
-.descriptionBlock{
+.firstArea{
+    display: flex;
+    flex-direction: row;
+}
+.secondArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+.secondArea .fullName{
+    font-size: 25px;
     padding: 10px;
+}
+.secondArea .lookingForAJobDescription{
+    padding: 10px;
+}
+.profilePicture{
+    width: 250px;
+    height: 250px;
+}
+.thirdArea{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+.thirdArea img{
+    width: 25px;
+    height: 25px;
+}
+.aboutMe{
+    padding: 5px;
 }
