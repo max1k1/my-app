@@ -24,7 +24,7 @@ const Users =(props)=>{
       <span className={styles.user}>
         <div className={styles.firstArea}>
           {
-          <NavLink to={'/profile/*'}>
+          <NavLink to={'/profile/' +u.id}>
           <img
             className={styles.ava}
             src={u.photos.small?u.photos.small:userPhoto}
