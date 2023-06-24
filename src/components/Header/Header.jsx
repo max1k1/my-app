@@ -1,10 +1,16 @@
 import React from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
+import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604597937l/55198928.jpg" />
+      <div className={styles.loginBlock}>
+        <NavLink to="/login">
+          Login:{props.login}
+        </NavLink>
+      </div>
     </header>
   );
 };

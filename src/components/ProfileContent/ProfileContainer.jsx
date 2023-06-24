@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { setUserProfile } from './../../redux/Profile-reducer';
+import { setUserProfile } from './../../redux/profile-reducer';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 export function withRouter(Children){
@@ -13,7 +13,6 @@ export function withRouter(Children){
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    debugger
     if (!userId) {
       userId=2;
     }

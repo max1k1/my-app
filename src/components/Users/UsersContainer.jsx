@@ -7,59 +7,63 @@ import {
   setPage,
   setTotalUsersCount,
   toggleIsFatching,
-} from "./../../redux/Users-reducer";
+} from "./../../redux/users-reducer";
 import Users from "./Users";
-import axios from "axios";
 import Preloader from "./../common/Preloader/Preloader";
+import { usersAPI } from './../../api/api';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFatching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`
-      )
-      .then(response => {
+    // this.props.pageSize, this.props.currentPage
+    usersAPI.getUsers(this.props.pageSize, this.props.pageNumber).then(data => {
         this.props.toggleIsFatching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsers(data.items);
+        this.props.setTotalUsersCount(data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {
     this.props.setPage(pageNumber);
     this.props.toggleIsFatching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`
-      )
-      .then(response => {
-        this.props.toggleIsFatching(false);
-        this.props.setUsers(response.data.items);
-      });
+    usersAPI.getUsers(this.props.pageSize, pageNumber).then(data => {
+      this.props.toggleIsFatching(false);
+      this.props.setUsers(data.items);
+    });
   };
+
   render() {
-    return <>
-        {this.props.isFetching ? <Preloader />: null }
-          <Users
-            totalUsersCount={this.props.totalUsersCount}
-            currentPage={this.props.currentPage}
-            pageSize={this.props.pageSize}
-            usersDate={this.props.usersDate}
-            follow={this.props.follow}
-            unFollow={this.props.unFollow}
-            onPageChanged={this.onPageChanged}
-          />
+    return (
+      <>
+        {this.props.isFetching ? <Preloader /> : null}
+        <Users
+          totalUsersCount={this.props.totalUsersCount}
+          currentPage={this.props.currentPage}
+          pageSize={this.props.pageSize}
+          usersDate={this.props.usersDate}
+          follow={this.props.follow}
+          unFollow={this.props.unFollow}
+          onPageChanged={this.onPageChanged}
+        />
       </>
+    );
   }
 }
 const mapStateToProps = (state) => {
-  const {usersDate, totalUsersCount, pageSize, currentPage, isFatching} = state.usersPage
+  const { usersDate, totalUsersCount, pageSize, currentPage, isFatching } =
+    state.usersPage;
   return {
     usersDate,
     totalUsersCount,
     pageSize,
     currentPage,
-    isFatching
+    isFatching,
   };
 };
-export default connect(mapStateToProps, {follow, unFollow, setUsers, setPage, setTotalUsersCount, toggleIsFatching})(UsersContainer);
+export default connect(mapStateToProps, {
+  follow,
+  unFollow,
+  setUsers,
+  setPage,
+  setTotalUsersCount,
+  toggleIsFatching,
+})(UsersContainer);
