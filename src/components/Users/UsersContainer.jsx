@@ -1,36 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  follow,
-  setUsers,
-  unFollow,
-  setPage,
-  setTotalUsersCount,
-  toggleIsFatching,
-} from "./../../redux/users-reducer";
+import { follow, unFollow, getUsers } from "./../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "./../common/Preloader/Preloader";
-import { usersAPI } from './../../api/api';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFatching(true);
-    // this.props.pageSize, this.props.currentPage
-    usersAPI.getUsers(this.props.pageSize, this.props.pageNumber).then(data => {
-        this.props.toggleIsFatching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-      });
+    this.props.getUsers(this.props.pageSize, this.props.currentPage);
   }
   onPageChanged = (pageNumber) => {
-    this.props.setPage(pageNumber);
-    this.props.toggleIsFatching(true);
-    usersAPI.getUsers(this.props.pageSize, pageNumber).then(data => {
-      this.props.toggleIsFatching(false);
-      this.props.setUsers(data.items);
-    });
+    this.props.getUsers(this.props.pageSize, pageNumber);
   };
-
   render() {
     return (
       <>
@@ -43,27 +23,30 @@ class UsersContainer extends React.Component {
           follow={this.props.follow}
           unFollow={this.props.unFollow}
           onPageChanged={this.onPageChanged}
+          followingInProgress={this.props.followingInProgress}
         />
       </>
     );
   }
 }
 const mapStateToProps = (state) => {
-  const { usersDate, totalUsersCount, pageSize, currentPage, isFatching } =
-    state.usersPage;
+  const {
+    usersDate,
+    totalUsersCount,
+    pageSize,
+    currentPage,
+    followingInProgress,
+  } = state.usersPage;
   return {
     usersDate,
     totalUsersCount,
     pageSize,
     currentPage,
-    isFatching,
+    followingInProgress,
   };
 };
 export default connect(mapStateToProps, {
   follow,
   unFollow,
-  setUsers,
-  setPage,
-  setTotalUsersCount,
-  toggleIsFatching,
+  getUsers,
 })(UsersContainer);
