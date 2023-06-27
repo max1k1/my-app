@@ -3,7 +3,7 @@ import styles from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
 
-const Dialogs = ({ changeText, sendMessage, dialogsPage }) => {
+const Dialogs = ({ changeText, sendMessage, dialogsPage, isAuth }) => {
   const messagesElements = dialogsPage.messagesData.map((message) => (
     <MessageItem message={message.message} />
   ));
