@@ -14,11 +14,8 @@ let mapStateToProps = (state) => {
 };
 let mapDispatchToProps = (dispatch) => {
   return {
-    sendMessage: () => {
-      dispatch(sendMessageCreator());
-    },
-    changeText: (dialogsText) => {
-      dispatch(updateNewMessageTextCreator(dialogsText));
+    sendMessage: (newMessageText) => {
+      dispatch(sendMessageCreator(newMessageText));
     },
   };
 };

@@ -8,7 +8,8 @@ import youtubeLogoIcon from "../../../assets/images/youtubeLogoIcon.png";
 import twitterLogoIcon from "../../../assets/images/twitterLogoIcon.png";
 import githubLogoIcon from "../../../assets/images/githubLogoIcon.png"
 import { NavLink } from "react-router-dom";
-let ProfileInfo = ({ profile }) => {
+import ProfileStatus from "./ProfileStatus";
+const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) {
     return <Preloader />;
   }
@@ -48,7 +49,7 @@ let ProfileInfo = ({ profile }) => {
           </NavLink>
         </div>
       </div>
-      <div className="aboutMe">{profile.aboutMe}</div>
+      <ProfileStatus status={status} updateStatus={updateStatus}/>
     </div>
   );
 };
