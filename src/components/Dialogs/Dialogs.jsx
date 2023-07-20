@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
-import DialogFrom from "./DialogFrom/DialogFrom";
+import DialogForm from "./DialogForm/DialogForm";
 
 const Dialogs = ({sendMessage, dialogsPage }) => {
   const addNewMessage = (values) => {
@@ -19,7 +19,7 @@ const Dialogs = ({sendMessage, dialogsPage }) => {
       <div className={styles.dialogsItems}>{dialogsElements}</div>
       <div className={styles.messageArea}>
         <div className={styles.messages}>{messagesElements}</div>
-        <DialogFrom onSubmit={addNewMessage} />
+        <DialogForm onSubmit={addNewMessage} />
       </div>
     </div>
   );
