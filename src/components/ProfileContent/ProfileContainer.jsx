@@ -18,8 +18,9 @@ export function withRouter(Children) {
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
+    console.log(this.props.authorizedUserId)
     if (!userId) {
-      userId = 29312;
+      userId = this.props.authorizedUserId;
     }
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
@@ -38,6 +39,8 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  authorizedUserId: state.auth.id,
+  isAuth: state.auth.isAuth
 });
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
