@@ -15,10 +15,19 @@ export function withRouter(Children) {
   };
 }
 class ProfileContainer extends React.Component {
+  debugger;
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
+      debugger;
+      if (!userId) {
+        window.location.replace('http://localhost:3000/users');
+      } 
+////////////NEEDS TO BE FIXED/////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
     }
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
@@ -38,9 +47,9 @@ const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   authorizedUserId: state.auth.id,
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth,
 });
 export default compose(
   withRouter,
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
+  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus })
 )(ProfileContainer);
