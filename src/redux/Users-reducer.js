@@ -82,7 +82,7 @@ export const togglefollowingInProgress =(isFetching, userId)=>({
   userId
 })
 
-export const getUsers =(pageSize, pageNumber)=>{
+export const requestUsers =(pageSize, pageNumber)=>{
   return (dispatch)=>{
     dispatch(toggleIsFatching(true));
     usersAPI
