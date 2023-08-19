@@ -9,6 +9,7 @@ import twitterLogoIcon from "../../../assets/images/twitterLogoIcon.png";
 import githubLogoIcon from "../../../assets/images/githubLogoIcon.png"
 import { NavLink } from "react-router-dom";
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 const ProfileInfo = ({ profile, status, updateStatus }) => {
   if (!profile) {
     return <Preloader />;
@@ -49,7 +50,7 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
           </NavLink>
         </div>
       </div>
-      <ProfileStatus status={status} updateStatus={updateStatus}/>
+      <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
     </div>
   );
 };
