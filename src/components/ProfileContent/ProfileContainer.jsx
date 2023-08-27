@@ -15,12 +15,10 @@ export function withRouter(Children) {
   };
 }
 class ProfileContainer extends React.Component {
-  debugger;
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
-      debugger;
       if (!userId) {
         window.location.replace('http://localhost:3000/users');
       } 
