@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import styles from "../Dialogs.module.css";
-import { TextArea } from "../../common/Preloader/FormsControls/FormsControls";
+import { TextArea } from "../../common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../../utils/validators/validators";
 const maxLength200 = maxLengthCreator(200);
 const DialogForm = (props) => {

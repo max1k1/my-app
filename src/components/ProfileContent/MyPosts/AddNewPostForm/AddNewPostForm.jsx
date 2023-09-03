@@ -4,7 +4,7 @@ import {
   maxLengthCreator,
   required,
 } from "./../../../../utils/validators/validators";
-import { TextArea } from "../../../common/Preloader/FormsControls/FormsControls";
+import { TextArea } from "../../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10);
 const AddNewPostForm = (props) => {

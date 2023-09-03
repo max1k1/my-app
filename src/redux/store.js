@@ -7,6 +7,7 @@ import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import appReducer from "./app-reducer"
 import { reducer as formReducer } from "redux-form";
+import paginatorReducer from "./paginator-reducer";
 let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
@@ -14,7 +15,8 @@ let reducers = combineReducers({
     usersPage: usersReducer,
     auth: authReducer,
     form: formReducer,
-    app: appReducer
+    app: appReducer,
+    paginator: paginatorReducer,
 }); 
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

@@ -1,0 +1,15 @@
+.selectedPageNumber{
+    color: rgb(226, 43, 205);
+    font-weight: bold;
+}
+.paginator{
+    display: flex;
+    padding-left: 50%;
+    padding-right: 50%;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+.paginator .pages{
+    padding-left: 5px;
+    padding-right: 5px;
+}
