@@ -22,7 +22,7 @@ const Paginator = ({ currentPage, onPageChanged, totalUserCount, pageSize}) => {
         {pages.map((p) => {
           return (
             <span 
-              className={p === currentPage && styles.selectedPageNumber}
+              className={p === currentPage && styles.selectedPageNumber }
               onClick={(e) => {
                 onPageChanged(p);
               }}

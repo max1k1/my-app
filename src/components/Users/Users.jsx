@@ -24,7 +24,7 @@ const Users = ({
       />
       {usersDate.map((userDate) => (
         <div key={userDate.id} className={styles.users}>
-          <User
+          <User key={userDate.id}
             userDate={userDate}
             follow={follow}
             unFollow={unFollow}
