@@ -12,19 +12,22 @@ const Users = ({
   follow,
   unFollow,
   followingInProgress,
+  pagesListSize,
   ...props
 }) => {
   return (
     <div>
       <Paginator
-        pageSize={pageSize}
         currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalUsersCount}
+        pageSize={pageSize}
+        pagesListSize={pagesListSize}
       />
       {usersDate.map((userDate) => (
         <div key={userDate.id} className={styles.users}>
-          <User key={userDate.id}
+          <User
+            key={userDate.id}
             userDate={userDate}
             follow={follow}
             unFollow={unFollow}

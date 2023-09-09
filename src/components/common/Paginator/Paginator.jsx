@@ -1,39 +1,46 @@
-import { React } from "react";
+import { React, useState } from "react";
 import styles from "./Paginator.module.css";
 
-const Paginator = ({ currentPage, onPageChanged, totalUserCount, pageSize}) => {
-  let pagesCount = Math.ceil(totalUserCount / pageSize);
-  let pageNumber = pagesCount-10
-  let pages =[1,2,3,4,5,6,7,8,9,10]
-      if(pageNumber===0){
-        pageNumber=1;
-      }   
-    // {pageNumber?0:1} 
-    // const nextPageList =(pagesCount)=>{
-    //   pagesCount=pagesCount+10;
-    // }
-      for (; pageNumber <= pagesCount; pageNumber++) {
-        pages.push(pageNumber)
-      }
+const Paginator = ({
+  currentPage,
+  onPageChanged,
+  totalItemsCount,
+  pageSize,
+  pagesListSize,
+}) => {
+  let pagesCount = Math.ceil(totalItemsCount / pageSize);
+  let itemsListsCount = Math.ceil(pagesCount / pagesListSize);
+  let pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
+  let [pagesListNumber, setPagesList] = useState(1);
+  let leftPagesListNumber = (pagesListNumber - 1) * pagesListSize + 1;
+  let rightPagesListNumber = pagesListNumber * pagesListSize;
   return (
     <div className={styles.paginator}>
-      <div>back</div>
+      {1 < pagesListNumber && (
+        <div onClick={() => setPagesList(pagesListNumber - 1)}>back</div>
+      )}
       <div className={styles.pages}>
-        {pages.map((p) => {
-          return (
-            <span 
-              className={p === currentPage && styles.selectedPageNumber }
-              onClick={(e) => {
-                onPageChanged(p);
-              }}
-            >
-              {p}
-            </span>
-          );
-        })}
+        {pages
+          .filter((p) => p >= leftPagesListNumber && p <= rightPagesListNumber)
+          .map((p) => {
+            return (
+              <span
+                className={p === currentPage && styles.selectedPageNumber}
+                onClick={(e) => {
+                  onPageChanged(p);
+                }}
+              >
+                {p}
+              </span>
+            );
+          })}
       </div>
-      <div>next</div>
-      {/* onClick={nextPageList} */}
+      {itemsListsCount > pagesListNumber && (
+        <div onClick={() => setPagesList(pagesListNumber + 1)}>next</div>
+      )}
     </div>
   );
 };

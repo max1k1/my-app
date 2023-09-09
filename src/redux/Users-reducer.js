@@ -14,6 +14,7 @@ const initialState = {
   currentPage: 1,
   isFetching: true,
   followingInProgress: [],
+  pagesListSize: 10
 };
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
