@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.fade4b9e.css",
+    "main.js": "/my-app/static/js/main.a5d3b635.js",
+    "static/css/889.b7a6e762.chunk.css": "/my-app/static/css/889.b7a6e762.chunk.css",
+    "static/js/889.6fa5a7d7.chunk.js": "/my-app/static/js/889.6fa5a7d7.chunk.js",
+    "static/js/787.28cb0dcd.chunk.js": "/my-app/static/js/787.28cb0dcd.chunk.js",
+    "static/media/instagramLogoIcon.png": "/my-app/static/media/instagramLogoIcon.ed071077fc911932f21a.png",
+    "static/media/githubLogoIcon.png": "/my-app/static/media/githubLogoIcon.648e666260ca9d409a49.png",
+    "static/media/vkontakteLogoIcon.png": "/my-app/static/media/vkontakteLogoIcon.10d18e88967d2b167c02.png",
+    "static/media/linkedinLogoIcon.png": "/my-app/static/media/linkedinLogoIcon.9df3772694f9ed1c21b5.png",
+    "static/media/userPhoto.png": "/my-app/static/media/userPhoto.1648f03952e695dfb55e.png",
+    "static/media/preloader1.svg": "/my-app/static/media/preloader1.b767aab46ea3fa309aff5e12d5006915.svg",
+    "index.html": "/my-app/index.html",
+    "main.fade4b9e.css.map": "/my-app/static/css/main.fade4b9e.css.map",
+    "main.a5d3b635.js.map": "/my-app/static/js/main.a5d3b635.js.map",
+    "889.b7a6e762.chunk.css.map": "/my-app/static/css/889.b7a6e762.chunk.css.map",
+    "889.6fa5a7d7.chunk.js.map": "/my-app/static/js/889.6fa5a7d7.chunk.js.map",
+    "787.28cb0dcd.chunk.js.map": "/my-app/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fade4b9e.css",
+    "static/js/main.a5d3b635.js"
+  ]
+}
