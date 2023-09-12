@@ -1,7 +1,7 @@
 import React, { Component, Suspense, lazy } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -14,7 +14,6 @@ import Preloader from "./components/common/Preloader/Preloader";
 import { initializeApp } from './redux/app-reducer';
 import store from "./redux/store";
 import { Provider } from "react-redux";
-import { BrowserRouter } from 'react-router-dom';
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 
 class App extends Component{
@@ -50,11 +49,12 @@ const mapStateToProps =(state)=>({
 let AppContainer = withRouter(connect(mapStateToProps, {initializeApp})(App));
 
 export const SocialNetworkApp = (props)=>{
-  return <BrowserRouter>
+  // using HashRouter instead BrowserRouter - trouble with gh-pages
+  return <HashRouter> 
     <React.StrictMode>
       <Provider store={store}>
       <AppContainer />
       </Provider>
     </React.StrictMode>
-    </BrowserRouter>
+    </HashRouter>
 }
