@@ -5,8 +5,8 @@ const SET_STATUS = "SET_STATUS";
 const DELETE_POST="DELETE_POST";
 const initialState = {
   postsDate: [
-    { id: 1, text: "Some text", likeCount: 5 },
-    { id: 2, text: "Dvi", likeCount: 3 },
+    { postId: 1, text: "Some text", likeCount: 5 },
+    { postId: 2, text: "Dvi", likeCount: 3 },
   ],
   profile: null,
   status: "",

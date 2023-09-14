@@ -5,7 +5,7 @@ import AddNewPostForm from "./AddNewPostForm/AddNewPostForm";
 
 const MyPosts = ({ profilePage, addPost }) => {
   const postsElements = profilePage.postsDate.map((postDate) => (
-    <Post text={postDate.text} likeCount={postDate.likeCount} />
+    <Post key={postDate.postId} text={postDate.text} likeCount={postDate.likeCount} />
   ));
   const onAddPost = (value) => {
     addPost(value.newPostText);

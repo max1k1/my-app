@@ -6,7 +6,6 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer, { withRouter } from "./components/ProfileContent/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { connect } from "react-redux";
@@ -14,6 +13,8 @@ import Preloader from "./components/common/Preloader/Preloader";
 import { initializeApp } from './redux/app-reducer';
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import { withRouter } from "./hoc/withRouter";
+import ProfileContainerWithHooks from "./components/ProfileContent/ProfileContainerWithHooks";
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 
 class App extends Component{
@@ -29,7 +30,9 @@ class App extends Component{
         <div className="app-wrapper-content">
         <Suspense fallback={<Preloader />}>
           <Routes>
-            <Route path="/profile" element={<ProfileContainer />}/>
+            <Route path="/profile" element={<ProfileContainerWithHooks />}>
+            <Route path=":userId" element={<ProfileContainerWithHooks />}/>
+            </Route>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/users/*" element={<UsersContainer />} />
             <Route path="/news/*" element={<News />} />

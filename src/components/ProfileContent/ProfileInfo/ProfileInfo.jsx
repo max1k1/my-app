@@ -6,10 +6,10 @@ import vkontakteLogoIcon from "../../../assets/images/vkontakteLogoIcon.png";
 import linkedinLogoIcon from "../../../assets/images/linkedinLogoIcon.png";
 import youtubeLogoIcon from "../../../assets/images/youtubeLogoIcon.png";
 import twitterLogoIcon from "../../../assets/images/twitterLogoIcon.png";
-import githubLogoIcon from "../../../assets/images/githubLogoIcon.png"
+import githubLogoIcon from "../../../assets/images/githubLogoIcon.png";
 import { NavLink } from "react-router-dom";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, status, updateStatus, authorizedUserId }) => {
   if (!profile) {
     return <Preloader />;
   }
@@ -49,7 +49,12 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
           </NavLink>
         </div>
       </div>
-      <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+      <ProfileStatusWithHooks
+        status={status}
+        updateStatus={updateStatus}
+        authorizedUserId={authorizedUserId}
+        userId={profile.userId}
+      />
     </div>
   );
 };
