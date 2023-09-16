@@ -1,14 +1,16 @@
 .header{
   grid-area: h;
-  background-color: rgb(128, 91, 237);
+  background-image:url(https://img.freepik.com/free-vector/sunset-sunrise-ocean-nature-landscape_33099-2244.jpg?w=1380&t=st=1694864011~exp=1694864611~hmac=af9782040e84cd72e412faef14adaa4d6a5e9d8d88df571bbb0087788039608f);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 150px;
   display: flex;
   justify-content: space-between;
 }
-.header img{
-  width: 100px;
-  height: 150px;
-}
+/* .header img{
+  width: 500px;
+ 
+} */
 .header .loginBlock{
   padding: 10px;
 }

@@ -5,6 +5,7 @@ import {
   getUserProfile,
   getStatus,
   updateStatus,
+  updatePhoto,
 } from "./../../redux/profile-reducer";
 import { compose } from "redux";
 import { withRouter } from "../../hoc/withRouter";
@@ -18,6 +19,7 @@ const ProfileContainerWithHooks = ({
   getUserProfile,
   getStatus,
   updateStatus,
+  updatePhoto,
 }) => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -40,6 +42,8 @@ const ProfileContainerWithHooks = ({
       status={status}
       updateStatus={updateStatus}
       authorizedUserId={authorizedUserId}
+      isOwner={!match.params.userId}
+      updatePhoto={updatePhoto}
     />
   );
 };
@@ -51,5 +55,10 @@ const mapStateToProps = (state) => ({
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, { getUserProfile, getStatus, updateStatus })
+  connect(mapStateToProps, {
+    getUserProfile,
+    getStatus,
+    updateStatus,
+    updatePhoto,
+  })
 )(ProfileContainerWithHooks);

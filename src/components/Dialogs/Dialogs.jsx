@@ -4,7 +4,7 @@ import MessageItem from "./MessageItem/MessageItem";
 import DialogItem from "./DialogItem/DialogItem";
 import DialogForm from "./DialogForm/DialogForm";
 
-const Dialogs = ({sendMessage, dialogsPage }) => {
+const Dialogs = ({ sendMessage, dialogsPage }) => {
   const addNewMessage = (values) => {
     sendMessage(values.newMessageText);
   };
@@ -16,11 +16,11 @@ const Dialogs = ({sendMessage, dialogsPage }) => {
   ));
   return (
     <div className={styles.dialogs}>
-      <div className={styles.dialogsItems}>{dialogsElements}</div>
       <div className={styles.messageArea}>
         <div className={styles.messages}>{messagesElements}</div>
         <DialogForm onSubmit={addNewMessage} />
       </div>
+      <div className={styles.dialogsItems}>{dialogsElements}</div>
     </div>
   );
 };

@@ -1,15 +1,16 @@
 .nav{
   grid-area: n;
   background-color: rgb(67, 8, 118);
+  width: 100%;
+  max-width: 270px;
+  min-width: 270px;
 }
-
 .item{
  text-align: center;
  margin: 10px;  
  color: white;
  text-decoration: none;
 } 
-
 .active{
   text-decoration: none;
   color: blueviolet;

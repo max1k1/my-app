@@ -14,6 +14,7 @@ const DialogForm = (props) => {
             placeholder="Enter your message"
             component={TextArea}
             validate={[required, maxLength200]}
+            customTextAreaClassName={true}
           />
         </div>
         <div>

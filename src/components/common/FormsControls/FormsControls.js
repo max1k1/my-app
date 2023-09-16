@@ -1,23 +1,29 @@
 import { React } from "react";
 import styles from "./FormsControls.module.css";
 
-export const FormControl = ({ meta: {touched, error}, children }) => {
+export const FormControl = ({ meta: { touched, error }, children }) => {
   const haveError = touched && error;
   return (
-    <div className={styles.formControl + " " + (haveError ? styles.error : "010")}>
-      <div>
-        {children}
-        </div>
+    <div
+      className={styles.formControl + " " + (haveError ? styles.error : "010")}
+    >
+      <div>{children}</div>
       {haveError && <span>{error}</span>}
     </div>
   );
 };
 
 export const TextArea = (props) => {
-  const { input, ...restProps } = props;
+  const { input, customTextAreaClassName, ...restProps } = props;
   return (
     <FormControl {...props}>
-      <textarea {...input} {...restProps} />
+      <textarea
+        {...input}
+        {...restProps}
+        className={
+          customTextAreaClassName ? styles.customTextAreaClassName : false
+        }
+      />
     </FormControl>
   );
 };

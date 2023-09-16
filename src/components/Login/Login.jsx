@@ -4,12 +4,11 @@ import { connect } from "react-redux";
 import { login } from "./../../redux/auth-reducer";
 import { Navigate} from 'react-router-dom';
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
   const onSubmit = (formData) => {
-    console.log(formData);
-    props.login(formData.email, formData.password, formData.rememberMe);
+    login(formData.email, formData.password, formData.rememberMe);
   }
-    if (props.isAuth) {
+    if (isAuth) {
       return <Navigate replace to="/profile" />
   };
   return (

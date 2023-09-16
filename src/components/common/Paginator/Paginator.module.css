@@ -3,6 +3,7 @@
     font-weight: bold;
 }
 .paginator{
+    cursor: pointer;
     display: flex;
     padding-left: 50%;
     padding-right: 50%;

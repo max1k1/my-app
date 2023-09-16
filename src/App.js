@@ -16,7 +16,6 @@ import { Provider } from "react-redux";
 import { withRouter } from "./hoc/withRouter";
 import ProfileContainerWithHooks from "./components/ProfileContent/ProfileContainerWithHooks";
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
-
 class App extends Component{
   componentDidMount(){
     this.props.initializeApp();

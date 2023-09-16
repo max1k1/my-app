@@ -7,21 +7,42 @@ import linkedinLogoIcon from "../../../assets/images/linkedinLogoIcon.png";
 import youtubeLogoIcon from "../../../assets/images/youtubeLogoIcon.png";
 import twitterLogoIcon from "../../../assets/images/twitterLogoIcon.png";
 import githubLogoIcon from "../../../assets/images/githubLogoIcon.png";
+import photoArrow from "../../../assets/images/changeAvatarArrow.svg"
 import { NavLink } from "react-router-dom";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-const ProfileInfo = ({ profile, status, updateStatus, authorizedUserId }) => {
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
+import userPhoto from "../../../assets/images/userPhoto.png";
+const ProfileInfo = ({
+  updatePhoto,
+  isOwner,
+  profile,
+  status,
+  updateStatus,
+}) => {
   if (!profile) {
     return <Preloader />;
   }
+  const onProfilePhotoSelected = (e) => {
+    if (e.target.files.length) {
+      updatePhoto(e.target.files[0]);
+    }
+  };
+  const fakeEditMode=false;
   return (
     <div>
-      {/* <img src="https://dhjhkxawhe8q4.cloudfront.net/penguinteen-wp/wp-content/uploads/2021/12/17142625/Screen-Shot-2020-11-04-at-3.39.40-PM.png" /> */}
       <div className="firstArea">
-        <img
-          src={profile.photos.large}
-          alt="profileAva"
-          className="profilePicture"
-        />
+        <div>
+          <img
+            src={profile.photos.large || userPhoto}
+            alt="profileAva"
+            className="profilePicture"
+          />
+          <div className="changeProfilePhotoField" >
+          {/* <img
+            src={photoArrow}
+          />  */}
+            { isOwner && <input type="file" onChange={onProfilePhotoSelected} input/>}
+          </div>
+        </div>
         <div className="secondArea">
           <span className="fullName">{profile.fullName}</span>
           <span className="lookingForAJobDescription">
@@ -52,8 +73,7 @@ const ProfileInfo = ({ profile, status, updateStatus, authorizedUserId }) => {
       <ProfileStatusWithHooks
         status={status}
         updateStatus={updateStatus}
-        authorizedUserId={authorizedUserId}
-        userId={profile.userId}
+        isOwner={isOwner}
       />
     </div>
   );

@@ -7,13 +7,8 @@ const initialState = {
     { id: 4, userName: "Katya" },
     { id: 5, userName: "Vinith" },
   ],
-
   messagesData: [
-    { id: 1, message: "Some text" },
-    { id: 2, message: "hello" },
-    { id: 3, message: "hello driver" },
-    { id: 4, message: "Hey busy" },
-    { id: 5, message: "hoy" },
+    { id: 1, message: "Some test text" },
   ],
 };
 const dialogsReducer = (state = initialState, action) => {

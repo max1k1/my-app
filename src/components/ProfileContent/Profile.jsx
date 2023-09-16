@@ -3,11 +3,11 @@ import "./Profile.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = ({profile, status, updateStatus, authorizedUserId}) => {
+const Profile = ({profile, status, updateStatus, authorizedUserId,isOwner, updatePhoto}) => {
   return (
-    <div>
-      <ProfileInfo profile={profile} status={status} updateStatus={updateStatus} authorizedUserId={authorizedUserId}/>
-      <MyPostsContainer  />
+    <div className="profile">
+      <ProfileInfo updatePhoto={updatePhoto} isOwner={isOwner} profile={profile} status={status} updateStatus={updateStatus} authorizedUserId={authorizedUserId}/>
+      {/* <MyPostsContainer  /> */}
     </div>
   );
 };

@@ -1,9 +1,7 @@
 import React from "react";
-
-const MessageItem = ({ id, message }) => 
-{
-  return (
-  <div>{message}</div>);
+import "./MessageItem.css";
+const MessageItem = ({ id, message }) => {
+  return <div className="message">{message}</div>;
 };
 
 export default MessageItem;

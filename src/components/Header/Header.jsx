@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-
+import headerImage from "../../assets/images/background-colorful-sky-concept-beautiful-sunset-sky-nature-sky-backgrounds-generative-ai_911620-16754.avif"
 const Header = (props) => {
   return (
     <header className={styles.header}>
-      <img
-        src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604597937l/55198928.jpg"
+      <div>
+      {/* <img
+        src={headerImage}
         alt="webSiteLogo"
-      />
+      /> */}
+      </div>
       <div className={styles.loginBlock}>
         {props.isAuth ? (
           <div>
