@@ -6,39 +6,47 @@
     grid-template-columns: 2fr 10fr;
     */
 }
-.messageArea{
-    position: relative;
-    min-height: 590px;
-    max-height: 590px;
-    background-color: rgb(138,43,226);
-    padding-top: 1%;
+.chat{
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    width: 100%;
-}
-.messages{
+    min-height: 591px;
+    max-height: 600px;
+    background-color: rgb(128, 91, 237);
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    padding-top: 1%;
     color:rgb(255, 255, 255);
-    width: 100%;
-    height: 100%;
 }
 .addMessageField{
     display:flex;
-    width: 100%;
-    height: 100%;
 }
 .dialogs button{
-    background-color: rgb(67, 8, 118);
+    background-color: rgb(128, 91, 237);
     color: aliceblue;
     width: 100%;
     height: 100%;
     cursor: pointer;
+    border: 1px solid white;
 }
 .dialogsItems{
     color:rgb(54, 62, 137);
+    background-color: rgb(67, 8, 118);
     min-width: 150px;
     margin-top: 10px;
 }
+.chat TextArea{
+    resize: none;
+    color: white;
+    min-height:50px;
+    min-width:1064px;
+    background-color: rgb(128, 91, 237);
+    border: 1px solid white;
+}
+.chat TextArea::placeholder{
+    color: #ffffff;
+}
+
 /* .messages .message{
     
 }

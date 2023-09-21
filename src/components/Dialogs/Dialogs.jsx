@@ -16,8 +16,8 @@ const Dialogs = ({ sendMessage, dialogsPage }) => {
   ));
   return (
     <div className={styles.dialogs}>
-      <div className={styles.messageArea}>
-        <div className={styles.messages}>{messagesElements}</div>
+      <div className={styles.chat}>
+        <div>{messagesElements}</div>
         <DialogForm onSubmit={addNewMessage} />
       </div>
       <div className={styles.dialogsItems}>{dialogsElements}</div>

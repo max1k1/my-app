@@ -2,8 +2,8 @@
   grid-area: n;
   background-color: rgb(67, 8, 118);
   width: 100%;
+  min-width: 220px;
   max-width: 270px;
-  min-width: 270px;
 }
 .item{
  text-align: center;

@@ -10,13 +10,3 @@
     padding: 5px;
     color: red;
 }
-.customTextAreaClassName{
-    color: rgb(255, 255, 255);
-    resize: none;
-    min-height:50px;
-    min-width:1064px;
-    background-color: rgb(128, 91, 237)
-}
-.customTextAreaClassName::placeholder{
-    color: #ffffff;
-}
