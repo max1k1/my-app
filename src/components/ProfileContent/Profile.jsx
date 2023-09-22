@@ -23,7 +23,7 @@ const Profile = ({
         updatePhoto={updatePhoto}
         updateProfileInfo={updateProfileInfo}
       />
-      <MyPostsContainer  />
+      <MyPostsContainer  isOwner={isOwner} />
     </div>
   );
 };

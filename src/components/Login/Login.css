@@ -1,0 +1,14 @@
+.loginFormBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:604px;
+}
+.loginFormBlock .rememberMeBlock{
+    display: flex;  
+    margin:0;
+    padding:0;
+}
+.loginFormBlock .rememberMeBlock .rememberMeInput{
+   position: absolute;
+}

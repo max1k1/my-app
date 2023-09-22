@@ -1,14 +1,11 @@
 import React from "react";
 import "./Post.css";
-
-const Post = ({ text, likeCount }) => {
+import noImgIcon from "../../../../assets/images/noImageIcon.png"
+const Post = ({ text, likeCount, postImg }) => {
   return (
     <div className="post">
       <div className="postDescription">
-        <img
-          src="https://static.wikia.nocookie.net/die-hard-scenario/images/7/70/DHS-_Elisha_Cuthbert_.jpg"
-          alt="img"
-        />
+        {postImg ? <img src={postImg} alt="img" /> : <img src={noImgIcon} alt="img" />}
         {text}
       </div>
       <div>

@@ -6,11 +6,14 @@ import {
   required,
 } from "../../../utils/validators/validators";
 import styles from "../../common/FormsControls/FormsControls.module.css";
+import "../Login.css";
+
 const usernameMaxLength = maxLengthCreator(30);
 const passwordMaxLength = maxLengthCreator(30);
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="loginFormBlock">
+      <h1>Login</h1>
       <div>
         <Field
           placeholder={"email"}
@@ -28,13 +31,13 @@ const LoginForm = ({handleSubmit, error}) => {
           validate={[required, passwordMaxLength]}
         />
       </div>
-      <div>
-        <Field type={"checkBox"} name={"rememberMe"} component={Input} />
-        remember me
+      <div className="rememberMeBlock">
+        Remember me
+        <div className="rememberMeInput">
+          <Field type={"checkBox"} name={"rememberMe"} component={Input} />
+        </div>
       </div>
-      {error && (
-        <div className={styles.formSummaryError}>{error}</div>
-      )}
+      {error && <div className={styles.formSummaryError}>{error}</div>}
       <div>
         <button>Login</button>
       </div>

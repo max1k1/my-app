@@ -7,10 +7,13 @@
     padding:0;
     margin:0;
 }   
+.profileDescription .editMode button{
+    cursor: pointer;
+}   
 .profileDescription .profileStatus{
    margin-top: 15px;
 }   
-.profileDescription .changeProfilePhotoField .changeProfilePhotoButton{
+.changeProfilePhotoButton{
     position:relative;
     width:250px;
     height:20px;
@@ -24,7 +27,11 @@
     /* display: flex;
     flex-direction: column;
     justify-content: end; */
-}   
+} 
+.changeProfilePhotoButton img{
+    width: 25px;
+    cursor: pointer;
+}
 .secondArea{
     display: flex;
     flex-direction: column;
@@ -60,4 +67,43 @@
 }
 .aboutMe{
     padding: 5px;
+}
+.changeProfileInfoForm{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid white;
+    padding: 10px;
+}
+.changeProfileInfoForm .changeProfilePhotoField{
+    display: flex;
+    flex-direction: column;
+}
+.changeProfileInfoForm .profileInfoForm{
+    display: flex;
+    flex-direction: column;
+    width: 255px;
+    padding: 10px;
+}
+.profileInfoForm button{
+    margin:auto;
+    width: 50%;
+    cursor: pointer;
+}
+.profileInfoForm .lookingForAJobArea{
+    display: flex;
+}
+.profileInfoForm .lookingForAJobArea span {
+    min-width: 120px;
+}
+.profileInfoForm .lookingForAJobArea input {
+    min-width: 20px
+}
+.profileInfoForm .contactsArea{
+    display: flex;
+}
+.profileInfoForm .contactsArea span {
+    min-width: 120px;
+}
+.profileInfoForm .contactsArea input {
+    min-width: 20px
 }

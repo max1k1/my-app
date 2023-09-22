@@ -6,7 +6,7 @@ import {
 } from "./../../../../utils/validators/validators";
 import { TextArea } from "../../../common/FormsControls/FormsControls";
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength10 = maxLengthCreator(300);
 const AddNewPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>

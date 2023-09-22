@@ -10,3 +10,6 @@
     padding: 5px;
     color: red;
 }
+input{
+    min-width: 250px;
+}
