@@ -10,8 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    min-height: 591px;
-    max-height: 600px;
+    min-height: 623px;
     background-color: rgb(128, 91, 237);
     border-left: 1px solid white;
     border-right: 1px solid white;

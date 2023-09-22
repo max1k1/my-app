@@ -97,6 +97,10 @@ export const updatePhoto = (file) => async (dispatch) => {
 };
 export const updateProfileInfo = (profileData) => async (dispatch, getState) => {
   const id = getState().auth.id;
+  /////////////////////////////////////////////////////////////////
+  if (profileData.lookingForAJob===undefined) { // crutch(backend mistake)
+      profileData.lookingForAJobDescription ="nothing";
+  }
   const response = await profileAPI.saveProfileInfo(profileData);
   if (response.data.resultCode === 0) {
     dispatch(getUserProfile(id));
