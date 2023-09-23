@@ -14,15 +14,12 @@ export const FormControl = ({ meta: { touched, error }, children }) => {
 };
 
 export const TextArea = (props) => {
-  const { input, customTextAreaClassName, ...restProps } = props;
+  const { input, ...restProps } = props;
   return (
     <FormControl {...props}>
       <textarea
         {...input}
         {...restProps}
-        className={
-          customTextAreaClassName ? styles.customTextAreaClassName : false
-        }
       />
     </FormControl>
   );

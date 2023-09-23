@@ -10,7 +10,7 @@ import "../Login.css";
 
 const usernameMaxLength = maxLengthCreator(30);
 const passwordMaxLength = maxLengthCreator(30);
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit} className="loginFormBlock">
       <h1>Login</h1>
@@ -37,6 +37,12 @@ const LoginForm = ({ handleSubmit, error }) => {
           <Field type={"checkBox"} name={"rememberMe"} component={Input} />
         </div>
       </div>
+      {captchaUrl && (
+        <div>
+          <img src={captchaUrl} alt="captchaUrl" />
+          <Field placeholder={"Symbols from image"} name={"captcha"} component={Input}/>
+        </div>
+      )}
       {error && <div className={styles.formSummaryError}>{error}</div>}
       <div>
         <button>Login</button>

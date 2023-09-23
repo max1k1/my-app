@@ -6,22 +6,19 @@ const instance = axios.create({
   headers: { "API-KEY": "bc7a5dd0-8ab7-4da3-8ed2-7daeee152336" },
 });
 export const usersAPI = {
-  getUsers(pageSize = 10, currentPage = 1) {
-    return instance
-      .get(`users?count=${pageSize}&page=${currentPage}`)
-      .then((response) => {
-        return response.data;
-      });
+  async getUsers(pageSize = 10, currentPage = 1) {
+    const response = await instance.get(
+      `users?count=${pageSize}&page=${currentPage}`
+    );
+    return response.data;
   },
-  follow(userId) {
-    return instance.post(`follow/${userId}`).then((response) => {
-      return response.data.resultCode;
-    });
+  async follow(userId) {
+    const response = await instance.post(`follow/${userId}`);
+    return response.data.resultCode;
   },
-  unfollow(userId) {
-    return instance.delete(`follow/${userId}`).then((response) => {
-      return response.data.resultCode;
-    });
+  async unfollow(userId) {
+    const response = await instance.delete(`follow/${userId}`);
+    return response.data.resultCode;
   },
   getProfile(userId) {
     return profileAPI.getProfile(userId);
@@ -46,18 +43,28 @@ export const profileAPI = {
       },
     });
   },
-  saveProfileInfo(profileData){
-    return instance.put(`profile`, profileData );
-  }
+  saveProfileInfo(profileData) {
+    return instance.put(`profile`, profileData);
+  },
 };
 export const authAPI = {
   me() {
     return instance.get(`auth/me`);
   },
-  login(email, password, rememberMe = false) {
-    return instance.post(`auth/login`, { email, password, rememberMe });
+  login(email, password, rememberMe = false, captcha) {
+    return instance.post(`auth/login`, {
+      email,
+      password,
+      rememberMe,
+      captcha,
+    });
   },
   logout() {
     return instance.delete(`auth/login`);
+  },
+};
+export const securityAPI = {
+  getCaptchaUrl() {
+    return instance.get(`security/get-captcha-url`);
   },
 };
