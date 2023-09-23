@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.0a67da1c.css",
-    "main.js": "/my-app/static/js/main.d658c3a4.js",
-    "static/css/979.bd8a1b60.chunk.css": "/my-app/static/css/979.bd8a1b60.chunk.css",
+    "main.css": "/my-app/static/css/main.0c73d068.css",
+    "main.js": "/my-app/static/js/main.b552d36c.js",
+    "static/css/979.ce1d0a43.chunk.css": "/my-app/static/css/979.ce1d0a43.chunk.css",
     "static/js/979.e1a5ca6b.chunk.js": "/my-app/static/js/979.e1a5ca6b.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "/my-app/static/js/787.28cb0dcd.chunk.js",
+    "static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.jpg": "/my-app/static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.daebb458a04cf3eb31bb.jpg",
+    "static/media/1post.png": "/my-app/static/media/1post.8440265c9e58c46f6e4d.png",
     "static/media/instagramLogoIcon.png": "/my-app/static/media/instagramLogoIcon.ed071077fc911932f21a.png",
-    "static/media/background-colorful-sky-concept-beautiful-sunset-sky-nature-sky-backgrounds-generative-ai_911620-16754.avif": "/my-app/static/media/background-colorful-sky-concept-beautiful-sunset-sky-nature-sky-backgrounds-generative-ai_911620-16754.35bca2d7002f49792628.avif",
     "static/media/githubLogoIcon.png": "/my-app/static/media/githubLogoIcon.648e666260ca9d409a49.png",
     "static/media/vkontakteLogoIcon.png": "/my-app/static/media/vkontakteLogoIcon.10d18e88967d2b167c02.png",
     "static/media/linkedinLogoIcon.png": "/my-app/static/media/linkedinLogoIcon.9df3772694f9ed1c21b5.png",
     "static/media/userPhoto.png": "/my-app/static/media/userPhoto.1648f03952e695dfb55e.png",
     "static/media/v-mark.png": "/my-app/static/media/v-mark.b99a596dae087b36a71d.png",
     "static/media/preloader1.svg": "/my-app/static/media/preloader1.7aee23255479263f69cfccbdd8054035.svg",
-    "static/media/changeAvatarArrow.svg": "/my-app/static/media/changeAvatarArrow.1595cf6f8c129125a512acd9e71e1609.svg",
     "static/media/x-mark.svg": "/my-app/static/media/x-mark.9436dd5147ad3686f97d5ccacaddc699.svg",
     "index.html": "/my-app/index.html",
-    "main.0a67da1c.css.map": "/my-app/static/css/main.0a67da1c.css.map",
-    "main.d658c3a4.js.map": "/my-app/static/js/main.d658c3a4.js.map",
-    "979.bd8a1b60.chunk.css.map": "/my-app/static/css/979.bd8a1b60.chunk.css.map",
+    "main.0c73d068.css.map": "/my-app/static/css/main.0c73d068.css.map",
+    "main.b552d36c.js.map": "/my-app/static/js/main.b552d36c.js.map",
+    "979.ce1d0a43.chunk.css.map": "/my-app/static/css/979.ce1d0a43.chunk.css.map",
     "979.e1a5ca6b.chunk.js.map": "/my-app/static/js/979.e1a5ca6b.chunk.js.map",
     "787.28cb0dcd.chunk.js.map": "/my-app/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a67da1c.css",
-    "static/js/main.d658c3a4.js"
+    "static/css/main.0c73d068.css",
+    "static/js/main.b552d36c.js"
   ]
 }
