@@ -10,10 +10,11 @@
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    min-height: 591px;
+    min-height: 590px;
     padding-top: 1%;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
     color:rgb(255, 255, 255);
     background-color: rgb(130, 103, 211);
 }

@@ -6,11 +6,11 @@
   max-width: 270px;
 }
 .item{
- text-align: center;
- margin: 10px;  
- color: white;
- text-decoration: none;
- cursor: pointer;
+  text-align: center;
+  margin: 10px;  
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 } 
 .active{
   text-decoration: none;
