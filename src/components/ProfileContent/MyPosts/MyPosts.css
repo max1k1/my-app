@@ -1,14 +1,39 @@
-.postsBlock{
-    padding: 10px;
-}
-
 .addPostBlock{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
+.postsBlock{
+    padding: 10px;
+}
 h3{
     text-align: center;
 }
+.post{
+    color:rgb(255, 255, 255);
+  
+    
+}
+.post img{
+    width: 300px;
+    margin-right: 10px;
+}
+.postDescription{
+    display: flex;
+    max-width: 700px;   
+    color: rgb(255, 255, 255);
+    hyphens:auto;
+}
 
 
+@media (max-width: 610px) {
+    
+    .postDescription{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .postDescription img{
+        width: 200px;
+        height:  200px;
+    }
+}

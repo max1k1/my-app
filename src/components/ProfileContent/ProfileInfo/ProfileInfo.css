@@ -1,6 +1,7 @@
 .profileDescription{
     display: flex;
     flex-direction: row;
+  
 }
 .profileDescription .editMode {
     position: absolute;
@@ -24,9 +25,6 @@
     left:90%;
     width:20px;
     height:20px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: end; */
 } 
 .changeProfilePhotoButton img{
     width: 25px;
@@ -65,6 +63,26 @@
     width: 25px;
     height: 25px;
 }
+
+@media (max-width: 610px) {
+    .profileDescription{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .profileDescription .secondArea{
+        max-width: 170px;
+    }
+    .profileDescription .thirdArea{
+        flex-direction: row;
+    }
+    .profileDescription .thirdArea a{
+        padding: 10px;
+    }
+    .profilePicture{
+        width: 170px;
+        height: 170px;
+    }
+}  
 .aboutMe{
     padding: 5px;
 }
@@ -92,18 +110,44 @@
 .profileInfoForm .lookingForAJobArea{
     display: flex;
 }
-.profileInfoForm .lookingForAJobArea span {
-    min-width: 120px;
-}
-.profileInfoForm .lookingForAJobArea input {
-    min-width: 20px
-}
 .profileInfoForm .contactsArea{
+    width: 100%;
     display: flex;
 }
-.profileInfoForm .contactsArea span {
+.profileInfoForm span {
+    width: 100%;
     min-width: 120px;
 }
-.profileInfoForm .contactsArea input {
+.profileInfoForm input {
+    width: 100%;
     min-width: 20px
+}
+
+@media (max-width: 680px) {
+    .changeProfileInfoForm{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+    .changeProfileInfoForm .profileInfoForm{
+        width: 100%;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .profileInfoForm input {
+        min-width: 20px
+    }
+    .profileInfoForm span {
+        width: 50%;
+      
+    }
+    .profileInfoForm .lookingForAJobArea input{
+        width: 50%;
+    }
+}  
+.contactsChangeFieldUnActive{
+    display: none;
 }

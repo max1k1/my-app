@@ -55,10 +55,8 @@ let AppContainer = withRouter(connect(mapStateToProps, {initializeApp})(App));
 export const SocialNetworkApp = (props)=>{
   // using HashRouter instead BrowserRouter - trouble with gh-pages
   return <HashRouter> 
-    <React.StrictMode>
       <Provider store={store}>
       <AppContainer />
       </Provider>
-    </React.StrictMode>
     </HashRouter>
 }

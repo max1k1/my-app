@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { Field, reduxForm } from "redux-form";
-import "./ProfileInfo.css";
-import {
-  maxLengthCreator,
-  required,
-} from "../../../utils/validators/validators";
-import { Input } from "./../../common/FormsControls/FormsControls";
-import ProfileStatusWithHooks from "./ProfileInfoAssets/ProfileStatus/ProfileStatusWithHooks";
-import ChangeProfilePhotoButton from "./ProfileInfoAssets/ChangeProfilePhotoButton/ChangeProfilePhotoButton";
+import React, { useState } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import './ProfileInfo.css';
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { Input } from './../../common/FormsControls/FormsControls';
+import ProfileStatusWithHooks from './ProfileInfoAssets/ProfileStatus/ProfileStatusWithHooks';
+import ChangeProfilePhotoButton from './ProfileInfoAssets/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
 
 const maxLength200 = maxLengthCreator(200);
 const ProfileInfoForm = ({
@@ -18,8 +15,9 @@ const ProfileInfoForm = ({
   onProfilePhotoSelected,
   status,
   updateStatus,
+  initialValues,
 }) => {
-  const [lookingForAJobMark, setLookingForAJobMark] = useState(false);
+  const [lookingForAJobMark, setLookingForAJobMark] = useState(initialValues.lookingForAJob);
   const [contactsChangeField, setContactsChangeField] = useState(false);
   const onLookingForAJobMarkChange = () => {
     if (!lookingForAJobMark) {
@@ -36,30 +34,19 @@ const ProfileInfoForm = ({
   return (
     <div className="changeProfileInfoForm">
       <div className="changeProfilePhotoField">
-        <img
-          src={profile.photos.large || userPhoto}
-          alt="profileAva"
-          className="profilePicture"
-        />
-        <ChangeProfilePhotoButton
-          onProfilePhotoSelected={onProfilePhotoSelected}
-        />
-        <ProfileStatusWithHooks
-          status={status}
-          updateStatus={updateStatus}
-          isOwner={isOwner}
-        />
+        <img src={profile.photos.large || userPhoto} alt="profileAva" className="profilePicture" />
+        <ChangeProfilePhotoButton onProfilePhotoSelected={onProfilePhotoSelected} />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
       </div>
       <form onSubmit={handleSubmit} className="profileInfoForm">
         <Field
-          className="formItem"
           name="fullName"
           placeholder="Full name"
           component={Input}
           validate={[required, maxLength200]}
         />
         <Field
-          name={"aboutMe"}
+          name={'aboutMe'}
           placeholder="About me"
           component={Input}
           validate={[required, maxLength200]}
@@ -67,7 +54,7 @@ const ProfileInfoForm = ({
         <div className="lookingForAJobArea">
           <span> Looking for a job:</span>
           <Field
-            name={"lookingForAJob"}
+            name={'lookingForAJob'}
             component={Input}
             type="checkbox"
             onClick={onLookingForAJobMarkChange}
@@ -76,25 +63,26 @@ const ProfileInfoForm = ({
         </div>
         {lookingForAJobMark && (
           <Field
-            name={"lookingForAJobDescription"}
+            name={'lookingForAJobDescription'}
             placeholder="Looking for a job description"
-            component="input"
+            component={Input}
           />
         )}
         <div>
           <span className="contactsArea">
-            Contacts:{" "}
+            Contacts:{' '}
             <Field
+              name="contactsArea"
               component={Input}
               type="checkbox"
               onClick={toggleContactsChangeField}
-            ></Field>
+            />
           </span>
           {contactsChangeField &&
             Object.keys(profile.contacts).map((key) => {
               return (
                 <div key={key}>
-                  {key}: <Field name={`contacts.${key}`} component={Input} />
+                  {key}: <Field name={`contacts.${key}`} placeholder={key} component={Input} />
                 </div>
               );
             })}
@@ -104,4 +92,4 @@ const ProfileInfoForm = ({
     </div>
   );
 };
-export default reduxForm({ form: "profile-info-edit-form" })(ProfileInfoForm);
+export default reduxForm({ form: 'profile-info-edit-form' })(ProfileInfoForm);

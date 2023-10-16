@@ -1,5 +1,5 @@
 import React from "react";
-import "./Post.css";
+import "../MyPosts.css";
 import noImgIcon from "../../../../assets/images/noImageIcon.png"
 const Post = ({ text, likeCount, postImg }) => {
   return (

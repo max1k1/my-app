@@ -1,13 +1,7 @@
-import { React, useState } from "react";
-import styles from "./Paginator.module.css";
+import { React, useState } from 'react';
+import styles from './Paginator.module.css';
 
-const Paginator = ({
-  currentPage,
-  onPageChanged,
-  totalItemsCount,
-  pageSize,
-  pagesListSize,
-}) => {
+const Paginator = ({ currentPage, onPageChanged, totalItemsCount, pageSize, pagesListSize }) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
   let itemsListsCount = Math.ceil(pagesCount / pagesListSize);
   let pages = [];
@@ -19,20 +13,18 @@ const Paginator = ({
   let rightPagesListNumber = pagesListNumber * pagesListSize;
   return (
     <div className={styles.paginator}>
-      {1 < pagesListNumber && (
-        <div onClick={() => setPagesList(pagesListNumber - 1)}>back</div>
-      )}
+      {1 < pagesListNumber && <div onClick={() => setPagesList(pagesListNumber - 1)}>back</div>}
       <div className={styles.pages}>
         {pages
           .filter((p) => p >= leftPagesListNumber && p <= rightPagesListNumber)
           .map((p) => {
             return (
               <span
-                className={p === currentPage && styles.selectedPageNumber}
+                key={p}
+                className={p === currentPage ? styles.selectedPageNumber : undefined}
                 onClick={(e) => {
                   onPageChanged(p);
-                }}
-              >
+                }}>
                 {p}
               </span>
             );

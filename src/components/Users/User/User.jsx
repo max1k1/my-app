@@ -6,9 +6,8 @@ import { NavLink } from "react-router-dom";
 const User = ({ userDate, follow, unFollow, followingInProgress }) => {
   return (
     <div>
-      <span className={styles.user}>
+      <div className={styles.user}>
         <div className={styles.firstArea}>
-          {
             <NavLink to={"/profile/" + userDate.id}>
               <img
                 className={styles.ava}
@@ -16,7 +15,6 @@ const User = ({ userDate, follow, unFollow, followingInProgress }) => {
                 alt="avatar"
               />
             </NavLink>
-          }
           <div>
             {userDate.followed ? (
               <button
@@ -53,7 +51,7 @@ const User = ({ userDate, follow, unFollow, followingInProgress }) => {
             <div>{"`${userDate.livingPlace.city}`"}</div> */}
           </div>
         </div>
-      </span>
+      </div>
     </div>
   );
 };

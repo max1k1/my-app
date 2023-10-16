@@ -32,7 +32,7 @@ const ProfileData = ({
     <div>
       <div className="profileDescription">
         <div>
-          <div>
+          <div className="firstArea"> 
             <img
               src={profile.photos.large || userPhoto}
               alt="profileAva"

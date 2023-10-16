@@ -1,16 +1,19 @@
 .dialogs{
-    display: flex;
-    flex-direction: row;
     background-color: rgb(67, 8, 118);
-     /* display: grid;
-    grid-template-columns: 2fr 10fr;
-    */
+    width: 100%;
+    height: 100%;  
+    display: grid;
+    grid-template-areas: 
+    "c d ";
+    grid-template-columns: 8fr 2fr;
 }
 .chat{
+    position: relative;
+    grid-area: c;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    min-height: 590px;
+    height: 592px;
     padding-top: 1%;
     border-top: 2px solid white;
     border-left: 2px solid white;
@@ -19,37 +22,42 @@
     background-color: rgb(130, 103, 211);
 }
 .addMessageField{
-    display:flex;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
+.chat TextArea{
+    position: relative;
+    resize: none;
+     color: white;
+     background-color: rgb(67, 8, 118);
+     border: 1px solid white;
+     float: left;
+     width: 100%;
+     min-height: 50px;
+ }
+ .chat TextArea::placeholder{
+     color: #ffffff;
+ }
 .dialogs button{
     background-color: rgb(67, 8, 118);
     color: aliceblue;
-    width: 100%;
     height: 100%;
     cursor: pointer;
     border: 1px solid white;
 }
 .dialogsItems{
+    grid-area: d;
     color:rgb(54, 62, 137);
-    background-color: rgb(67, 8, 118);
-    min-width: 150px;
     margin-top: 10px;
-}
-.chat TextArea{
-    resize: none;
-    color: white;
-    min-height:50px;
-    min-width:1064px;
-    background-color: rgb(67, 8, 118);
-    border: 1px solid white;
-}
-.chat TextArea::placeholder{
-    color: #ffffff;
+    width: 100%;
 }
 
-/* .messages .message{
-    
+
+
+@media (max-height: 600px) {
+    .chat {
+        height: 425px;
+     }
 }
-.dialogsItems .dialog{      
- 
-} */

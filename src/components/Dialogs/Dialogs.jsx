@@ -9,10 +9,10 @@ const Dialogs = ({ sendMessage, dialogsPage }) => {
     sendMessage(values.newMessageText);
   };
   const messagesElements = dialogsPage.messagesData.map((message) => (
-    <MessageItem message={message.message} />
+    <MessageItem key={message.id} message={message.message} />
   ));
   const dialogsElements = dialogsPage.dialogsData.map((dialog) => (
-    <DialogItem id={dialog.id} userName={dialog.userName}></DialogItem>
+    <DialogItem key={dialog.id} id={dialog.id} userName={dialog.userName}></DialogItem>
   ));
   return (
     <div className={styles.dialogs}>
