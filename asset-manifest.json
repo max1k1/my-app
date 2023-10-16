@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/react-social-media/static/css/main.08266478.css",
-    "main.js": "/react-social-media/static/js/main.b0e6319e.js",
-    "static/css/979.3d59b384.chunk.css": "/react-social-media/static/css/979.3d59b384.chunk.css",
-    "static/js/979.573492e9.chunk.js": "/react-social-media/static/js/979.573492e9.chunk.js",
+    "main.css": "/react-social-media/static/css/main.dcfd8cd7.css",
+    "main.js": "/react-social-media/static/js/main.f08d337a.js",
+    "static/css/979.d2bfd7e6.chunk.css": "/react-social-media/static/css/979.d2bfd7e6.chunk.css",
+    "static/js/979.23281cf1.chunk.js": "/react-social-media/static/js/979.23281cf1.chunk.js",
     "static/js/787.d27432ca.chunk.js": "/react-social-media/static/js/787.d27432ca.chunk.js",
     "static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.jpg": "/react-social-media/static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.daebb458a04cf3eb31bb.jpg",
     "static/media/1post.png": "/react-social-media/static/media/1post.8440265c9e58c46f6e4d.png",
@@ -16,14 +16,14 @@
     "static/media/preloader1.svg": "/react-social-media/static/media/preloader1.7aee23255479263f69cfccbdd8054035.svg",
     "static/media/x-mark.svg": "/react-social-media/static/media/x-mark.9436dd5147ad3686f97d5ccacaddc699.svg",
     "index.html": "/react-social-media/index.html",
-    "main.08266478.css.map": "/react-social-media/static/css/main.08266478.css.map",
-    "main.b0e6319e.js.map": "/react-social-media/static/js/main.b0e6319e.js.map",
-    "979.3d59b384.chunk.css.map": "/react-social-media/static/css/979.3d59b384.chunk.css.map",
-    "979.573492e9.chunk.js.map": "/react-social-media/static/js/979.573492e9.chunk.js.map",
+    "main.dcfd8cd7.css.map": "/react-social-media/static/css/main.dcfd8cd7.css.map",
+    "main.f08d337a.js.map": "/react-social-media/static/js/main.f08d337a.js.map",
+    "979.d2bfd7e6.chunk.css.map": "/react-social-media/static/css/979.d2bfd7e6.chunk.css.map",
+    "979.23281cf1.chunk.js.map": "/react-social-media/static/js/979.23281cf1.chunk.js.map",
     "787.d27432ca.chunk.js.map": "/react-social-media/static/js/787.d27432ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.08266478.css",
-    "static/js/main.b0e6319e.js"
+    "static/css/main.dcfd8cd7.css",
+    "static/js/main.f08d337a.js"
   ]
 }
