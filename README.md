@@ -1,4 +1,4 @@
-Reference to visit website - https://max1k1.github.io/react-social-media/
+link to the website - https://max1k1.github.io/react-social-media/
 
 
 Preview: 
