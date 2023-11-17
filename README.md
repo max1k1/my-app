@@ -1,4 +1,4 @@
-Reference to vivist website - https://max1k1.github.io/react-social-media/
+Reference to visit website - https://max1k1.github.io/react-social-media/
 
 
 Preview: 
