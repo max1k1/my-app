@@ -1,7 +1,8 @@
 import React from "react";
+import styles from './Music.module.css'
 
 const Music = () => {
-  return <div>Music</div>;
+  return <div className={styles.music}>Content will come soon...</div>;
 };
 
 export default Music;

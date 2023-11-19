@@ -5,7 +5,6 @@ import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { connect } from "react-redux";
@@ -15,6 +14,7 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import { withRouter } from "./hoc/withRouter";
 import ProfileContainerWithHooks from "./components/ProfileContent/ProfileContainerWithHooks";
+import UsersContainerWithHooks from "./components/Users/UsersContainerWithHooks";
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 class App extends Component{
   componentDidMount(){
@@ -25,8 +25,8 @@ class App extends Component{
   return (
       <div className="app-wrapper">
         <HeaderContainer />
-        <Navbar />
         <div className="app-wrapper-content">
+        <Navbar />
         <Suspense fallback={<Preloader />}>
           <Routes>
             <Route path="/profile" element={<ProfileContainerWithHooks />}>
@@ -34,7 +34,7 @@ class App extends Component{
             </Route>
             <Route exact path="/" element={<Navigate to={'/profile'} /> } />
             <Route path="/dialogs/*" element={<DialogsContainer />} />
-            <Route path="/users/*" element={<UsersContainer />} />
+            <Route path="/users/*" element={<UsersContainerWithHooks />} />
             <Route path="/news/*" element={<News />} />
             <Route path="/music/*" element={<Music />} />
             <Route path="/settings/*" element={<Settings />} />

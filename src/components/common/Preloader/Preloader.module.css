@@ -1,0 +1,11 @@
+.preloader{
+    background: transparent;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+.preloader img{
+    width: 250px;
+    height: 250px;
+}

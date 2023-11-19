@@ -1,15 +1,17 @@
 .app-wrapper{
-  margin: 0 auto;
-  display: grid;
-  grid-template-areas: 
-  "h h "
-  "n c ";
-  grid-template-columns: 1fr 5fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e4e4e4;
+  min-height: 100vh;
+  height: 100%;
 }
 
 .app-wrapper-content{
-  grid-area: c;
-  background-color: blueviolet;
+  display: flex;
+  width: 80%;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 

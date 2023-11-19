@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
-import headerImage from '../../assets/images/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.jpg';
+import headerImage from '../../assets/images/28638.jpg';
 const Header = (props) => {
+  console.log(props)
   return (
     <header className={styles.header}>
       <div>

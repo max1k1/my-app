@@ -1,6 +1,6 @@
 .dialogsUsersList{
     cursor: pointer;
-    display: block;
+    display: flex;
     min-height: 40px;
     text-align: center;
     text-decoration: none;

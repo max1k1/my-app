@@ -1,63 +1,79 @@
-.dialogs{
-    background-color: rgb(67, 8, 118);
+.dialogs {
+    display: flex;
     width: 100%;
-    height: 100%;  
-    display: grid;
-    grid-template-areas: 
-    "c d ";
-    grid-template-columns: 8fr 2fr;
+    border-radius: 13px;
 }
-.chat{
-    position: relative;
-    grid-area: c;
+
+.chatWrapper{
+    border-radius: 13px;
+    width: 77%;
+    max-width: 77%;
+    background-color: #A679CA;
+    box-shadow: 1px 2px 10px 2px #7f5d9c;
+    
+}
+.chat {
+    height: 650px;
+    max-width: 97%;
+    width: 97%;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
-    height: 592px;
-    padding-top: 1%;
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    color:rgb(255, 255, 255);
-    background-color: rgb(130, 103, 211);
 }
-.addMessageField{
-    position: relative;
-    display: flex;
+
+.chat .messagesField {
+    word-wrap: break-word;
+    padding: 10px;
+    overflow-x:hidden;
+    overflow-y:auto;
     width: 100%;
     height: 100%;
 }
-.chat TextArea{
-    position: relative;
+
+.chat .addMessageField {
+    display: flex;
+}
+
+.chat textarea {
+    border-bottom-left-radius: 13px;
+    height: 50px;
     resize: none;
-     color: white;
-     background-color: rgb(67, 8, 118);
-     border: 1px solid white;
-     float: left;
-     width: 100%;
-     min-height: 50px;
- }
- .chat TextArea::placeholder{
-     color: #ffffff;
- }
-.dialogs button{
-    background-color: rgb(67, 8, 118);
+    color: white;
+    background-color: #A679CA;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.chat textarea::placeholder {
+    color: #ffffff;
+}
+
+.dialogs button {
+    border-bottom-right-radius: 13px;
+    background-color: #A679CA;
     color: aliceblue;
-    height: 100%;
+    width: 20%;
     cursor: pointer;
     border: 1px solid white;
 }
-.dialogsItems{
-    grid-area: d;
-    color:rgb(54, 62, 137);
-    margin-top: 10px;
-    width: 100%;
+
+.dialogsItems {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(33, 38, 88);
+    border-radius: 13px;
+    width: 20%;
+    margin-left: 10px;
+
+
+    /* background-color: #3f3a44; */
+    background-color: #A679CA;
+    box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
-
-
 
 @media (max-height: 600px) {
     .chat {
         height: 425px;
-     }
+    }
 }

@@ -9,12 +9,14 @@
     background-color: aliceblue;
     height: 100px;
     width: 100px;
+    border-radius: 60px;
 }
 .user button{
-    background-color: rgb(67, 8, 118);
+    background-color: #C8B4E1;
     font-size: 16px;
     color: rgb(255, 255, 255);
     width: 100%;
+    border-radius: 6px;
 }
 .user .name{
     font-size: large;
@@ -29,17 +31,20 @@
     flex-direction: column;
     justify-content: space-between;
     justify-content: space-around;
+    
 }
 .user .firstArea{
     display: flex;
     flex-direction: column;
+
 }
 .user .secondArea{
     display: flex;
-    background-color: rgb(128, 91, 237);
+    background-color: #A679CA;
     padding: 10px;
     width: 100%;
     justify-content: space-between;
+    
 }
 .user .thirdArea{
     display: flex;

@@ -1,7 +1,21 @@
 .profileDescription{
     display: flex;
     flex-direction: row;
-  
+    padding: 10px;
+}
+.secondArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 240px;
+    padding: 10px;
+    font-size: 17px;
+}
+.thirdArea{
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
 }
 .profileDescription .editMode {
     position: absolute;
@@ -30,15 +44,7 @@
     width: 25px;
     cursor: pointer;
 }
-.secondArea{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 240px;
-    padding: 10px;
-    font-size: 17px;
-}
+
 .secondArea .fullName{
     font-size: 25px;
 }
@@ -54,15 +60,15 @@
     width: 250px;
     height: 250px;
 }
-.thirdArea{
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-}
+
 .thirdArea img{
     width: 25px;
     height: 25px;
 }
+
+
+
+/* responsive styles */
 
 @media (max-width: 610px) {
     .profileDescription{
@@ -150,19 +156,4 @@
 }  
 .contactsChangeFieldUnActive{
     display: none;
-}
-.profileInfoForm .lookingForAJobArea span {
-    min-width: 120px;
-}
-.profileInfoForm .lookingForAJobArea input {
-    min-width: 20px
-}
-.profileInfoForm .contactsArea{
-    display: flex;
-}
-.profileInfoForm .contactsArea span {
-    min-width: 120px;
-}
-.profileInfoForm .contactsArea input {
-    min-width: 20px
 }

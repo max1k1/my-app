@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./Dialogs.module.css";
-import MessageItem from "./MessageItem/MessageItem";
-import DialogItem from "./DialogItem/DialogItem";
-import DialogForm from "./DialogForm/DialogForm";
+import React from 'react';
+import styles from './Dialogs.module.css';
+import MessageItem from './MessageItem/MessageItem';
+import DialogItem from './DialogItem/DialogItem';
+import DialogForm from './DialogForm/DialogForm';
 
 const Dialogs = ({ sendMessage, dialogsPage }) => {
   const addNewMessage = (values) => {
@@ -16,9 +16,11 @@ const Dialogs = ({ sendMessage, dialogsPage }) => {
   ));
   return (
     <div className={styles.dialogs}>
+      <div className={styles.chatWrapper}>
       <div className={styles.chat}>
-        <div>{messagesElements}</div>
+        <div className={styles.messagesField}>{messagesElements}</div>
         <DialogForm onSubmit={addNewMessage} />
+      </div>
       </div>
       <div className={styles.dialogsItems}>{dialogsElements}</div>
     </div>

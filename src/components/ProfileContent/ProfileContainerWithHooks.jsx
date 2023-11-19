@@ -7,7 +7,7 @@ import {
   updateStatus,
   updatePhoto,
   updateProfileInfo
-} from "../../redux/profile-reducer";
+} from "./../../redux/profile-reducer";
 import { compose } from "redux";
 import { withRouter } from "../../hoc/withRouter";
 import { useNavigate } from "react-router-dom";

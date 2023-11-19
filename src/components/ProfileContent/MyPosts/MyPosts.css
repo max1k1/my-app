@@ -10,8 +10,6 @@ h3{
 }
 .post{
     color:rgb(255, 255, 255);
-  
-    
 }
 .post img{
     width: 300px;
@@ -19,7 +17,6 @@ h3{
 }
 .postDescription{
     display: flex;
-    max-width: 700px;   
     color: rgb(255, 255, 255);
     hyphens:auto;
 }
