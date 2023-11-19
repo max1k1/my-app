@@ -151,3 +151,18 @@
 .contactsChangeFieldUnActive{
     display: none;
 }
+.profileInfoForm .lookingForAJobArea span {
+    min-width: 120px;
+}
+.profileInfoForm .lookingForAJobArea input {
+    min-width: 20px
+}
+.profileInfoForm .contactsArea{
+    display: flex;
+}
+.profileInfoForm .contactsArea span {
+    min-width: 120px;
+}
+.profileInfoForm .contactsArea input {
+    min-width: 20px
+}
