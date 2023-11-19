@@ -20,6 +20,7 @@ const MyPosts = ({ profile, addPost, isOwner }) => {
       <div className="postsBlock">
         <h3>My posts</h3>
         <div className="addPostBlock">
+        
           <AddNewPostForm onSubmit={onAddPost} />
         </div>
         <div className="posts">{postsElements}</div>

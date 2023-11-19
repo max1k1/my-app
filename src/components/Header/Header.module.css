@@ -1,18 +1,86 @@
-.header{
-  height: 40px;
+.headerWraper{
+  height: 45px;
   width: 100%;
   display: flex;
-  /* background-color: #9567E0; */
+  align-items: center;
+  justify-content: center;
+
   background-color: #ffffff;
 }
-.header img{
+.headerWraper .header{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.header .logoBlock{
+  cursor: pointer;
+  display: flex;
+  align-items: center; 
+  font-weight: 700;
+}
+.header .logoBlock img{
+  padding-right: 10px;
   width: 40px;
   height: 40px;
 }
 
+.header .loginBlockWraper{
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .header .loginBlock{
-  padding: 10px;
-  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .loginBlock .popUp{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 90px;
+  background: #ffffff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 13px;
+  overflow: hidden;
+  padding: 10px 0;
+  width: 100%;
+  /* ul {
+    overflow: hidden;
+    li {
+      padding: 12px 20px;
+      cursor: pointer;
+
+      &.active,
+      &:hover {
+        background: rgba(254, 95, 30, 0.05);
+      }
+
+      &.active {
+        font-weight: bold;
+        color: $orange;
+      }
+    }
+  } */
+}
+.header .loginBlock .profilePicutreHeader{
+  width: 30px;
+  height: 30px;
+}
+.header .loginBlock .downArrow{
+  padding-left: 5px;
+  width: 12px;
+  height: 12px;
+}
+
+.header .loginBlock button{
+  cursor: pointer;
 }
 
 .header .loginBlock a{

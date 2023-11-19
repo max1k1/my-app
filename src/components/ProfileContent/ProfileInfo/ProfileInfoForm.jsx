@@ -3,8 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import './ProfileInfo.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import { Input } from './../../common/FormsControls/FormsControls';
-import ProfileStatusWithHooks from './ProfileInfoAssets/ProfileStatus/ProfileStatusWithHooks';
-import ChangeProfilePhotoButton from './ProfileInfoAssets/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
+import ProfileButton from './../../common/Buttons/ProfileButton/ProfileButton';
+import ChangeProfilePhotoButton from './../../common/Buttons/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
+import ProfileStatusWithHooks from './../ProfileStatus/ProfileStatusWithHooks';
 
 const maxLength200 = maxLengthCreator(200);
 const ProfileInfoForm = ({
@@ -78,7 +79,7 @@ const ProfileInfoForm = ({
               onClick={toggleContactsChangeField}
             />
           </span>
-          {contactsChangeField &&
+          {contactsChangeField && 
             Object.keys(profile.contacts).map((key) => {
               return (
                 <div key={key}>
@@ -87,7 +88,9 @@ const ProfileInfoForm = ({
               );
             })}
         </div>
-        <button>Save</button>
+        <div className="saveData">
+        <ProfileButton name='Save'></ProfileButton>
+        </div>
       </form>
     </div>
   );

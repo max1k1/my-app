@@ -18,6 +18,8 @@
     padding: 2%;
 }
 .profileDescription .editMode {
+    width: 100px;
+    height: 25px;
     position: absolute;
     padding:0;
     margin:0;
@@ -28,22 +30,7 @@
 .profileDescription .profileStatus{
    margin-top: 15px;
 }   
-.changeProfilePhotoButton{
-    position:relative;
-    width:250px;
-    height:20px;
-    padding:0;
-    margin:0;
-    border: transparent;
-    background-color: transparent;
-    left:90%;
-    width:20px;
-    height:20px;
-} 
-.changeProfilePhotoButton img{
-    width: 25px;
-    cursor: pointer;
-}
+
 
 .secondArea .fullName{
     font-size: 25px;
@@ -66,7 +53,11 @@
     height: 25px;
 }
 
-
+.saveData{
+    display: flex;
+    height: 20px;
+    justify-content: center;
+}
 
 /* responsive styles */
 

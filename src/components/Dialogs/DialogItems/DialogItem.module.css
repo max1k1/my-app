@@ -1,0 +1,17 @@
+.item{  
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    border-radius: 7px;
+}
+.active{
+    cursor: pointer;
+    border-radius: 7px;
+    width: 100%;
+    padding: 8px;
+    background-color: #9e6ec5;
+}
+.itemLink{
+    text-decoration: none;
+    color: #000000;
+}

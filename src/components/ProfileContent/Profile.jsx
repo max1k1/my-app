@@ -1,7 +1,7 @@
-import React from "react";
-import "./Profile.css";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import React from 'react';
+import stytles from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = ({
   profile,
@@ -13,7 +13,7 @@ const Profile = ({
   updateProfileInfo,
 }) => {
   return (
-    <div className="profile">
+    <div className={stytles.profile}>
       <ProfileInfo
         profile={profile}
         status={status}

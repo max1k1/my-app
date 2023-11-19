@@ -6,13 +6,11 @@ const DialogForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={styles.addMessageField}>
- 
           <Field
             name="newMessageText"
             placeholder="Enter your message"
             component="textarea"
           />
-
           <button>Send</button>
       </div>
     </form>

@@ -18,7 +18,6 @@ const ProfileInfo = ({
     return <Preloader />;
   }
   const onProfilePhotoSelected = (e) => {
-    debugger;
     if (e.target.files.length) {
       updatePhoto(e.target.files[0]);
     }

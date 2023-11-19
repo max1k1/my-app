@@ -1,16 +1,28 @@
 .nav{
   width: 20%;
   border-radius: 13px;
+  text-align: center;
+  font-weight: 400;
 }
 .item{
-  text-align: center;
-  margin: 10px;  
-  color: rgb(0, 0, 0);
-  text-decoration: none;
+  padding: 5px;
   cursor: pointer;
-
+  border-radius: 7px;
 } 
 .active{
+  border-radius: 7px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #dedede;
+}
+.itemRef{
+  display: block;
   text-decoration: none;
-  color: blueviolet;
+  color: #000000;
+} 
+
+.activeRef{
+  display: block;
+  text-decoration: none;
+  color: #A679CA;
 }

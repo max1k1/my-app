@@ -1,15 +1,11 @@
 import React from "react";
-import instagramLogoIcon from "../../../../assets/images/instagramLogoIcon.png";
-import vkontakteLogoIcon from "../../../../assets/images/vkontakteLogoIcon.png";
-import linkedinLogoIcon from "../../../../assets/images/linkedinLogoIcon.png";
-import youtubeLogoIcon from "../../../../assets/images/youtubeLogoIcon.png";
-import twitterLogoIcon from "../../../../assets/images/twitterLogoIcon.png";
-import githubLogoIcon from "../../../../assets/images/githubLogoIcon.png";
+
 import vMarkIcon from "../../../../assets/images/v-mark.png";
 import xMarkIcon from "../../../../assets/images/x-mark.svg";
-import Contact from "../ProfileInfoAssets/Contact/Contact";
-import ChangeProfilePhotoButton from "../ProfileInfoAssets/ChangeProfilePhotoButton/ChangeProfilePhotoButton";
-import ProfileStatusWithHooks from "../ProfileInfoAssets/ProfileStatus/ProfileStatusWithHooks";
+import ProfileButton from './../../../common/Buttons/ProfileButton/ProfileButton';
+import ChangeProfilePhotoButton from './../../../common/Buttons/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
+import ProfileStatusWithHooks from './../../ProfileStatus/ProfileStatusWithHooks';
+import Contacts from '../../Contacts/Contacts';
 
 const ProfileData = ({
   profile,
@@ -20,14 +16,7 @@ const ProfileData = ({
   updateStatus,
   userPhoto,
 }) => {
-  const logoDataBase = {
-    vk: vkontakteLogoIcon,
-    twitter: twitterLogoIcon,
-    instagram: instagramLogoIcon,
-    youtube: youtubeLogoIcon,
-    github: githubLogoIcon,
-    mainLink: linkedinLogoIcon,
-  };
+
   return (
     <div>
       <div className="profileDescription">
@@ -40,8 +29,8 @@ const ProfileData = ({
             />
             {isOwner && (
               <div>
-                <div className="editMode">
-                  <button onClick={activateEditMode}>Edit mode</button>
+                <div className="editMode" onClick={activateEditMode}>
+                  <ProfileButton name='Edit profile'></ProfileButton>
                 </div>{" "}
                 <ChangeProfilePhotoButton
                   onProfilePhotoSelected={onProfilePhotoSelected}
@@ -78,7 +67,8 @@ const ProfileData = ({
           </div>
         </div>
         <div className="thirdArea">
-          {Object.keys(profile.contacts).map((key) => {
+          <Contacts contacts={profile.contacts}/>
+          {/* {Object.keys(profile.contacts).map((key) => {
             return (
               <Contact
                 key={key}
@@ -87,7 +77,7 @@ const ProfileData = ({
                 contactValue={profile.contacts[key]}
               />
             );
-          })}
+          })} */}
         </div>
       </div>
     </div>

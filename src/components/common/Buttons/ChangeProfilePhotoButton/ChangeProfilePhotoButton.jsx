@@ -1,13 +1,13 @@
 import { React } from "react";
-import UploadButtonControl from "./../../../../common/UploadButtonControl/UploadButtonControl";
-import photoArrow from "../../../../../assets/images/uploadIcon.png";
-import "../../ProfileInfo.css";
+import photoArrow from "../../../../assets/images/uploadIcon.png"
+import styles from "./ChangeProfilePhotoButton.module.css"
+import UploadButtonControl from './../../UploadButtonControl/UploadButtonControl';
 
 const ChangeProfilePhotoButton = ({ onProfilePhotoSelected }) => {
   return (
-    <button className="changeProfilePhotoButton">
+    <button className={styles.changeProfilePhotoButton}>
       <UploadButtonControl
-        className="profilePhotoButton"
+        className={styles.profilePhotoButton}
         onChange={onProfilePhotoSelected}
         accept="image/*"
       >

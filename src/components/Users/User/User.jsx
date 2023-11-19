@@ -44,11 +44,11 @@ const User = ({ userDate, follow, unFollow, followingInProgress }) => {
         <div className={styles.secondArea}>
           <div className={styles.thirdArea}>
             <div className={styles.name}>{userDate.name}</div>
-            <div className={styles.status}>{userDate.status}</div>
+            <div className={styles.status}>{userDate.status?userDate.status:'User has no status'}</div>
           </div>
           <div className={styles.livingPlace}>
-            {/* <div>{"`${userDate.livingPlace.country}`"}</div>
-            <div>{"`${userDate.livingPlace.city}`"}</div> */}
+            <div>{"Country,"}</div>
+            <div>{"City"}</div>
           </div>
         </div>
       </div>

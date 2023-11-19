@@ -1,23 +1,23 @@
-import { profileAPI } from "../api/api";
-import { stopSubmit } from "redux-form";
-import postImg1 from "../assets/images/1post.png"
-const ADD_POST = "ADD_POST";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
-const SET_STATUS = "SET_STATUS";
-const DELETE_POST = "DELETE_POST";
-const SET_PHOTO_SUCCES = "SET_PHOTO_SUCCES";
-const SET_PROFILE_INFO_SUCCES = "SET_PROFILE_INFO_SUCCES";
+import { profileAPI } from '../api/api';
+import { stopSubmit } from 'redux-form';
+import postImg1 from '../assets/images/1post.png';
+const ADD_POST = 'ADD_POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST';
+const SET_PHOTO_SUCCES = 'SET_PHOTO_SUCCES';
+const SET_PROFILE_INFO_SUCCES = 'SET_PROFILE_INFO_SUCCES';
 const initialState = {
   postsDate: [
     {
       postId: 1,
-      text: "Kharkiv, 369 years of the city that survived under the yellow-blue flag 🇺🇦❤️",
+      text: 'Kharkiv, 369 years of the city that survived under the yellow-blue flag 🇺🇦❤️',
       likeCount: 5,
-      postImg: postImg1
+      postImg: postImg1,
     },
   ],
   profile: null,
-  status: "",
+  status: '',
 };
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -45,8 +45,7 @@ const profileReducer = (state = initialState, action) => {
     case SET_PHOTO_SUCCES:
       return { ...state, profile: { ...state.profile, photos: action.photos } };
     case SET_PROFILE_INFO_SUCCES:
-      const { fullName, aboutMe, lookingForAJobDescription } =
-        action.profileData;
+      const { fullName, aboutMe, lookingForAJobDescription } = action.profileData;
       return {
         ...state,
         profile: {
@@ -100,22 +99,18 @@ export const updatePhoto = (file) => async (dispatch) => {
     dispatch(setPhotoSucces(response.data.data.photos));
   }
 };
-export const updateProfileInfo =
-  (profileData) => async (dispatch, getState) => {
-    const id = getState().auth.id;
-    /////////////////////////////////////////////////////////////////
-    if (profileData.lookingForAJob === undefined) {
-      // crutch(backend mistake)
-      profileData.lookingForAJobDescription = "nothing";
-    }
-    const response = await profileAPI.saveProfileInfo(profileData);
-    if (response.data.resultCode === 0) {
-      dispatch(getUserProfile(id));
-    } else {
-      dispatch(
-        stopSubmit("edit-profile", { _error: response.data.messages[0] })
-      );
-      return Promise.reject(response.data.messages[0]);
-    }
-  };
+export const updateProfileInfo = (profileData) => async (dispatch, getState) => {
+  const id = getState().auth.id;
+  if (profileData.lookingForAJob === undefined) {
+    // crutch(backend mistake)
+    profileData.lookingForAJobDescription = 'nothing';
+  }
+  const response = await profileAPI.saveProfileInfo(profileData);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(id));
+  } else {
+    dispatch(stopSubmit('edit-profile', { _error: response.data.messages[0] }));
+    return Promise.reject(response.data.messages[0]);
+  }
+};
 export default profileReducer;

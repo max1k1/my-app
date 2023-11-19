@@ -5,6 +5,7 @@ import {
   required,
 } from "./../../../../utils/validators/validators";
 import { TextArea } from "../../../common/FormsControls/FormsControls";
+import ProfileButton from './../../../common/Buttons/ProfileButton/ProfileButton';
 
 const maxLength10 = maxLengthCreator(300);
 const AddNewPostForm = (props) => {
@@ -19,7 +20,7 @@ const AddNewPostForm = (props) => {
         ></Field>
       </div>
       <div>
-        <button>New post</button>
+        <ProfileButton name='New post'></ProfileButton>
       </div>
     </form>
   );
