@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/react-social-media/static/css/main.dcfd8cd7.css",
-    "main.js": "/react-social-media/static/js/main.f08d337a.js",
-    "static/css/979.d2bfd7e6.chunk.css": "/react-social-media/static/css/979.d2bfd7e6.chunk.css",
-    "static/js/979.23281cf1.chunk.js": "/react-social-media/static/js/979.23281cf1.chunk.js",
+    "main.css": "/react-social-media/static/css/main.a03fd7d3.css",
+    "main.js": "/react-social-media/static/js/main.c99c6583.js",
+    "static/css/883.5ced9b1c.chunk.css": "/react-social-media/static/css/883.5ced9b1c.chunk.css",
+    "static/js/883.20b8ed16.chunk.js": "/react-social-media/static/js/883.20b8ed16.chunk.js",
     "static/js/787.d27432ca.chunk.js": "/react-social-media/static/js/787.d27432ca.chunk.js",
-    "static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.jpg": "/react-social-media/static/media/cumulonimbus_clouds_in_purple_and_golden_orange_sky_background_during_sunset_or_sunrise_2.daebb458a04cf3eb31bb.jpg",
+    "static/media/28638.jpg": "/react-social-media/static/media/28638.53fbe71692be8cdc434c.jpg",
     "static/media/1post.png": "/react-social-media/static/media/1post.8440265c9e58c46f6e4d.png",
+    "static/media/preloader2.gif": "/react-social-media/static/media/preloader2.90672f1deffccbcdf4f1.gif",
     "static/media/instagramLogoIcon.png": "/react-social-media/static/media/instagramLogoIcon.ed071077fc911932f21a.png",
     "static/media/githubLogoIcon.png": "/react-social-media/static/media/githubLogoIcon.648e666260ca9d409a49.png",
     "static/media/vkontakteLogoIcon.png": "/react-social-media/static/media/vkontakteLogoIcon.10d18e88967d2b167c02.png",
     "static/media/linkedinLogoIcon.png": "/react-social-media/static/media/linkedinLogoIcon.9df3772694f9ed1c21b5.png",
     "static/media/userPhoto.png": "/react-social-media/static/media/userPhoto.1648f03952e695dfb55e.png",
     "static/media/v-mark.png": "/react-social-media/static/media/v-mark.b99a596dae087b36a71d.png",
-    "static/media/preloader1.svg": "/react-social-media/static/media/preloader1.7aee23255479263f69cfccbdd8054035.svg",
     "static/media/x-mark.svg": "/react-social-media/static/media/x-mark.9436dd5147ad3686f97d5ccacaddc699.svg",
     "index.html": "/react-social-media/index.html",
-    "main.dcfd8cd7.css.map": "/react-social-media/static/css/main.dcfd8cd7.css.map",
-    "main.f08d337a.js.map": "/react-social-media/static/js/main.f08d337a.js.map",
-    "979.d2bfd7e6.chunk.css.map": "/react-social-media/static/css/979.d2bfd7e6.chunk.css.map",
-    "979.23281cf1.chunk.js.map": "/react-social-media/static/js/979.23281cf1.chunk.js.map",
+    "main.a03fd7d3.css.map": "/react-social-media/static/css/main.a03fd7d3.css.map",
+    "main.c99c6583.js.map": "/react-social-media/static/js/main.c99c6583.js.map",
+    "883.5ced9b1c.chunk.css.map": "/react-social-media/static/css/883.5ced9b1c.chunk.css.map",
+    "883.20b8ed16.chunk.js.map": "/react-social-media/static/js/883.20b8ed16.chunk.js.map",
     "787.d27432ca.chunk.js.map": "/react-social-media/static/js/787.d27432ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dcfd8cd7.css",
-    "static/js/main.f08d337a.js"
+    "static/css/main.a03fd7d3.css",
+    "static/js/main.c99c6583.js"
   ]
 }
