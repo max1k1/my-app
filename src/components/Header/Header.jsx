@@ -7,6 +7,21 @@ import profilePicutreHeader from '../../assets/images/profilePicutreHeader.png';
 import { useState } from 'react';
 const Header = (props) => {
   const [popUpMode, setPopUpMode] = useState(false);
+  const popUpModeRef = React.useRef();
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      console.log(event);
+      if (!event.composedPath().includes(popUpModeRef.current)) {
+        setPopUpMode(false);
+      }
+    };
+    if (popUpMode) {
+      document.body.addEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, [popUpMode]);
   return (
     <header className={styles.headerWraper}>
       <div className={styles.header}>
@@ -15,12 +30,32 @@ const Header = (props) => {
           <div> React Social Media</div>
         </div>
         <div>
-          {props.isAuth ? (
-            <div className={styles.loginBlockWraper}>
-            <div className={styles.loginBlock} onClick={()=>setPopUpMode(!popUpMode)}>
+          <div className={styles.loginBlockWraper}>
+            <div
+              ref={popUpModeRef}
+              className={styles.loginBlock}
+              onClick={() => setPopUpMode(!popUpMode)}>
               {popUpMode ? (
-                <div className={styles.popUp} >
-                  {props.login} - <button onClick={props.logout}>Log out</button>
+                <div className={styles.popUp}>
+                  <div className={styles.popUpHead}>
+                    {props.isAuth ? props.login : 'user@gmail.com'}
+                  </div>
+                  <div className={styles.popUpList}>
+                    <div>Support</div>
+                    <div>
+                      <NavLink to="https://max1k1.github.io/react-pizza-website/#/?option=-rating&activeCategory=0&currentPage=1">
+                        Pizzeria website
+                      </NavLink>
+                    </div>
+                    {props.isAuth ? (
+                      <div onClick={props.logout}>Log out</div>
+                    ) : (
+                      <div>
+                        {' '}
+                        <NavLink to="/login">Log in</NavLink>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ) : (
                 ''
@@ -32,10 +67,7 @@ const Header = (props) => {
               />
               <img className={styles.downArrow} src={downArrow} alt="downArrow" />
             </div>
-            </div>
-          ) : (
-            <NavLink to="/login">Login:</NavLink>
-          )}
+          </div>
         </div>
       </div>
     </header>

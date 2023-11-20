@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Dialogs.module.css';
 import MessageItem from './MessageItem/MessageItem';
 import DialogItems from './DialogItems/DialogItems';
 import DialogForm from './DialogForm/DialogForm';
 
 const Dialogs = ({ sendMessage, dialogsPage }) => {
-  const [dialogsList, setDialogsList] = useState(dialogsPage.dialogsData); // CHANGE THIS PART - SYNC WITH REDUX!
   const addNewMessage = (values) => {
     sendMessage(values.newMessageText);
   };
   const messagesElements = dialogsPage.messagesData.map((message) => (
     <MessageItem key={message.id} message={message.message} />
   ));
-  const dialogsElements = dialogsList.map((obj) => (
-    <DialogItems key={obj.id} obj={obj} dialogsList={dialogsList} setDialogsList={setDialogsList}></DialogItems>
+  const dialogsElements = dialogsPage.dialogsData.map((obj) => (
+    <DialogItems key={obj.id} obj={obj}></DialogItems>
   ));
   return (
     <div className={styles.dialogs}>

@@ -15,7 +15,9 @@ export const TextArea = (props) => {
   const { input, ...restProps } = props;
   return (
     <FormControl {...props}>
-      <textarea {...input} {...restProps} />
+      <div className={styles.textArea}>
+        <textarea {...input} {...restProps} />
+      </div>
     </FormControl>
   );
 };
@@ -24,7 +26,19 @@ export const Input = (props) => {
   const { input, meta, child, ...restProps } = props;
   return (
     <FormControl {...props}>
-      <input {...input} {...restProps} />
+      <div className={styles.text}>
+        <input {...input} {...restProps} />
+      </div>
+    </FormControl>
+  );
+};
+export const Checkbox = (props) => {
+  const { input, meta, child, ...restProps } = props;
+  return (
+    <FormControl {...props}>
+      <div className={styles.checkbox}>
+        <input {...input} {...restProps} />
+      </div>
     </FormControl>
   );
 };

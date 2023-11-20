@@ -12,9 +12,7 @@ const Login = ({ login, isAuth, captchaUrl }) => {
     return <Navigate replace to="/profile" />;
   }
   return (
-    <div>
       <LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
-    </div>
   );
 };
 const mapDispatchToProps = (state) => ({

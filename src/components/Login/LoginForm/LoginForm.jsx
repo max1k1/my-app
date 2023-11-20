@@ -1,53 +1,51 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-import { Input } from "../../common/FormsControls/FormsControls";
-import {
-  maxLengthCreator,
-  required,
-} from "../../../utils/validators/validators";
-import styles from "../../common/FormsControls/FormsControls.module.css";
-import "../Login.css";
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Input, Checkbox } from '../../common/FormsControls/FormsControls';
+import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import styles from '../../common/FormsControls/FormsControls.module.css';
+import '../Login.css';
+import MainButton from '../../common/Buttons/MainButton/ProfileButton';
 
 const usernameMaxLength = maxLengthCreator(30);
 const passwordMaxLength = maxLengthCreator(30);
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit} className="loginFormBlock">
-      <h1>Login</h1>
+      <h1>React Social Media</h1>
       <div>
         <Field
-          placeholder={"email"}
-          name={"email"}
+          placeholder={'Email'}
+          name={'email'}
           component={Input}
           validate={[required, usernameMaxLength]}
         />
       </div>
       <div>
         <Field
-          placeholder={"password"}
-          name={"password"}
+          placeholder={'Password'}
+          name={'password'}
           type="password"
           component={Input}
           validate={[required, passwordMaxLength]}
         />
       </div>
       <div className="rememberMeBlock">
-        Remember me
         <div className="rememberMeInput">
-          <Field type={"checkBox"} name={"rememberMe"} component={Input} />
+          <Field type={'checkbox'} name={'rememberMe'} component={Checkbox} />
         </div>
+        Remember me
       </div>
       {captchaUrl && (
         <div>
           <img src={captchaUrl} alt="captchaUrl" />
-          <Field placeholder={"Symbols from image"} name={"captcha"} component={Input}/>
+          <Field placeholder={'Symbols from image'} name={'captcha'} component={Input} />
         </div>
       )}
       {error && <div className={styles.formSummaryError}>{error}</div>}
       <div>
-        <button>Login</button>
+        <MainButton name="Log in"></MainButton>
       </div>
     </form>
   );
 };
-export default reduxForm({ form: "login" })(LoginForm);
+export default reduxForm({ form: 'login' })(LoginForm);

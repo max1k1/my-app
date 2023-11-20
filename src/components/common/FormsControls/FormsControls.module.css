@@ -10,6 +10,33 @@
     padding: 5px;
     color: red;
 }
-input{
-    min-width: 250px;
+.formControl .text input{
+    width: 250px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 13px;
+    border-color: black;
+    border: 1px solid rgb(255, 255, 255);
+}
+.formControl .checkbox {
+    clip-path: circle(30% at 50% 50%);
+}
+.formControl .checkbox input{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.formControl .textArea textarea {
+    background-color: transparent;
+    width: 200px;
+    border: 0;
+    resize: none;
+    max-height: 20vh;
+    color: black;
+}
+.formControl .textArea textarea::placeholder {
+color: black;
+}
+.formControl input:hover{
+    border: 1px solid black;
 }

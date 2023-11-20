@@ -1,7 +1,6 @@
 import React from 'react';
 import stytles from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = ({
   profile,
@@ -23,7 +22,6 @@ const Profile = ({
         updatePhoto={updatePhoto}
         updateProfileInfo={updateProfileInfo}
       />
-      <MyPostsContainer isOwner={isOwner} />
     </div>
   );
 };

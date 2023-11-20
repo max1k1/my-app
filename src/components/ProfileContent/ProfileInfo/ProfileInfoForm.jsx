@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import './ProfileInfo.css';
+// import './ProfileInfo.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import { Input } from './../../common/FormsControls/FormsControls';
-import ProfileButton from './../../common/Buttons/ProfileButton/ProfileButton';
 import ChangeProfilePhotoButton from './../../common/Buttons/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
 import ProfileStatusWithHooks from './../ProfileStatus/ProfileStatusWithHooks';
+import MainButton from '../../common/Buttons/MainButton/ProfileButton';
 
 const maxLength200 = maxLengthCreator(200);
 const ProfileInfoForm = ({
@@ -89,7 +89,7 @@ const ProfileInfoForm = ({
             })}
         </div>
         <div className="saveData">
-        <ProfileButton name='Save'></ProfileButton>
+        <MainButton name='Save'></MainButton>
         </div>
       </form>
     </div>

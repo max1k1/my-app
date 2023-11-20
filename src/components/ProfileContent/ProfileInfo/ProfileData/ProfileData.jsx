@@ -1,12 +1,13 @@
-import React from "react";
-
-import vMarkIcon from "../../../../assets/images/v-mark.png";
-import xMarkIcon from "../../../../assets/images/x-mark.svg";
-import ProfileButton from './../../../common/Buttons/ProfileButton/ProfileButton';
-import ChangeProfilePhotoButton from './../../../common/Buttons/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
+import React from 'react';
+// import vMarkIcon from '../../../../assets/images/v-mark.png';
+// import xMarkIcon from '../../../../assets/images/x-mark.svg';
+import defalutBackground from '../../../../assets/images/defaultBackground.png';
 import ProfileStatusWithHooks from './../../ProfileStatus/ProfileStatusWithHooks';
-import Contacts from '../../Contacts/Contacts';
-
+import MainButton from '../../../common/Buttons/MainButton/ProfileButton';
+import styles from '../ProfileInfo.module.css';
+import UploadButtonControl from '../../../common/UploadButtonControl/UploadButtonControl';
+import MyPostsContainer from '../../MyPosts/MyPostsContainer';
+import Contacts from './../../Contacts/Contacts';
 const ProfileData = ({
   profile,
   isOwner,
@@ -16,72 +17,117 @@ const ProfileData = ({
   updateStatus,
   userPhoto,
 }) => {
-
   return (
-    <div>
-      <div className="profileDescription">
-        <div>
-          <div className="firstArea"> 
-            <img
-              src={profile.photos.large || userPhoto}
-              alt="profileAva"
-              className="profilePicture"
-            />
-            {isOwner && (
-              <div>
-                <div className="editMode" onClick={activateEditMode}>
-                  <ProfileButton name='Edit profile'></ProfileButton>
-                </div>{" "}
-                <ChangeProfilePhotoButton
-                  onProfilePhotoSelected={onProfilePhotoSelected}
-                />
-              </div>
-            )}
-          </div>
-          <div className="profileStatus">
-            <ProfileStatusWithHooks
-              status={status}
-              updateStatus={updateStatus}
-              isOwner={isOwner}
-            />
-          </div>
+    <div className={styles.pageLayout}>
+      <div className={styles.profileHeaderLayout}>
+        <div className={styles.profileBackground}>
+          <img src={defalutBackground} alt="defalutBackground" />
         </div>
-        <div className="secondArea">
-          <span className="fullName">{profile.fullName}</span>
-          <div className="lookingForAJob">
-            {" "}
-            <span>
-              Looking for a job:{" "}
-              {profile.lookingForAJob ? (
-                <img src={vMarkIcon} alt="checkBoxIcon" />
-              ) : (
-                <img src={xMarkIcon} alt="checkBoxIcon" />
-              )}
-            </span>
-            {profile.lookingForAJob && (
-              <span>
-                My professional skills: {profile.lookingForAJobDescription}
-              </span>
-            )}
-            {/* <span className="AboutMe">{profile.aboutMe}</span> */}
-          </div>
-        </div>
-        <div className="thirdArea">
-          <Contacts contacts={profile.contacts}/>
-          {/* {Object.keys(profile.contacts).map((key) => {
-            return (
-              <Contact
-                key={key}
-                contactLogo={logoDataBase[key]}
-                contactTitle={key}
-                contactValue={profile.contacts[key]}
+        <div className={styles.profileHeader}>
+          {isOwner ? (
+            <div className={styles.changeProfilePhotoButton}>
+              <button>
+                <UploadButtonControl
+                  className={styles.profilePhotoButton}
+                  onChange={onProfilePhotoSelected}
+                  accept="image/*">
+                  <img
+                    src={profile.photos.large || userPhoto}
+                    alt="profileAva"
+                    className={styles.profilePicture}
+                  />
+                </UploadButtonControl>
+              </button>
+            </div>
+          ) : (
+            <div>
+              <img
+                src={profile.photos.large || userPhoto}
+                alt="profileAva"
+                className={styles.profilePicture}
               />
-            );
-          })} */}
+            </div>
+          )}
+          <div className={styles.profileStatus}>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
+          </div>
+          {isOwner ? (
+            <div>
+              <div className={styles.editMode} onClick={activateEditMode}>
+                <MainButton name="Edit profile"></MainButton>
+              </div>
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
+      </div>
+      <div className={styles.profileBodyLayout}>
+        <div className={styles.profilePosts}>
+          <MyPostsContainer isOwner={isOwner} />
+        </div>
+
+        <Contacts contacts={profile.contacts} />
       </div>
     </div>
   );
 };
 
 export default ProfileData;
+
+// return (
+//   <div>
+//     <div className="profileDescription">
+//       <div>
+//         <div className="firstArea">
+//           <img
+//             src={profile.photos.large || userPhoto}
+//             alt="profileAva"
+//             className="profilePicture"
+//           />
+//           {isOwner && (
+//             <div>
+//               <div className="editMode" onClick={activateEditMode}>
+//                 <MainButton name='Edit profile'></MainButton>
+//               </div>{" "}
+//               <ChangeProfilePhotoButton
+//                 onProfilePhotoSelected={onProfilePhotoSelected}
+//               />
+//             </div>
+//           )}
+//         </div>
+//         <div className="profileStatus">
+//           <ProfileStatusWithHooks
+//             status={status}
+//             updateStatus={updateStatus}
+//             isOwner={isOwner}
+//           />
+//         </div>
+//       </div>
+//       <div className="secondArea">
+//         <span className="fullName">{profile.fullName}</span>
+//         <div className="lookingForAJob">
+//           {" "}
+//           <span>
+//             Looking for a job:{" "}
+//             {profile.lookingForAJob ? (
+//               <img src={vMarkIcon} alt="checkBoxIcon" />
+//             ) : (
+//               <img src={xMarkIcon} alt="checkBoxIcon" />
+//             )}
+//           </span>
+//           {profile.lookingForAJob && (
+//             <span>
+//               My professional skills: {profile.lookingForAJobDescription}
+//             </span>
+//           )}
+//           {/* <span className="AboutMe">{profile.aboutMe}</span> */}
+//         </div>
+//       </div>
+//       <div className="thirdArea">
+//         <Contacts contacts={profile.contacts}/>
+//       </div>
+//     </div>
+//   </div>
+// );
+// };

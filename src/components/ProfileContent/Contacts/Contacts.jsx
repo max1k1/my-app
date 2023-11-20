@@ -19,10 +19,9 @@ const Contacts = ({ contacts }) => {
   return (
     <div className={styles.contacts}>
       {Object.keys(contacts).map((key) => {
-        debugger;
         if (contacts[key]) {
           return (
-            <div key={key}>
+            <div className={styles.singleContact} key={key}>
               <NavLink to={contacts[key]}>{<img src={logoDataBase[key]} alt="Icon" />}</NavLink>
             </div>
           );

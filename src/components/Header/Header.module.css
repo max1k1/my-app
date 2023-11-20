@@ -42,33 +42,48 @@
 }
 .header .loginBlock .popUp{
   position: absolute;
+  cursor:default;
   left: 0;
   right: 0;
-  margin-top: 90px;
-  background: #ffffff;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
-  border-radius: 13px;
+  margin-top: 230px;
+  box-shadow: 0 20px 40px 0 rgba(0,0,0,.3);
+  border-radius: 10px;
   overflow: hidden;
-  padding: 10px 0;
-  width: 100%;
-  /* ul {
-    overflow: hidden;
-    li {
-      padding: 12px 20px;
-      cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 
-      &.active,
-      &:hover {
-        background: rgba(254, 95, 30, 0.05);
-      }
-
-      &.active {
-        font-weight: bold;
-        color: $orange;
-      }
-    }
-  } */
+  background: #ffffff;
 }
+.header .loginBlock .popUp .popUpHead{
+  height: 40px;
+  text-align: center;
+  background-color: #f3f2f2;
+  padding-top: 20px;
+}
+.header .loginBlock .popUp .popUpList{
+  height: 100%;
+}
+
+.header .loginBlock .popUp .popUpList div{
+  cursor: pointer;
+  padding: 10px;
+}
+.header .loginBlock .popUp div a{
+  text-decoration: none;
+  display: block;
+  color: rgb(0, 0, 0);
+}
+.header .loginBlock .popUp .popUpList div:hover{
+  text-decoration: none;
+  background-color: #f3f2f2;
+}
+
+
+
+
+
+
+
 .header .loginBlock .profilePicutreHeader{
   width: 30px;
   height: 30px;

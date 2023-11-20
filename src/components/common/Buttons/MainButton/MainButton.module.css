@@ -1,4 +1,4 @@
-.profileButton{
+.mainButton{
     width: 100%;
     height: 100%;
     text-align: center;
@@ -10,3 +10,6 @@
     font-size: 15px;
     cursor: pointer;
 }   
+.mainButton:hover{
+    background-color: #d5d5d5;
+}

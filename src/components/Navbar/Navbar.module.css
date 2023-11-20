@@ -9,7 +9,7 @@
   cursor: pointer;
   border-radius: 7px;
 } 
-.active{
+.item:hover{
   border-radius: 7px;
   padding: 5px;
   cursor: pointer;
