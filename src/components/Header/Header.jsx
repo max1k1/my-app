@@ -25,10 +25,10 @@ const Header = (props) => {
   return (
     <header className={styles.headerWraper}>
       <div className={styles.header}>
-        <div className={styles.logoBlock}>
+        <NavLink className={styles.logoBlock} to="/profile">
           <img src={headerImage} alt="webSiteLogo" />
           <div> React Social Media</div>
-        </div>
+        </NavLink>
         <div>
           <div className={styles.loginBlockWraper}>
             <div

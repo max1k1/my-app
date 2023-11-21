@@ -4,7 +4,7 @@ import { Input, Checkbox } from '../../common/FormsControls/FormsControls';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import styles from '../../common/FormsControls/FormsControls.module.css';
 import '../Login.css';
-import MainButton from '../../common/Buttons/MainButton/ProfileButton';
+import MainButton from '../../common/Buttons/MainButton/MainButton';
 
 const usernameMaxLength = maxLengthCreator(30);
 const passwordMaxLength = maxLengthCreator(30);

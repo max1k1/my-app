@@ -4,9 +4,9 @@ import Post from './Post/Post.jsx';
 import AddNewPostForm from './AddNewPostForm/AddNewPostForm';
 
 const MyPosts = ({ profile, addPost, isOwner }) => {
-  const postsElements = profile.postsDate.map((postDate) => (
+  const postsElements = profile.postsDate.map((postDate, i) => (
     <Post
-      key={postDate.postId}
+      key={i}
       text={postDate.text}
       likeCount={postDate.likeCount}
       postImg={postDate.postImg}

@@ -9,7 +9,7 @@ const Post = ({ text, likeCount, postImg }) => {
         {text}
       </div>
       <div>
-        <span>likes: {likeCount}</span>
+        <span>Likes: {likeCount}</span>
       </div>
     </div>
   );

@@ -2,19 +2,22 @@
     display: flex;
     width: 100%;
     border-radius: 13px;
+    height: 100%;
 }
 
 .chatWrapper{
     border-radius: 13px;
+    height: 100%;
     width: 77%;
-    max-width: 77%;
     background-color: #A679CA;
     box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
 .chat {
-    height: 570px;
+    height: 100%;
     max-width: 100%;
     padding-bottom: 20px;
+    height: 75vh;
+    /*  FIX IT  */
 }
 
 .chat .messagesField {
@@ -76,4 +79,23 @@
     .chat {
         height: 425px;
     }
+    
 }
+
+@media (max-width: 530px) {
+    .dialogs {
+        flex-direction: column-reverse;
+    }
+    .dialogsItems{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+        flex-direction: row;
+    }
+    .chatWrapper{
+        width: 100%;
+
+    }
+}
+  

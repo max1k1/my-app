@@ -26,3 +26,15 @@
   text-decoration: none;
   color: #A679CA;
 }
+
+@media (max-width: 560px) {
+  .nav{
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+  }
+}

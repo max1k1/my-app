@@ -5,7 +5,7 @@ import {
   required,
 } from "./../../../../utils/validators/validators";
 import { TextArea } from "../../../common/FormsControls/FormsControls";
-import MainButton from './../../../common/Buttons/MainButton/ProfileButton';
+import MainButton from '../../../common/Buttons/MainButton/MainButton';
 
 const maxLength10 = maxLengthCreator(300);
 const AddNewPostForm = (props) => {

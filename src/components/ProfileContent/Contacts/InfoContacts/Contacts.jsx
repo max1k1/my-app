@@ -1,11 +1,11 @@
 import { React } from 'react';
 import { NavLink } from 'react-router-dom';
-import instagramLogoIcon from '../../../assets/images/instagramLogoIcon.png';
-import vkontakteLogoIcon from '../../../assets/images/vkontakteLogoIcon.png';
-import linkedinLogoIcon from '../../../assets/images/linkedinLogoIcon.png';
-import youtubeLogoIcon from '../../../assets/images/youtubeLogoIcon.png';
-import twitterLogoIcon from '../../../assets/images/twitterLogoIcon.png';
-import githubLogoIcon from '../../../assets/images/githubLogoIcon.png';
+import instagramLogoIcon from '../../../../assets/images/instagramLogoIcon.png';
+import vkontakteLogoIcon from '../../../../assets/images/vkontakteLogoIcon.png';
+import linkedinLogoIcon from '../../../../assets/images/linkedinLogoIcon.png';
+import youtubeLogoIcon from '../../../../assets/images/youtubeLogoIcon.png';
+import twitterLogoIcon from '../../../../assets/images/twitterLogoIcon.png';
+import githubLogoIcon from '../../../../assets/images/githubLogoIcon.png';
 import styles from './Contacts.module.css';
 const Contacts = ({ contacts }) => {
   const logoDataBase = {

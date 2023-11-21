@@ -1,0 +1,39 @@
+.contacts{
+   
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #A679CA;
+    box-shadow: 1px 2px 10px 2px #7f5d9c;
+    border-radius: 13px;
+    width: 20%;
+    height: 100%;
+}
+.singleContact{ 
+    padding: 10px;
+}
+.contacts img{
+
+    width: 30px;
+    height: 30px;
+}
+@media (max-width: 1120px) {
+    .contacts{
+   
+        display: inline-grid;
+        grid-template-columns: 1fr 1fr ;
+
+    }
+}  
+@media (max-width: 730px) {
+    .contacts{
+        display: flex;
+        flex-direction: column;
+    }
+}  
+@media (max-width: 560px) {
+    .contacts{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+}  

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
-// import './ProfileInfo.css';
+import styles from './ProfileInfoForm.module.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
-import { Input } from './../../common/FormsControls/FormsControls';
-import ChangeProfilePhotoButton from './../../common/Buttons/ChangeProfilePhotoButton/ChangeProfilePhotoButton';
+import { Checkbox, Input } from './../../common/FormsControls/FormsControls';
 import ProfileStatusWithHooks from './../ProfileStatus/ProfileStatusWithHooks';
-import MainButton from '../../common/Buttons/MainButton/ProfileButton';
+import MainButton from '../../common/Buttons/MainButton/MainButton';
+import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl';
+import FormContacts from '../Contacts/FormContacts/FormContacts';
 
 const maxLength200 = maxLengthCreator(200);
 const ProfileInfoForm = ({
@@ -33,63 +34,72 @@ const ProfileInfoForm = ({
     setContactsChangeField(false);
   };
   return (
-    <div className="changeProfileInfoForm">
-      <div className="changeProfilePhotoField">
-        <img src={profile.photos.large || userPhoto} alt="profileAva" className="profilePicture" />
-        <ChangeProfilePhotoButton onProfilePhotoSelected={onProfilePhotoSelected} />
-        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
-      </div>
-      <form onSubmit={handleSubmit} className="profileInfoForm">
-        <Field
-          name="fullName"
-          placeholder="Full name"
-          component={Input}
-          validate={[required, maxLength200]}
-        />
-        <Field
-          name={'aboutMe'}
-          placeholder="About me"
-          component={Input}
-          validate={[required, maxLength200]}
-        />
-        <div className="lookingForAJobArea">
-          <span> Looking for a job:</span>
-          <Field
-            name={'lookingForAJob'}
-            component={Input}
-            type="checkbox"
-            onClick={onLookingForAJobMarkChange}
-          />
-          {/* make sync lookingForAJobMark with Field lookingForAJob(probably with Formik it will be better) */}
-        </div>
-        {lookingForAJobMark && (
-          <Field
-            name={'lookingForAJobDescription'}
-            placeholder="Looking for a job description"
-            component={Input}
-          />
-        )}
-        <div>
-          <span className="contactsArea">
-            Contacts:{' '}
+    <div>
+      <form onSubmit={handleSubmit} className={styles.profileInfoForm}>
+        <div className={styles.mainFormArea}>
+          <div className={styles.profilePhotoArea}>
+            <div className={styles.changeProfilePhotoField}>
+              <div>
+                <UploadButtonControl
+                  className={styles.profilePhotoButton}
+                  onChange={onProfilePhotoSelected}
+                  accept="image/*">
+                  <img
+                    src={profile.photos.large || userPhoto}
+                    alt="profileAva"
+                    className={styles.profilePicture}
+                  />
+                </UploadButtonControl>
+              </div>
+            </div>
+            <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
+          </div>
+          <div className={styles.inputFormArea}>
             <Field
-              name="contactsArea"
+              name="fullName"
+              placeholder="Full name"
               component={Input}
-              type="checkbox"
-              onClick={toggleContactsChangeField}
+              validate={[required, maxLength200]}
             />
-          </span>
-          {contactsChangeField && 
-            Object.keys(profile.contacts).map((key) => {
-              return (
-                <div key={key}>
-                  {key}: <Field name={`contacts.${key}`} placeholder={key} component={Input} />
-                </div>
-              );
-            })}
+            <Field
+              name={'aboutMe'}
+              placeholder="About me"
+              component={Input}
+              validate={[required, maxLength200]}
+            />
+            <div className={styles.lookingForAJobArea}>
+              <div> Looking for a job:</div>
+              <Field
+                name={'lookingForAJob'}
+                component={Checkbox}
+                type="checkbox"
+                onClick={onLookingForAJobMarkChange}
+              />
+              {/* make sync lookingForAJobMark with Field lookingForAJob(probably with Formik it will be better) */}
+            </div>
+            {lookingForAJobMark && (
+              <Field
+                name={'lookingForAJobDescription'}
+                placeholder="Looking for a job description"
+                component={Input}
+              />
+            )}
+            <div className={styles.contactsMarkArea}>
+              Contacts:
+              <Field
+                name="contactsArea"
+                component={Checkbox}
+                type="checkbox"
+                onClick={toggleContactsChangeField}
+              />
+            </div>
+          </div>
         </div>
-        <div className="saveData">
-        <MainButton name='Save'></MainButton>
+        <div className={styles.contactsArea}>
+          {contactsChangeField && <FormContacts contacts={profile.contacts} />}
+        </div>
+        <div className={styles.saveButton}>
+          <MainButton name="Save"></MainButton>
         </div>
       </form>
     </div>

@@ -3,11 +3,11 @@ import React from 'react';
 // import xMarkIcon from '../../../../assets/images/x-mark.svg';
 import defalutBackground from '../../../../assets/images/defaultBackground.png';
 import ProfileStatusWithHooks from './../../ProfileStatus/ProfileStatusWithHooks';
-import MainButton from '../../../common/Buttons/MainButton/ProfileButton';
+import MainButton from '../../../common/Buttons/MainButton/MainButton';
 import styles from '../ProfileInfo.module.css';
 import UploadButtonControl from '../../../common/UploadButtonControl/UploadButtonControl';
 import MyPostsContainer from '../../MyPosts/MyPostsContainer';
-import Contacts from './../../Contacts/Contacts';
+import Contacts from '../../Contacts/InfoContacts/Contacts';
 const ProfileData = ({
   profile,
   isOwner,
@@ -48,18 +48,18 @@ const ProfileData = ({
               />
             </div>
           )}
+          <div className={styles.profileHeaderInfo}>
           <div className={styles.profileStatus}>
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
           </div>
           {isOwner ? (
-            <div>
-              <div className={styles.editMode} onClick={activateEditMode}>
-                <MainButton name="Edit profile"></MainButton>
-              </div>
+            <div className={styles.editMode} onClick={activateEditMode}>
+              <MainButton name="Edit profile"></MainButton>
             </div>
           ) : (
             <div />
           )}
+          </div>
         </div>
       </div>
       <div className={styles.profileBodyLayout}>
