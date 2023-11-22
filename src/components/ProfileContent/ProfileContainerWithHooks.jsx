@@ -11,6 +11,7 @@ import {
 import { compose } from "redux";
 import { withRouter } from "../../hoc/withRouter";
 import { useNavigate } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 const ProfileContainerWithHooks = ({
   profile,
@@ -57,6 +58,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
+  withAuthRedirect,
   withRouter,
   connect(mapStateToProps, {
     getUserProfile,

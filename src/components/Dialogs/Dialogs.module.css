@@ -10,6 +10,7 @@
     height: 100%;
     width: 77%;
     background-color: #A679CA;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
 .chat {
@@ -37,23 +38,24 @@
     border-bottom-left-radius: 13px;
     height: 50px;
     resize: none;
-    color: white;
-    background-color: #A679CA;
+    color: rgb(0, 0, 0);
+    
     width: 80%;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .chatWrapper textarea::placeholder {
-    color: #ffffff;
+    color: #000000;
 }
 
 .chatWrapper button {
     border-bottom-right-radius: 13px;
     background-color: #A679CA;
-    color: aliceblue;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     width: 20%;
     cursor: pointer;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .dialogsItems {
@@ -69,8 +71,8 @@
     font-weight: 400;
 
 
-    /* background-color: #3f3a44; */
     background-color: #A679CA;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
 

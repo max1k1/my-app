@@ -13,10 +13,13 @@
 }
 .user button{
     background-color: #C8B4E1;
+    background-color: rgb(255, 255, 255);
+    
     font-size: 16px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     width: 100%;
     border-radius: 6px;
+    border-color: #000000;
 }
 .user .name{
     font-size: large;
@@ -31,16 +34,15 @@
     flex-direction: column;
     justify-content: space-between;
     justify-content: space-around;
-    
 }
 .user .firstArea{
     display: flex;
     flex-direction: column;
-
 }
 .user .secondArea{
     display: flex;
     background-color: #A679CA;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
     width: 100%;
     justify-content: space-between;

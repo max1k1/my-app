@@ -10,7 +10,6 @@ const Header = (props) => {
   const popUpModeRef = React.useRef();
   React.useEffect(() => {
     const handleClickOutside = (event) => {
-      console.log(event);
       if (!event.composedPath().includes(popUpModeRef.current)) {
         setPopUpMode(false);
       }

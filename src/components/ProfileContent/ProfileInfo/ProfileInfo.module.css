@@ -3,6 +3,7 @@
     background-color: #A679CA;
     box-shadow: 1px 2px 10px 2px #7f5d9c;
     border-radius: 13px;
+    background-color: rgb(255, 255, 255);
 }
 
 .profileBackground img{
@@ -39,27 +40,43 @@
 }
 .profileBodyLayout{
     display: flex;
+    
 }
 .profilePosts{
    padding-right: 10px;
 }
 
 
+@media (max-width: 800px) {
+    .profileHeader .profileHeaderInfo .editMode{
+        height: 100%;
+    }
+}
+
 @media (max-width: 560px) {
+    .profileHeaderLayout{
+        box-shadow: 1px 2px 10px 2px #7f5d9c;
+        border-radius: 0;
+    }
+    .profileBackground img{
+        border-radius: 0;
+        height: 150px;
+    }
     .profileBodyLayout{
         display: flex;
         flex-direction: column-reverse;
+    }
+    .profileHeader{
+        flex-direction: column;
+    }
+     .profileHeader .profilePicture{
+        width: 200px;
+        margin-top: -115px;
     }
     .profilePosts{
         padding-right: 0;
         padding-top: 10px;
      }
-     .profileHeader {
-        width: 150px;
-    }
-     .profileHeader .profilePicture{
-        width: 150px;
-    }
 }
 
 

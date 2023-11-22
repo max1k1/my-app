@@ -11,20 +11,28 @@
     color: red;
 }
 .formControl .text input{
+    background-color: #efefef;
     width: 250px;
     height: 30px;
     margin: 10px;
     border-radius: 13px;
     border-color: black;
+    border: 1px solid rgb(0, 0, 0);
+}
+.formControl input:hover{
     border: 1px solid rgb(255, 255, 255);
 }
 .formControl .checkbox {
     clip-path: circle(30% at 50% 50%);
+    
+    background-color: #070707;
 }
 .formControl .checkbox input{
     width: 25px;
     height: 25px;
     cursor: pointer;
+
+
 }
 .formControl .textArea textarea {
     background-color: transparent;
@@ -36,7 +44,4 @@
 }
 .formControl .textArea textarea::placeholder {
 color: black;
-}
-.formControl input:hover{
-    border: 1px solid black;
 }

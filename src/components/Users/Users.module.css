@@ -9,12 +9,13 @@
 
     border-radius: 13px;
     background-color: #A679CA;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
 .user{
     border-radius: 13px;
     padding: 20px;
-    background-color: #A679CA;
+    
 }
 
 .filterUsers{
@@ -22,8 +23,9 @@
     border: rgb(67, 8, 118);
     width: 20%;
     border-radius: 13px;
-    background-color: #A679CA;
     margin-left: 10px;
+    background-color: #A679CA;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 2px 10px 2px #7f5d9c;
 }
 .filterUsers .item{
@@ -36,6 +38,7 @@
     cursor: pointer;
     padding: 10px; 
     background-color: #9e6ec5;
+    background-color: #efefef;
 }
 @media (max-width: 530px) {
     .pageLayout{
