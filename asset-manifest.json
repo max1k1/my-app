@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/react-social-media/static/css/main.43af48ac.css",
-    "main.js": "/react-social-media/static/js/main.954e4299.js",
-    "static/css/139.79aca7a0.chunk.css": "/react-social-media/static/css/139.79aca7a0.chunk.css",
-    "static/js/139.82824d8d.chunk.js": "/react-social-media/static/js/139.82824d8d.chunk.js",
+    "main.css": "/react-social-media/static/css/main.2aef2764.css",
+    "main.js": "/react-social-media/static/js/main.55a9a3fc.js",
+    "static/css/139.2c5d2e0f.chunk.css": "/react-social-media/static/css/139.2c5d2e0f.chunk.css",
+    "static/js/139.7caac8c3.chunk.js": "/react-social-media/static/js/139.7caac8c3.chunk.js",
     "static/js/787.d27432ca.chunk.js": "/react-social-media/static/js/787.d27432ca.chunk.js",
     "static/media/28638.jpg": "/react-social-media/static/media/28638.53fbe71692be8cdc434c.jpg",
     "static/media/defaultBackground.png": "/react-social-media/static/media/defaultBackground.84e0fb51d916688294ef.png",
@@ -16,14 +16,14 @@
     "static/media/linkedinLogoIcon.png": "/react-social-media/static/media/linkedinLogoIcon.9df3772694f9ed1c21b5.png",
     "static/media/userPhoto.png": "/react-social-media/static/media/userPhoto.1648f03952e695dfb55e.png",
     "index.html": "/react-social-media/index.html",
-    "main.43af48ac.css.map": "/react-social-media/static/css/main.43af48ac.css.map",
-    "main.954e4299.js.map": "/react-social-media/static/js/main.954e4299.js.map",
-    "139.79aca7a0.chunk.css.map": "/react-social-media/static/css/139.79aca7a0.chunk.css.map",
-    "139.82824d8d.chunk.js.map": "/react-social-media/static/js/139.82824d8d.chunk.js.map",
+    "main.2aef2764.css.map": "/react-social-media/static/css/main.2aef2764.css.map",
+    "main.55a9a3fc.js.map": "/react-social-media/static/js/main.55a9a3fc.js.map",
+    "139.2c5d2e0f.chunk.css.map": "/react-social-media/static/css/139.2c5d2e0f.chunk.css.map",
+    "139.7caac8c3.chunk.js.map": "/react-social-media/static/js/139.7caac8c3.chunk.js.map",
     "787.d27432ca.chunk.js.map": "/react-social-media/static/js/787.d27432ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.43af48ac.css",
-    "static/js/main.954e4299.js"
+    "static/css/main.2aef2764.css",
+    "static/js/main.55a9a3fc.js"
   ]
 }
