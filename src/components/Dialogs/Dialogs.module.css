@@ -87,8 +87,11 @@
 @media (max-width: 530px) {
     .dialogs {
         flex-direction: column-reverse;
+     
     }
     .dialogsItems{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
         width: 100%;
         margin: 0;
         padding: 0;

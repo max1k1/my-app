@@ -66,7 +66,6 @@ const ProfileData = ({
         <div className={styles.profilePosts}>
           <MyPostsContainer isOwner={isOwner} />
         </div>
-
         <Contacts contacts={profile.contacts} />
       </div>
     </div>
