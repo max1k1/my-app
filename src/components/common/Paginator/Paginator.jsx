@@ -13,7 +13,7 @@ const Paginator = ({ currentPage, onPageChanged, totalItemsCount, pageSize, page
   let rightPagesListNumber = pagesListNumber * pagesListSize;
   return (
     <div className={styles.paginator}>
-      {1 < pagesListNumber && <div onClick={() => setPagesList(pagesListNumber - 1)}>back</div>}
+      {1 < pagesListNumber && <div onClick={() => setPagesList(pagesListNumber - 1)}>Back</div>}
       <div className={styles.pages}>
         {pages
           .filter((p) => p >= leftPagesListNumber && p <= rightPagesListNumber)
@@ -31,7 +31,7 @@ const Paginator = ({ currentPage, onPageChanged, totalItemsCount, pageSize, page
           })}
       </div>
       {itemsListsCount > pagesListNumber && (
-        <div onClick={() => setPagesList(pagesListNumber + 1)}>next</div>
+        <div onClick={() => setPagesList(pagesListNumber + 1)}>Next</div>
       )}
     </div>
   );

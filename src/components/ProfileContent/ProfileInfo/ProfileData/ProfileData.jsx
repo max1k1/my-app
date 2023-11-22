@@ -49,7 +49,8 @@ const ProfileData = ({
             </div>
           )}
           <div className={styles.profileHeaderInfo}>
-          <div className={styles.profileStatus}>
+          <div className={styles.profileTextInfo}>
+            <div>{profile.fullName}</div>
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner} />
           </div>
           {isOwner ? (

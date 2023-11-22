@@ -3,7 +3,7 @@
   border-radius: 13px;
   text-align: center;
   font-weight: 400;
-  z-index: 1;
+
 }
 .item{
   padding: 5px;
@@ -30,12 +30,14 @@
 
 @media (max-width: 560px) {
   .nav{
+    z-index: 1;
     border-radius: 0;
     display: flex;
     justify-content: space-between;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #ffffff;
+    height: 35px;
+    background-color: #dddddd;
   }
 }

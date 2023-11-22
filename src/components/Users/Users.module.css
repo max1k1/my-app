@@ -6,7 +6,6 @@
 .users{
     border: rgb(67, 8, 118);
     width: 77%;
-
     border-radius: 13px;
     background-color: #A679CA;
     background-color: rgb(255, 255, 255);
@@ -17,6 +16,7 @@
     padding: 20px;
     
 }
+
 
 .filterUsers{
     padding: 10px;

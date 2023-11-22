@@ -34,9 +34,19 @@
     align-items: center;
     justify-content: space-between;
 }
+.profileHeader .profileHeaderInfo .profileTextInfo{
+    font-weight: 500;
+    font-size: 25px;
+    position: relative;
+}
+.profileHeader .profileHeaderInfo .profileTextInfo div{
+    padding: 5px;
+    
+}
 .profileHeader .profileHeaderInfo .editMode{
     height: 30px;
     padding: 15px;
+    position: relative;
 }
 .profileBodyLayout{
     display: flex;

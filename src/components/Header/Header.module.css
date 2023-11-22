@@ -111,17 +111,18 @@
 }
 
 @media (max-width: 600px) {
+  .headerWraper {
+       display: none;
+  }
   .headerWraper .header{
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-  }
-
-  .header .logoBlock {
     position: absolute;
-    left: 0;
+
+    
   }
 }
 
