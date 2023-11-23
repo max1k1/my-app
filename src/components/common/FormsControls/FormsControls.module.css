@@ -31,16 +31,16 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
-
-
 }
 .formControl .textArea textarea {
     background-color: transparent;
-    width: 200px;
+    width: 300px;
     border: 0;
     resize: none;
     max-height: 20vh;
+    height: 100%;
     color: black;
+    height: 50px;
 }
 .formControl .textArea textarea::placeholder {
 color: black;

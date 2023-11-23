@@ -1,20 +1,24 @@
 import { React } from 'react';
 import { NavLink } from 'react-router-dom';
-import instagramLogoIcon from '../../../../assets/images/instagramLogoIcon.png';
-import vkontakteLogoIcon from '../../../../assets/images/vkontakteLogoIcon.png';
-import linkedinLogoIcon from '../../../../assets/images/linkedinLogoIcon.png';
-import youtubeLogoIcon from '../../../../assets/images/youtubeLogoIcon.png';
-import twitterLogoIcon from '../../../../assets/images/twitterLogoIcon.png';
-import githubLogoIcon from '../../../../assets/images/githubLogoIcon.png';
+import instagramLogoIcon from '../../../../assets/images/logos/instagramLogoIcon.png';
+import vkontakteLogoIcon from '../../../../assets/images/logos/vkontakteLogoIcon.png';
+import linkedinLogoIcon from '../../../../assets/images/logos/linkedinLogoIcon.png';
+import youtubeLogoIcon from '../../../../assets/images/logos/youtubeLogoIcon.png';
+import twitterLogoIcon from '../../../../assets/images/logos/twitterLogoIcon.png';
+import githubLogoIcon from '../../../../assets/images/logos/githubLogoIcon.png';
+import facebookLogoIcon from '../../../../assets/images/logos/facebook.jpg';
+import websiteIcon from '../../../../assets/images/logos/randomWebsiteIcon.jpg' 
 import styles from './Contacts.module.css';
 const Contacts = ({ contacts }) => {
   const logoDataBase = {
-    vk: vkontakteLogoIcon,
-    twitter: twitterLogoIcon,
-    instagram: instagramLogoIcon,
-    youtube: youtubeLogoIcon,
+    facebook: facebookLogoIcon,
     github: githubLogoIcon,
+    instagram: instagramLogoIcon,
     mainLink: linkedinLogoIcon,
+    twitter: twitterLogoIcon,
+    vk: vkontakteLogoIcon,
+    website: websiteIcon,
+    youtube: youtubeLogoIcon,
   };
   return (
     <div className={styles.contacts}>

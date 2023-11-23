@@ -28,7 +28,15 @@ const Paginator = ({ currentPage, onPageChanged, totalItemsCount, pageSize, page
                 {p}
               </span>
             );
-          })}
+          })}{' '}
+      </div>
+      <div
+        className={styles.next}
+        onClick={() => {
+          onPageChanged(pagesListNumber * 10);
+          setPagesList(pagesListNumber + 10);
+        }}>
+        ..{pagesListNumber === 1 ? pagesListNumber * 100 : (pagesListNumber + 10)*10}
       </div>
       {itemsListsCount > pagesListNumber && (
         <div onClick={() => setPagesList(pagesListNumber + 1)}>Next</div>

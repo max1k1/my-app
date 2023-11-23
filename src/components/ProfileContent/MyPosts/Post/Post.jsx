@@ -9,7 +9,7 @@ const Post = ({ text, likeCount, postImg }) => {
         {text}
       </div>
       <div>
-        <span>Likes: {likeCount}</span>
+        <div className="postLikesBlock">Likes: <div className="postLikes">{likeCount}</div></div>
       </div>
     </div>
   );

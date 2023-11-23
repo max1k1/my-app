@@ -6,3 +6,9 @@
 .singleContact{ 
     padding: 5px;
 }
+
+@media (max-width: 560px) {
+    .contacts{
+        grid-template-columns: 1fr;
+    }
+}

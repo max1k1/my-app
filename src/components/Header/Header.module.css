@@ -112,7 +112,13 @@
 
 @media (max-width: 600px) {
   .headerWraper {
+       z-index: 3;
+  }
+}
+@media (max-width: 560px) {
+  .headerWraper {
        display: none;
+       z-index: 1;
   }
   .headerWraper .header{
     width: 100%;
@@ -121,8 +127,6 @@
     align-items: center;
     justify-content: flex-end;
     position: absolute;
-
-    
   }
 }
 

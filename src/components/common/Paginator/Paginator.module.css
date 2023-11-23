@@ -16,3 +16,10 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+.paginator .pages span{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.next{
+    padding-right: 5px;
+}

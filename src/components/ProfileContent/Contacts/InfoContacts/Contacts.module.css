@@ -1,5 +1,4 @@
 .contacts{
-   
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #A679CA;
@@ -12,8 +11,7 @@
 .singleContact{ 
     padding: 10px;
 }
-.contacts img{
-
+.singleContact img{
     width: 30px;
     height: 30px;
 }

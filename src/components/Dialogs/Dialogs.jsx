@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
 import MessageItem from './MessageItem/MessageItem';
-import DialogItems from './DialogItems/DialogItems';
+import DialogItems from './DialogItems/DialogItem';
 import DialogForm from './DialogForm/DialogForm';
 
 const Dialogs = ({ sendMessage, dialogsPage }) => {

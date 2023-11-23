@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   const navbarList = [
     { name: 'Profile', ref: '/profile' },
-    { name: 'Dialogs', ref: '/dialogs' },
+    { name: 'Messanger', ref: '/dialogs' },
     { name: 'Users', ref: '/users' },
-    { name: 'News', ref: '/news' },
-    { name: 'Music', ref: '/music' },
+    // { name: 'News', ref: '/news' },
+    // { name: 'Music', ref: '/music' },
     { name: 'Settings', ref: '/settings' },
   ];
   return (

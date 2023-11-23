@@ -20,6 +20,16 @@ h3{
 .post {
     padding: 10px;
 }
+.postLikesBlock{
+    display: flex;
+    flex-direction: row;
+}
+.postLikes{
+    font-weight: 600;
+    padding-left: 5px;
+    color: #7f5d9c;
+
+}
 .post img{
     width: 300px;
     margin-right: 10px;

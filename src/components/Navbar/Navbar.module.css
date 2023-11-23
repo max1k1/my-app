@@ -30,7 +30,7 @@
 
 @media (max-width: 560px) {
   .nav{
-    z-index: 1;
+    z-index: 0;
     border-radius: 0;
     display: flex;
     justify-content: space-between;
@@ -39,5 +39,7 @@
     width: 100%;
     height: 35px;
     background-color: #dddddd;
+    margin: 0;
+    padding: 0;
   }
 }
