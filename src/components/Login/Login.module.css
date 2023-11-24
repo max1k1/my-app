@@ -33,3 +33,20 @@
 .loginFormBlock button{
    width: 250px;
 }
+.loginAccount{
+    font-weight: 500;
+    padding-top: 30px;
+}
+.loginAccountData{
+    font-weight: 400;
+}
+.loginAccountData div{
+    padding: 10px;
+}
+
+@media (max-width: 530px) {
+    .loginFormBlock{
+        border-radius: 0;
+    }
+}
+  

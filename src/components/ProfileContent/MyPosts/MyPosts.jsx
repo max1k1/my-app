@@ -1,5 +1,5 @@
 import React from 'react';
-import './MyPosts.css';
+import styles from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
 import AddNewPostForm from './AddNewPostForm/AddNewPostForm';
 
@@ -17,13 +17,13 @@ const MyPosts = ({ profile, addPost, isOwner }) => {
   };
   return (
     isOwner && (
-      <div className="postsLayout">
-        <div className="addPostBlock">
+      <div className={styles.postsLayout}>
+        <div className={styles.addPostBlock}>
           <AddNewPostForm onSubmit={onAddPost} />
         </div>
-        <div className="postsBlock">
+        <div className={styles.postsBlock}>
           <h3>My posts</h3>
-          <div className="posts">{postsElements}</div>
+          <div className={styles.posts}>{postsElements}</div>
         </div>
       </div>
     )
