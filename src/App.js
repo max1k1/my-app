@@ -9,7 +9,7 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
-import { initializeApp } from './redux/app-reducer';
+import { initializeApp } from './redux/app-reducer.ts';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 import { withRouter } from './hoc/withRouter';

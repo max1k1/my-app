@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unFollow, requestUsers } from './../../redux/users-reducer';
+import { follow, unFollow, requestUsers } from './../../redux/users-reducer.ts';
 import Users from './Users';
 import Preloader from './../common/Preloader/Preloader';
 import { useEffect } from 'react';
