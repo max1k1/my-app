@@ -54,7 +54,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 };
 type AddPostType = {
   type: typeof ADD_POST;
-  newPostText: string | null;
+  newPostText: string ;
 };
 export const addPost = (newPostText: string): AddPostType => ({ type: ADD_POST, newPostText });
 type SetUserProfilePostType = {
@@ -67,7 +67,7 @@ const setUserProfile = (profile: ProfileType): SetUserProfilePostType => ({
 });
 type DeletePostType = {
   type: typeof DELETE_POST;
-  id: number | null;
+  id: number ;
 };
 export const deletePost = (id: number): DeletePostType => ({
   type: DELETE_POST,
@@ -75,7 +75,7 @@ export const deletePost = (id: number): DeletePostType => ({
 });
 type SetStatusType = {
   type: typeof SET_STATUS;
-  status: string | null;
+  status: string ;
 };
 const setStatus = (status: string): SetStatusType => ({
   type: SET_STATUS,

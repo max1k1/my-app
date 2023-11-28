@@ -10,11 +10,11 @@ import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader';
 import { initializeApp } from './redux/app-reducer.ts';
-import store from './redux/store';
+import store from './redux/store.ts';
 import { Provider } from 'react-redux';
 import { withRouter } from './hoc/withRouter';
-import ProfileContainerWithHooks from './components/ProfileContent/ProfileContainerWithHooks';
-import UsersContainerWithHooks from './components/Users/UsersContainerWithHooks';
+import ProfileContainerWithHooks from './components/ProfileContent/ProfileContainerWithHooks.tsx';
+import UsersContainer from './components/Users/UsersContainer.tsx';
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 class App extends Component {
   componentDidMount() {
@@ -36,7 +36,7 @@ class App extends Component {
               </Route>
               <Route exact path="/" element={<Navigate to={'/profile'} />} />
               <Route path="/dialogs/*" element={<DialogsContainer />} />
-              <Route path="/users/*" element={<UsersContainerWithHooks />} />
+              <Route path="/users/*" element={<UsersContainer />} />
               <Route path="/news/*" element={<News />} />
               <Route path="/music/*" element={<Music />} />
               <Route path="/settings/*" element={<Settings />} />

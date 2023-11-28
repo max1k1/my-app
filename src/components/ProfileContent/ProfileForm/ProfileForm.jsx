@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import styles from './ProfileForm.module.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import { Checkbox, Input } from '../../common/FormsControls/FormsControls';
-import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHooks';
+import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHooks.tsx';
 import MainButton from '../../common/Buttons/MainButton/MainButton';
 import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl';
 import FormContacts from '../Contacts/FormContacts/FormContacts';

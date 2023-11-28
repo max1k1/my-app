@@ -11,12 +11,12 @@ const TOGGLE_FOLLOWING_IN_PROGRESS = 'TOGGLE_FOLLOWING_IN_PROGRESS';
 
 const initialState = {
   usersDate: [] as Array<UserDateType>,
-  totalUsersCount: 10 as number | null,
-  pageSize: 5 as number | null,
-  currentPage: 1 as number | null,
-  isFetching: true as boolean,
+  totalUsersCount: 10,
+  pageSize: 5,
+  currentPage: 1,
+  isFetching: true,
   followingInProgress: [] as Array<number>,
-  pagesListSize: 10 as number | null,
+  pagesListSize: 10,
 };
 export type InitialStateType = typeof initialState;
 const usersReducer = (state = initialState, action: any): InitialStateType => {
@@ -120,7 +120,7 @@ export const requestUsers = (pageSize: number, pageNumber: number) => {
     dispatch(setTotalUsersCount(data.totalCount));
   };
 };
-const followUnfollowFlow = (apiMethod: Function, actionCreator: Function, userId: number) => {
+const followUnfollowFlow = (apiMethod: any, actionCreator: any, userId: number) => {
   return async (dispatch: any) => {
     dispatch(togglefollowingInProgress(true, userId));
     let resultCode = await apiMethod(userId);

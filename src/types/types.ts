@@ -4,42 +4,42 @@ export type PhotosType = {
 };
 export type UserDateType = {
   followed: boolean;
-  id: number | null;
-  name: string | null;
+  id: number;
+  name: string;
   photos: PhotosType;
-  status: string | null;
-  uniqueUrlName: string | null;
+  status: string;
+  uniqueUrlName: string;
 };
 export type PostType = {
-  id: number | null;
-  text: string | null;
-  likeCount: number | null;
-  img: PhotosType
+  id: number;
+  text: string;
+  likeCount: number;
+  img: PhotosType;
 };
 export type ContactsType = {
-  github: string | null;
-  vk: string | null;
-  facebook: string | null;
-  instagram: string | null;
-  twitter: string | null;
-  website: string | null;
-  youtube: string | null;
-  mainLink: string | null;
+  github: string;
+  vk: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  website: string;
+  youtube: string;
+  mainLink: string;
 };
 export type ProfileType = {
-  userId: number
+  userId: number;
   lookingForAJob: boolean;
-  lookingForAJobDescription: string 
-  fullName: string 
+  lookingForAJobDescription: string;
+  fullName: string;
   contacts: ContactsType;
   photos: PhotosType;
 };
 export type DialogType = {
-  id: number | null;
-  userName: string | null;
-  isActive: boolean | null;
+  id: number;
+  userName: string;
+  isActive: boolean;
 };
 export type MessageType = {
-  id: number | null;
-  text: string | null;
+  id: number;
+  text: string;
 };

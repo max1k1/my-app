@@ -1,29 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import styles from './ProfileStatus.module.css';
 
-const ProfileStatusWithHooks = (props) => {
+type PropsType = {
+  status: string;
+  isOwner: boolean;
+  updateStatus: (tempStatus: string) => void;
+};
+const ProfileStatusWithHooks = ({ status, isOwner, updateStatus }: PropsType) => {
   let [editMode, setEditMode] = useState(false);
-  let [status, setStatus] = useState(props.status);
+  let [tempStatus, setStatus] = useState(status);
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(status);
+  }, [status]);
   const activateEditMode = () => {
-    if (props.isOwner) {
+    if (isOwner) {
       setEditMode(true);
     }
   };
   const deavateEditMode = () => {
     setEditMode(false);
-    props.updateStatus(status);
+    updateStatus(tempStatus);
   };
-  const onStatusChange = (e) => {
+  const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
     setStatus(e.currentTarget.value);
   };
   return (
     <div>
       {!editMode && (
         <div className={styles.status}>
-          <span onClick={activateEditMode}>{props.status || ''}</span>
+          <span onClick={activateEditMode}>{status || ''}</span>
         </div>
       )}
       {editMode && (
@@ -33,7 +38,7 @@ const ProfileStatusWithHooks = (props) => {
             onChange={onStatusChange}
             autoFocus={true}
             onBlur={deavateEditMode}
-            value={status}
+            value={tempStatus}
           />
         </div>
       )}

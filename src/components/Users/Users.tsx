@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Users.module.css';
-import Paginator from '../common/Paginator/Paginator';
-import User from './User/User';
-
-const Users = ({
+import Paginator from '../common/Paginator/Paginator.tsx';
+import User from './User/User.tsx';
+import { UserDateType } from '../../types/types.ts';
+type PropsType = {
+  currentPage: number;
+  onPageChanged: (pageNumber: number) => void;
+  totalUsersCount: number;
+  pageSize: number;
+  usersDate: Array<UserDateType>;
+  follow: (id: number )=>void;
+  unFollow: (id: number )=>void;
+  followingInProgress: Array<number>;
+  pagesListSize: number;
+};
+const Users: FC<PropsType> = ({
   currentPage,
   onPageChanged,
   totalUsersCount,

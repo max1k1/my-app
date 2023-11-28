@@ -6,7 +6,7 @@ import ProfileInfoForm from './ProfileForm/ProfileForm';
 // import vMarkIcon from '../../../assets/images/v-mark.png';
 // import xMarkIcon from '../../../assets/images/x-mark.svg';
 import defalutBackground from '../../assets/images/defaultBackground.png';
-import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
+import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks.tsx';
 import MainButton from '../common/Buttons/MainButton/MainButton';
 import UploadButtonControl from '../common/UploadButtonControl/UploadButtonControl';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
