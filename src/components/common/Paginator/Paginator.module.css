@@ -1,6 +1,9 @@
 .selectedPageNumber{
     color: #A679CA;
-    font-weight: 800;
+
+    font-weight: 700;
+    background-color: #f2e7fa;
+    border-radius: 5px;
 }
 .paginator{
     cursor: pointer;
@@ -10,7 +13,9 @@
     justify-content: space-between;
     justify-content: space-around;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 18px;
+    padding-top: 10px;
+    
 }
 .paginator .pages{
     display: block;
@@ -18,9 +23,19 @@
     padding-right: 5px;
 }
 .paginator .pages span{
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .next{
     padding-right: 5px;
 }
+@media (max-width: 400px) {
+    .paginator{
+        font-size: 15px;
+    }
+    .paginator .pages span{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+  

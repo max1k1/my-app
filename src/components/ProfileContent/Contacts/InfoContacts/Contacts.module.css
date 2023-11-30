@@ -10,6 +10,9 @@
 }
 .singleContact{ 
     padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .singleContact img{
     width: 30px;

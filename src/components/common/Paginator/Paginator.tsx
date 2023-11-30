@@ -26,7 +26,7 @@ const Paginator: React.FC<PropsType> = ({
   let rightPagesListNumber = pagesListNumber * pagesListSize;
   return (
     <div className={styles.paginator}>
-      {1 < pagesListNumber && <div onClick={() => setPagesList(pagesListNumber - 1)}>Back</div>}
+      {1 < pagesListNumber && <div onClick={() => setPagesList(pagesListNumber - 1)}>{"<"}</div>}
       <div className={styles.pages}>
         {pages
           .filter((p) => p >= leftPagesListNumber && p <= rightPagesListNumber)
@@ -52,7 +52,7 @@ const Paginator: React.FC<PropsType> = ({
         ..{pagesListNumber === 1 ? pagesListNumber * 100 : (pagesListNumber + 10) * 10}
       </div>
       {itemsListsCount > pagesListNumber && (
-        <div onClick={() => setPagesList(pagesListNumber + 1)}>Next</div>
+        <div onClick={() => setPagesList(pagesListNumber + 1)}>{">"}</div>
       )}
     </div>
   );

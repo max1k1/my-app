@@ -1,7 +1,9 @@
-import { stopSubmit } from 'redux-form';
+import { FormAction, stopSubmit } from 'redux-form';
 import { profileAPI } from '../api/api';
 // import testImgIcon from '../assets/images/1post.png';
 import { PhotosType, PostType, ProfileType } from '../types/types';
+import { ThunkAction } from 'redux-thunk';
+import { AppStateType } from './store';
 const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
@@ -22,7 +24,7 @@ const initialState = {
   newPostText: '',
 };
 export type InitialStateType = typeof initialState;
-const profileReducer = (state = initialState, action: any): InitialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case ADD_POST:
       return {
@@ -47,16 +49,28 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
     case SET_STATUS:
       return { ...state, status: action.status };
     case SET_PHOTO_SUCCESS:
-      return { ...state, profile: { ...state.profile, photos: action.photos } as ProfileType};
+      return { ...state, profile: { ...state.profile, photos: action.photos } as ProfileType };
     default:
-      return state; 
+      return state;
   }
 };
+type ActionsTypes =
+  | AddPostType
+  | SetUserProfilePostType
+  | DeletePostType
+  | SetStatusType
+  | SetPhotoSuccessType;
+type ExtendedlActionTypes = ActionsTypes | FormAction;
 type AddPostType = {
   type: typeof ADD_POST;
-  newPostText: string ;
+  newPostText: string;
+  img: PhotosType;
 };
-export const addPost = (newPostText: string): AddPostType => ({ type: ADD_POST, newPostText });
+export const addPost = (newPostText: string, img: PhotosType): AddPostType => ({
+  type: ADD_POST,
+  newPostText,
+  img,
+});
 type SetUserProfilePostType = {
   type: typeof SET_USER_PROFILE;
   profile: ProfileType;
@@ -67,7 +81,7 @@ const setUserProfile = (profile: ProfileType): SetUserProfilePostType => ({
 });
 type DeletePostType = {
   type: typeof DELETE_POST;
-  id: number ;
+  id: number;
 };
 export const deletePost = (id: number): DeletePostType => ({
   type: DELETE_POST,
@@ -75,7 +89,7 @@ export const deletePost = (id: number): DeletePostType => ({
 });
 type SetStatusType = {
   type: typeof SET_STATUS;
-  status: string ;
+  status: string;
 };
 const setStatus = (status: string): SetStatusType => ({
   type: SET_STATUS,
@@ -89,29 +103,40 @@ const setPhotoSucces = (photos: PhotosType): SetPhotoSuccessType => ({
   type: SET_PHOTO_SUCCESS,
   photos,
 });
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ExtendedlActionTypes>;
 //---------------------------------------------------------------------------------------//
-export const getUserProfile = (userId: number) => async (dispatch: any) => {
-  let response = await profileAPI.getProfile(userId);
-  dispatch(setUserProfile(response.data));
-};
-export const getStatus = (userId: number) => async (dispatch: any) => {
-  let response = await profileAPI.getStatus(userId);
-  dispatch(setStatus(response.data));
-};
-export const updateStatus = (status: string) => async (dispatch: any) => {
-  let response = await profileAPI.updateStatus(status);
-  if (response.data.resultCode === 0) {
-    dispatch(setStatus(status));
-  }
-};
-export const updatePhoto = (file: any) => async (dispatch: any) => {
-  let response = await profileAPI.updatePhoto(file);
-  if (response.data.resultCode === 0) {
-    dispatch(setPhotoSucces(response.data.data.photos));
-  }
-};
+export const getUserProfile =
+  (userId: number | null): ThunkType =>
+  async (dispatch) => {
+    let response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response.data));
+  };
+export const getStatus =
+  (userId: number): ThunkType =>
+  async (dispatch: any) => {
+    let response = await profileAPI.getStatus(userId);
+    dispatch(setStatus(response.data));
+  };
+export const updateStatus =
+  (status: string): ThunkType =>
+  async (dispatch: any) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
+  };
+export const updatePhoto =
+  (file: any): ThunkType =>
+  async (dispatch: any) => {
+    let response = await profileAPI.updatePhoto(file);
+    if (response.data.resultCode === 0) {
+      dispatch(setPhotoSucces(response.data.data.photos));
+    }
+  };
+
 export const updateProfileInfo =
-  (profileData: ProfileType) => async (dispatch: any, getState: any) => {
+  (profileData: ProfileType): ThunkType =>
+  async (dispatch, getState) => {
     const id = getState().auth.id;
     if (profileData.lookingForAJob === undefined) {
       // crutch(backend mistake)

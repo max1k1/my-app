@@ -13,7 +13,7 @@ const initialState = {
   messagesData: [{ id: 1, text: 'Some test text' }] as Array<MessageType>,
 };
 export type InitialStateType = typeof initialState;
-const dialogsReducer = (state = initialState, action: any) => {
+const dialogsReducer = (state = initialState, action: ActionsTypes) => {
   switch (action.type) {
     case SEND_MESSAGE:
       return {
@@ -27,7 +27,7 @@ const dialogsReducer = (state = initialState, action: any) => {
       return state;
   }
 };
-
+type ActionsTypes = SendMessageCreatorActionType;
 type SendMessageCreatorActionType = {
   type: typeof SEND_MESSAGE;
   newMessageText: string | null;

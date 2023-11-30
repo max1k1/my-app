@@ -1,6 +1,9 @@
+import { Dispatch } from 'redux';
 import { usersAPI } from '../api/api';
 import { UserDateType } from '../types/types';
 import { updateObjectInArray } from '../utils/validators/object-helpers';
+import { AppStateType } from './store';
+import { ThunkAction } from 'redux-thunk';
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -19,7 +22,7 @@ const initialState = {
   pagesListSize: 10,
 };
 export type InitialStateType = typeof initialState;
-const usersReducer = (state = initialState, action: any): InitialStateType => {
+const usersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case FOLLOW:
       return {
@@ -51,6 +54,15 @@ const usersReducer = (state = initialState, action: any): InitialStateType => {
       return state;
   }
 };
+
+type ActionsTypes =
+  | SetUsersActionCreatorType
+  | FollowSuccessActionCreatorType
+  | UnFollowSuccessActionCreatorType
+  | SetPageActionCreatorType
+  | SetTotalUsersCountActionCreatorType
+  | ToggleIsFatchingActionCreatorType
+  | TogglefollowingInProgressActionCreatorType;
 type SetUsersActionCreatorType = {
   type: typeof SET_USERS;
   usersDate: Array<UserDateType>;
@@ -110,8 +122,11 @@ const togglefollowingInProgress = (
   userId,
 });
 
-export const requestUsers = (pageSize: number, pageNumber: number) => {
-  return async (dispatch: any) => {
+type DispatchType = Dispatch<ActionsTypes>;
+// type GetStateType = () => AppStateType; and type DispatchType = Dispatch<ActionsTypes>; here is the other way-> ThunkAction is other way to define type of dispatch and getState, commonly we are just difining complete Thunk.
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
+export const requestUsers = (pageSize: number, pageNumber: number): ThunkType => {
+  return async (dispatch) => {
     dispatch(toggleIsFatching(true));
     const data = await usersAPI.getUsers(pageSize, pageNumber);
     dispatch(toggleIsFatching(false));
@@ -120,8 +135,14 @@ export const requestUsers = (pageSize: number, pageNumber: number) => {
     dispatch(setTotalUsersCount(data.totalCount));
   };
 };
-const followUnfollowFlow = (apiMethod: any, actionCreator: any, userId: number) => {
-  return async (dispatch: any) => {
+const _followUnfollowFlow = (
+  apiMethod: any,
+  actionCreator: (
+    userId: number,
+  ) => FollowSuccessActionCreatorType | UnFollowSuccessActionCreatorType,
+  userId: number,
+) => {
+  return async (dispatch: DispatchType) => {
     dispatch(togglefollowingInProgress(true, userId));
     let resultCode = await apiMethod(userId);
     if (resultCode === 0) {
@@ -130,10 +151,10 @@ const followUnfollowFlow = (apiMethod: any, actionCreator: any, userId: number) 
     dispatch(togglefollowingInProgress(false, userId));
   };
 };
-export const unFollow = (userId: number) => {
-  return followUnfollowFlow(usersAPI.unfollow.bind(usersAPI), unFollowSuccess, userId);
+export const unFollow = (userId: number): ThunkType => {
+  return _followUnfollowFlow(usersAPI.unfollow.bind(usersAPI), unFollowSuccess, userId);
 };
-export const follow = (userId: number) => {
-  return followUnfollowFlow(usersAPI.follow.bind(usersAPI), followSuccess, userId);
+export const follow = (userId: number): ThunkType => {
+  return _followUnfollowFlow(usersAPI.follow.bind(usersAPI), followSuccess, userId);
 };
 export default usersReducer;
