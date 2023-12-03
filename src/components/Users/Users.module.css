@@ -42,7 +42,7 @@
     background-color: #9e6ec5;
     background-color: #efefef;
 }
-@media (max-width: 530px) {
+@media (max-width: 560px) {
     .pageLayout{
         flex-direction: column-reverse;
     }

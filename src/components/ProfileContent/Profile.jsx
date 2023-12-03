@@ -16,7 +16,6 @@ const Profile = ({
   profile,
   status,
   updateStatus,
-  authorizedUserId,
   isOwner,
   updatePhoto,
   updateProfileInfo,
