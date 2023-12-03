@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styles from './ProfileForm.module.css';
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
-import { Checkbox, Input } from '../../common/FormsControls/FormsControls';
+import { maxLengthCreator, required } from '../../../utils/validators/validators.ts';
+import { Checkbox, Input } from '../../common/FormsControls/FormsControls.tsx'
 import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHooks.tsx';
 import MainButton from '../../common/Buttons/MainButton/MainButton';
 import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl';

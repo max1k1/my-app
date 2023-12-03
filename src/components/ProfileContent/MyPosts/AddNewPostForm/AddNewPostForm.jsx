@@ -3,8 +3,8 @@ import { Field, reduxForm } from "redux-form";
 import {
   maxLengthCreator,
   required,
-} from "./../../../../utils/validators/validators";
-import { TextArea } from "../../../common/FormsControls/FormsControls";
+} from "./../../../../utils/validators/validators.ts";
+import { TextArea } from "../../../common/FormsControls/FormsControls.tsx";
 import MainButton from '../../../common/Buttons/MainButton/MainButton';
 
 const maxLength10 = maxLengthCreator(300);

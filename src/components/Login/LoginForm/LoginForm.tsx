@@ -1,13 +1,19 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Input, Checkbox } from '../../common/FormsControls/FormsControls';
-import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
+import { Input, Checkbox } from '../../common/FormsControls/FormsControls.tsx';
+import { maxLengthCreator, required } from '../../../utils/validators/validators.ts';
 import stylesFormControl from '../../common/FormsControls/FormsControls.module.css';
 import MainButton from '../../common/Buttons/MainButton/MainButton';
 import styles from '../Login.module.css';
+import { LoginFormValuesType } from '../Login';
 const usernameMaxLength = maxLengthCreator(30);
 const passwordMaxLength = maxLengthCreator(30);
-const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
+type LoginFormOwnProps = {
+  captchaUrl: string | null;
+};
+const LoginForm: React.FC<
+  InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps
+> = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.loginFormBlock}>
       <h1>React Social Media</h1>
@@ -54,4 +60,4 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     </form>
   );
 };
-export default reduxForm({ form: 'login' })(LoginForm);
+export default reduxForm<LoginFormValuesType, LoginFormOwnProps>({ form: 'login' })(LoginForm);

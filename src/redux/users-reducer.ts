@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { usersAPI } from '../api/api';
+import { usersAPI } from '../api/api.ts';
 import { UserDateType } from '../types/types';
 import { updateObjectInArray } from '../utils/validators/object-helpers';
 import { AppStateType } from './store';

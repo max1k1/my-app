@@ -1,5 +1,5 @@
 import { FormAction, stopSubmit } from 'redux-form';
-import { profileAPI } from '../api/api';
+import { ResultCodesEnum, profileAPI } from '../api/api.ts';
 // import testImgIcon from '../assets/images/1post.png';
 import { PhotosType, PostType, ProfileType } from '../types/types';
 import { ThunkAction } from 'redux-thunk';
@@ -106,31 +106,31 @@ const setPhotoSucces = (photos: PhotosType): SetPhotoSuccessType => ({
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ExtendedlActionTypes>;
 //---------------------------------------------------------------------------------------//
 export const getUserProfile =
-  (userId: number | null): ThunkType =>
+  (userId: number): ThunkType =>
   async (dispatch) => {
-    let response = await profileAPI.getProfile(userId);
-    dispatch(setUserProfile(response.data));
+    const response = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(response));
   };
 export const getStatus =
   (userId: number): ThunkType =>
   async (dispatch: any) => {
-    let response = await profileAPI.getStatus(userId);
-    dispatch(setStatus(response.data));
+    const status = await profileAPI.getStatus(userId);
+    dispatch(setStatus(status));
   };
 export const updateStatus =
   (status: string): ThunkType =>
   async (dispatch: any) => {
-    let response = await profileAPI.updateStatus(status);
-    if (response.data.resultCode === 0) {
+    let data = await profileAPI.updateStatus(status);
+    if (data.resultCode === ResultCodesEnum.Success) {
       dispatch(setStatus(status));
     }
   };
 export const updatePhoto =
   (file: any): ThunkType =>
   async (dispatch: any) => {
-    let response = await profileAPI.updatePhoto(file);
-    if (response.data.resultCode === 0) {
-      dispatch(setPhotoSucces(response.data.data.photos));
+    let data = await profileAPI.updatePhoto(file);
+    if (data.resultCode === ResultCodesEnum.Success) {
+      dispatch(setPhotoSucces(data.data.photos));
     }
   };
 
@@ -142,12 +142,14 @@ export const updateProfileInfo =
       // crutch(backend mistake)
       profileData.lookingForAJobDescription = 'nothing';
     }
-    const response = await profileAPI.saveProfileInfo(profileData);
-    if (response.data.resultCode === 0) {
-      dispatch(getUserProfile(id));
+    const data = await profileAPI.saveProfileInfo(profileData);
+    if (data.resultCode === ResultCodesEnum.Success) {
+      if (id != null) {
+        dispatch(getUserProfile(id));
+      }
     } else {
-      dispatch(stopSubmit('edit-profile', { _error: response.data.messages[0] }));
-      return Promise.reject(response.data.messages[0]);
+      dispatch(stopSubmit('edit-profile', { _error: data.messages[0] }));
+      return Promise.reject(data.messages[0]);
     }
   };
 export default profileReducer;

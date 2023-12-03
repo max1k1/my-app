@@ -1,7 +1,13 @@
-import { React } from 'react';
+import React from 'react';
 import styles from './FormsControls.module.css';
+import { WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form';
 
-export const FormControl = ({ meta: { touched, error }, children }) => {
+type FormContolPropsType = {
+  meta: WrappedFieldMetaProps;
+  children: React.ReactNode
+};
+
+const FormControl: React.FC<FormContolPropsType> = ({ meta: { touched, error }, children }) => {
   const haveError = touched && error;
   return (
     <div className={styles.formControl + ' ' + (haveError ? styles.error : '010')}>
@@ -11,7 +17,7 @@ export const FormControl = ({ meta: { touched, error }, children }) => {
   );
 };
 
-export const TextArea = (props) => {
+export const TextArea: React.FC<WrappedFieldProps> = (props) => {
   const { input, ...restProps } = props;
   return (
     <FormControl {...props}>
@@ -22,8 +28,11 @@ export const TextArea = (props) => {
   );
 };
 // input have to split 2 props(meta, child) - they have no reason to be spreaded
-export const Input = (props) => {
-  const { input, meta, child, ...restProps } = props;
+export const Input: React.FC<WrappedFieldProps> = (props) => {
+  // const { input, meta, child, ...restProps } = props;
+  console.log(props)
+  const { input, meta, ...restProps } = props;
+  console.log(props)
   return (
     <FormControl {...props}>
       <div className={styles.text}>
@@ -32,8 +41,9 @@ export const Input = (props) => {
     </FormControl>
   );
 };
-export const Checkbox = (props) => {
-  const { input, meta, child, ...restProps } = props;
+export const Checkbox: React.FC<WrappedFieldProps> = (props) => {
+  // const { input, meta, child, ...restProps } = props;
+  const { input, meta, ...restProps } = props;
   return (
     <FormControl {...props}>
       <div className={styles.checkbox}>

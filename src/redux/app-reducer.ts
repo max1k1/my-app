@@ -30,7 +30,6 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const initializeApp = (): ThunkType => {
   return async (dispatch) => {
     const response = await dispatch(getAuthUserData());
-    console.log(response)
     Promise.all([response]).then(() => {
       dispatch(initializedSuccess());
     });

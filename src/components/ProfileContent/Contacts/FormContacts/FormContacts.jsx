@@ -1,7 +1,7 @@
 import { React } from 'react';
 import styles from './FormContacts.module.css';
 import { Field } from 'redux-form';
-import { Input } from '../../../common/FormsControls/FormsControls';
+import { Input } from '../../../common/FormsControls/FormsControls.tsx';
 const FormContacts = ({ contacts }) => {
   return (
     <div className={styles.contacts}>
