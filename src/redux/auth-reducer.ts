@@ -1,7 +1,8 @@
 import { FormAction, stopSubmit } from 'redux-form';
-import { ResultCodeForCaptcha, ResultCodesEnum, authAPI, securityAPI } from '../api/api.ts';
-import { ThunkAction } from 'redux-thunk';
-import { AppStateType, InferActionsTypes } from './store';
+import { ResultCodeForCaptcha, ResultCodesEnum } from '../api/api.ts';
+import { securityAPI } from '../api/security-api.ts';
+import { authAPI } from '../api/auth-api.ts';
+import { BaseThunkType, InferActionsTypes } from './store';
 const initialState = {
   id: null as number | null,
   email: null as string | null,
@@ -9,7 +10,6 @@ const initialState = {
   isAuth: false as boolean,
   captchaUrl: null as string | null, // if null, then captcha is not required
 };
-export type InitialStateType = typeof initialState;
 
 const authReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
@@ -29,11 +29,14 @@ const authReducer = (state = initialState, action: ActionsTypes): InitialStateTy
       return state;
   }
 };
-type ActionsTypes = InferActionsTypes<typeof actions>;
-type ExtendedlActionTypes = ActionsTypes | FormAction;
 
 export const actions = {
-  setAuthUserData: (id: number| null, email: string| null, login: string| null, isAuth: boolean) =>
+  setAuthUserData: (
+    id: number | null,
+    email: string | null,
+    login: string | null,
+    isAuth: boolean,
+  ) =>
     ({
       type: 'SET_AUTH_USER_DATA',
       payload: { id, email, login, isAuth },
@@ -45,7 +48,6 @@ export const actions = {
     } as const),
 };
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ExtendedlActionTypes>;
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
   const meData = await authAPI.me();
   if (meData.resultCode === ResultCodesEnum.Success) {
@@ -78,11 +80,14 @@ export const getCaptchaUrl = (): ThunkType => async (dispatch) => {
 };
 export const logout = (): ThunkType => {
   return async (dispatch) => {
-    const data = await authAPI.logout();
-    if (data.resultCode === ResultCodesEnum.Success) {
-      dispatch(actions.setAuthUserData(null, null, null, false));
-    }
+    await authAPI.logout();
+    dispatch(actions.setAuthUserData(null, null, null, false));
   };
 };
 
 export default authReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof actions>;
+type ExtendedlActionTypes = ActionsTypes | FormAction;
+type ThunkType = BaseThunkType<ExtendedlActionTypes>;

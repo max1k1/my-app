@@ -1,4 +1,5 @@
-import { React } from "react";
+import React from "react";
+
 
 const UploadButtonControl = ({ children, value, onChange, disabled, accept }) => {
     return (

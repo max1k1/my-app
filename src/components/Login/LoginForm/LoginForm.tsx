@@ -3,7 +3,7 @@ import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import { Input, Checkbox } from '../../common/FormsControls/FormsControls.tsx';
 import { maxLengthCreator, required } from '../../../utils/validators/validators.ts';
 import stylesFormControl from '../../common/FormsControls/FormsControls.module.css';
-import MainButton from '../../common/Buttons/MainButton/MainButton';
+import MainButton from '../../common/Buttons/MainButton/MainButton.tsx';
 import styles from '../Login.module.css';
 import { LoginFormValuesType } from '../Login';
 const usernameMaxLength = maxLengthCreator(30);

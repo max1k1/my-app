@@ -4,8 +4,8 @@ import styles from './ProfileForm.module.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators.ts';
 import { Checkbox, Input } from '../../common/FormsControls/FormsControls.tsx'
 import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHooks.tsx';
-import MainButton from '../../common/Buttons/MainButton/MainButton';
-import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl';
+import MainButton from '../../common/Buttons/MainButton/MainButton.tsx';
+import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl.tsx';
 import FormContacts from '../Contacts/FormContacts/FormContacts';
 
 const maxLength200 = maxLengthCreator(200);

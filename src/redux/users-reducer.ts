@@ -1,9 +1,7 @@
-import { Dispatch } from 'redux';
-import { usersAPI } from '../api/api.ts';
+import { usersAPI } from '../api/users-api.ts';
 import { UserDateType } from '../types/types';
 import { updateObjectInArray } from '../utils/validators/object-helpers';
-import { AppStateType, InferActionsTypes } from './store';
-import { ThunkAction } from 'redux-thunk';
+import { BaseThunkType, InferActionsTypes } from './store';
 
 const initialState = {
   usersDate: [] as Array<UserDateType>,
@@ -14,7 +12,7 @@ const initialState = {
   followingInProgress: [] as Array<number>,
   pagesListSize: 10,
 };
-export type InitialStateType = typeof initialState;
+
 const usersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case 'FOLLOW':
@@ -48,7 +46,6 @@ const usersReducer = (state = initialState, action: ActionsTypes): InitialStateT
   }
 };
 
-type ActionsTypes = InferActionsTypes<typeof actions>;
 export const actions = {
   setUsers: (usersDate: Array<UserDateType>) =>
     ({
@@ -84,9 +81,6 @@ export const actions = {
     } as const),
 };
 
-type DispatchType = Dispatch<ActionsTypes>;
-// type GetStateType = () => AppStateType; and type DispatchType = Dispatch<ActionsTypes>; here is the other way-> ThunkAction is other way to define type of dispatch and getState, commonly we are just difining complete Thunk.
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
 export const requestUsers = (pageSize: number, pageNumber: number): ThunkType => {
   return async (dispatch) => {
     dispatch(actions.toggleIsFatching(true));
@@ -101,8 +95,8 @@ const _followUnfollowFlow = (
   apiMethod: any,
   actionCreator: (userId: number) => ActionsTypes,
   userId: number,
-) => {
-  return async (dispatch: DispatchType) => {
+): ThunkType => {
+  return async (dispatch) => {
     dispatch(actions.togglefollowingInProgress(true, userId));
     let resultCode = await apiMethod(userId);
     if (resultCode === 0) {
@@ -118,3 +112,9 @@ export const follow = (userId: number): ThunkType => {
   return _followUnfollowFlow(usersAPI.follow.bind(usersAPI), actions.followSuccess, userId);
 };
 export default usersReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof actions>;
+type ThunkType = BaseThunkType<ActionsTypes>;
+// type DispatchType = Dispatch<ActionsTypes>;
+// type GetStateType = () => AppStateType; and type DispatchType = Dispatch<ActionsTypes>; here is the other way-> ThunkAction is other way to define type of dispatch and getState, commonly we are just difining complete Thunk.

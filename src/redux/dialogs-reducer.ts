@@ -11,7 +11,7 @@ const initialState = {
   ] as Array<DialogType>,
   messagesData: [{ id: 1, text: 'Some test text' }] as Array<MessageType>,
 };
-export type InitialStateType = typeof initialState;
+
 const dialogsReducer = (state = initialState, action: ActionsTypes) => {
   switch (action.type) {
     case 'SEND_MESSAGE':
@@ -26,13 +26,16 @@ const dialogsReducer = (state = initialState, action: ActionsTypes) => {
       return state;
   }
 };
-type ActionsTypes = InferActionsTypes<typeof actions>;
 
-export const actions ={
-  sendMessageCreator: (newMessageText: string) => ({
-    type: 'SEND_MESSAGE',
-    newMessageText,
-  }as const)
-}
+export const actions = {
+  sendMessageCreator: (newMessageText: string) =>
+    ({
+      type: 'SEND_MESSAGE',
+      newMessageText,
+    } as const),
+};
 
 export default dialogsReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof actions>;

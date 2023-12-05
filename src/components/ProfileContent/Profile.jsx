@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styles from './Profile.module.css';
-import Preloader from '../common/Preloader/Preloader';
+import Preloader from '../common/Preloader/Preloader.tsx';
 import userPhoto from '../../assets/images/userPhoto.png';
 import ProfileInfoForm from './ProfileForm/ProfileForm';
 // import vMarkIcon from '../../../assets/images/v-mark.png';
 // import xMarkIcon from '../../../assets/images/x-mark.svg';
 import defalutBackground from '../../assets/images/defaultBackground.png';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks.tsx';
-import MainButton from '../common/Buttons/MainButton/MainButton';
-import UploadButtonControl from '../common/UploadButtonControl/UploadButtonControl';
+import MainButton from '../common/Buttons/MainButton/MainButton.tsx';
+import UploadButtonControl from '../common/UploadButtonControl/UploadButtonControl.tsx';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import Contacts from './Contacts/InfoContacts/Contacts';
 

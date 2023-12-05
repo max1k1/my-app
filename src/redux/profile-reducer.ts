@@ -1,9 +1,8 @@
 import { FormAction, stopSubmit } from 'redux-form';
-import { ResultCodesEnum, profileAPI } from '../api/api.ts';
-// import testImgIcon from '../assets/images/1post.png';
+import { ResultCodesEnum } from '../api/api.ts';
+import { profileAPI } from '../api/profile-api.ts';
 import { PhotosType, PostType, ProfileType } from '../types/types';
-import { ThunkAction } from 'redux-thunk';
-import { AppStateType, InferActionsTypes } from './store';
+import { BaseThunkType, InferActionsTypes } from './store';
 
 const initialState = {
   postsDate: [
@@ -18,7 +17,7 @@ const initialState = {
   status: '',
   newPostText: '',
 };
-export type InitialStateType = typeof initialState;
+
 const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case 'ADD_POST':
@@ -49,8 +48,6 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
       return state;
   }
 };
-type ActionsTypes = InferActionsTypes<typeof actions>;
-type ExtendedlActionTypes = ActionsTypes | FormAction;
 
 export const actions = {
   addPost: (newPostText: string, img: PhotosType) =>
@@ -81,8 +78,6 @@ export const actions = {
     } as const),
 };
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ExtendedlActionTypes>;
-//---------------------------------------------------------------------------------------//
 export const getUserProfile =
   (userId: number): ThunkType =>
   async (dispatch) => {
@@ -108,7 +103,7 @@ export const updatePhoto =
   async (dispatch: any) => {
     let data = await profileAPI.updatePhoto(file);
     if (data.resultCode === ResultCodesEnum.Success) {
-      dispatch(actions.setPhotoSucces(data.data.photos));
+      dispatch(actions.setPhotoSucces(data.data));
     }
   };
 
@@ -124,6 +119,8 @@ export const updateProfileInfo =
     if (data.resultCode === ResultCodesEnum.Success) {
       if (id != null) {
         dispatch(getUserProfile(id));
+      } else{
+        throw new Error("user id can't be null")
       }
     } else {
       dispatch(stopSubmit('edit-profile', { _error: data.messages[0] }));
@@ -131,3 +128,8 @@ export const updateProfileInfo =
     }
   };
 export default profileReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsTypes = InferActionsTypes<typeof actions>;
+type ExtendedlActionTypes = ActionsTypes | FormAction;
+type ThunkType = BaseThunkType<ExtendedlActionTypes>;

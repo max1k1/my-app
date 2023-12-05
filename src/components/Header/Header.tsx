@@ -5,12 +5,17 @@ import headerImage from '../../assets/images/28638.jpg';
 import downArrow from '../../assets/images/down-arrow.png';
 import profilePicutreHeader from '../../assets/images/profilePicutreHeader.png';
 import { useState } from 'react';
-const Header = (props) => {
+// type PropsType = {
+//   isAuth: boolean;
+//   login: string;
+//   logout: () => void;
+// };
+const Header = (props: any) => {
   const [popUpMode, setPopUpMode] = useState(false);
-  const popUpModeRef = React.useRef();
+  const popUpModeRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(popUpModeRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popUpModeRef.current && !event.composedPath().includes(popUpModeRef.current)) {
         setPopUpMode(false);
       }
     };
