@@ -4,19 +4,25 @@ import Navbar from './components/Navbar/Navbar.tsx';
 import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
 import News from './components/News/News.tsx';
 import Music from './components/Music/Music.tsx';
-import Settings from './components/Settings/Settings';
+import Settings from './components/Settings/Settings.jsx';
 import HeaderContainer from './components/Header/HeaderContainer.tsx';
 import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
 import Preloader from './components/common/Preloader/Preloader.tsx';
 import { initializeApp } from './redux/app-reducer.ts';
-import store from './redux/store.ts';
+import store, { AppStateType } from './redux/store.ts';
 import { Provider } from 'react-redux';
-import { withRouter } from './hoc/withRouter';
+import { withRouter } from './hoc/withRouter.js';
 import ProfileContainerWithHooks from './components/ProfileContent/ProfileContainerWithHooks.tsx';
 import UsersContainer from './components/Users/UsersContainer.tsx';
-const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
-class App extends Component {
+import { compose } from 'redux';
+const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer.tsx'));
+
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+  initializeApp: ()=>void
+}
+class App extends Component<MapPropsType & DispatchPropsType> {
   componentDidMount() {
     this.props.initializeApp();
   }
@@ -34,13 +40,13 @@ class App extends Component {
               <Route path="/profile" element={<ProfileContainerWithHooks />}>
                 <Route path=":userId" element={<ProfileContainerWithHooks />} />
               </Route>
-              <Route exact path="/" element={<Navigate to={'/profile'} />} />
+              <Route path="/" element={<Navigate to={'/profile'} />} />
               <Route path="/dialogs/*" element={<DialogsContainer />} />
               <Route path="/users/*" element={<UsersContainer />} />
               <Route path="/news/*" element={<News />} />
               <Route path="/music/*" element={<Music />} />
               <Route path="/settings/*" element={<Settings />} />
-              <Route exact path="/login/*" element={<Login />} />
+              <Route path="/login/*" element={<Login />} />
               <Route path="*" element={<div>404 NOT FOUND</div>} />
             </Routes>
           </Suspense>
@@ -49,12 +55,16 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   initialized: state.app.initialized,
 });
-let AppContainer = withRouter(connect(mapStateToProps, { initializeApp })(App));
 
-export const SocialNetworkApp = (props) => {
+let AppContainer = compose<React.ComponentType>(
+  withRouter,
+  connect(mapStateToProps, { initializeApp }),
+)(App);
+
+export const SocialNetworkApp: React.FC = () => {
   // using HashRouter instead BrowserRouter - trouble with gh-pages
   return (
     <HashRouter>
