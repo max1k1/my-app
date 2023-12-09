@@ -1,6 +1,6 @@
 import Dialogs from './Dialogs.tsx';
 import { connect } from 'react-redux';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect.tsx';
 import { compose } from 'redux';
 import { actions } from '../../redux/dialogs-reducer.ts';
 import { AppStateType } from '../../redux/store.ts';

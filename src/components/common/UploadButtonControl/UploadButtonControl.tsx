@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-
-const UploadButtonControl = ({ children, value, onChange, disabled, accept }) => {
+type PropsType={
+  children: React.ReactNode
+  value?: string | number 
+  onChange?: (e: ChangeEvent<HTMLInputElement>)=>void
+  disabled?: boolean
+  accept?: string 
+}
+const UploadButtonControl: React.FC<PropsType> = ({ children, value, onChange, disabled, accept }) => {
     return (
       <label htmlFor="contained-button-file" className="m-0 w-100">
         <input

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar.tsx';
 import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
 import News from './components/News/News.tsx';
 import Music from './components/Music/Music.tsx';
-import Settings from './components/Settings/Settings.jsx';
+import Settings from './components/Settings/Settings.tsx';
 import HeaderContainer from './components/Header/HeaderContainer.tsx';
 import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
@@ -12,10 +12,11 @@ import Preloader from './components/common/Preloader/Preloader.tsx';
 import { initializeApp } from './redux/app-reducer.ts';
 import store, { AppStateType } from './redux/store.ts';
 import { Provider } from 'react-redux';
-import { withRouter } from './hoc/withRouter.js';
-import ProfileContainerWithHooks from './components/ProfileContent/ProfileContainerWithHooks.tsx';
+import { withRouter } from './hoc/withRouter.tsx';
 import UsersContainer from './components/Users/UsersContainer.tsx';
 import { compose } from 'redux';
+import ProfileContainerWithHooks from './components/ProfileContent/ProfileContainerWithHooks.tsx';
+
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer.tsx'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>

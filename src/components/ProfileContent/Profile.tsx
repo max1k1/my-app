@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styles from './Profile.module.css';
 import Preloader from '../common/Preloader/Preloader.tsx';
 import userPhoto from '../../assets/images/userPhoto.png';
-import ProfileInfoForm from './ProfileForm/ProfileForm';
+import ProfileInfoForm from './ProfileForm/ProfileInfoForm.tsx';
 // import vMarkIcon from '../../../assets/images/v-mark.png';
 // import xMarkIcon from '../../../assets/images/x-mark.svg';
 import defalutBackground from '../../assets/images/defaultBackground.png';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks.tsx';
 import MainButton from '../common/Buttons/MainButton/MainButton.tsx';
 import UploadButtonControl from '../common/UploadButtonControl/UploadButtonControl.tsx';
-import MyPostsContainer from './MyPosts/MyPostsContainer';
-import Contacts from './Contacts/InfoContacts/Contacts';
+import MyPostsContainer from './MyPosts/MyPostsContainer.tsx';
+import Contacts from './Contacts/InfoContacts/Contacts.tsx';
+import { ProfileType } from '../../types/types.ts';
 
-const Profile = ({
+type PropsType = {
+  profile: ProfileType | null;
+  status: string;
+  isOwner: boolean;
+  updateStatus: (status: string) => void;
+  updatePhoto: (file: File) => void;
+  updateProfileInfo: (profile: ProfileType) => Promise<any>;
+};
+const Profile: React.FC<PropsType> = ({
   profile,
   status,
-  updateStatus,
   isOwner,
+  updateStatus,
   updatePhoto,
   updateProfileInfo,
 }) => {
@@ -24,19 +33,16 @@ const Profile = ({
   if (!profile) {
     return <Preloader />;
   }
-  const onProfilePhotoSelected = (e) => {
-    if (e.target.files.length) {
+  const onProfilePhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
       updatePhoto(e.target.files[0]);
     }
   };
-  const onSubmit = (formData) => {
-    updateProfileInfo(formData).then(deactivateEditMode());
-  };
-  const activateEditMode = () => {
-    setEditMode(true);
-  };
-  const deactivateEditMode = () => {
-    setEditMode(false);
+  const onSubmit = (formData: ProfileType) => {
+    // TODO: remove then
+    updateProfileInfo(formData).then(() => {
+      setEditMode(false);
+    });
   };
   return (
     <div className={styles.profile}>
@@ -51,10 +57,7 @@ const Profile = ({
                 {isOwner ? (
                   <div className={styles.changeProfilePhotoButton}>
                     <button>
-                      <UploadButtonControl
-                        className={styles.profilePhotoButton}
-                        onChange={onProfilePhotoSelected}
-                        accept="image/*">
+                      <UploadButtonControl onChange={onProfilePhotoSelected} accept="image/*">
                         <img
                           src={profile.photos.large || userPhoto}
                           alt="profileAva"
@@ -82,7 +85,7 @@ const Profile = ({
                     />
                   </div>
                   {isOwner ? (
-                    <div className={styles.editMode} onClick={activateEditMode}>
+                    <div className={styles.editMode} onClick={() => setEditMode(true)}>
                       <MainButton name="Edit profile"></MainButton>
                     </div>
                   ) : (
@@ -92,23 +95,18 @@ const Profile = ({
               </div>
             </div>
             <div className={styles.profileBodyLayout}>
-              <div className={styles.profilePosts}>
-                <MyPostsContainer isOwner={isOwner} />
-              </div>
+              <div className={styles.profilePosts}>{isOwner ? <MyPostsContainer /> : <div />}</div>
               <Contacts contacts={profile.contacts} />
             </div>
           </div>
         ) : (
           <ProfileInfoForm
-            initialValues={profile}
             profile={profile}
+            initialValues={profile}
             onSubmit={onSubmit}
-            userPhoto={userPhoto}
             isOwner={isOwner}
             status={status}
             updateStatus={updateStatus}
-            updateProfileInfo={updateProfileInfo}
-            updatePhoto={updatePhoto}
             onProfilePhotoSelected={onProfilePhotoSelected}
           />
         )}

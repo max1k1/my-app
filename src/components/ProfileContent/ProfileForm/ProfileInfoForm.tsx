@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import React, { ChangeEvent, useState } from 'react';
+import { Field, InjectedFormProps, reduxForm } from 'redux-form';
 import styles from './ProfileForm.module.css';
 import { maxLengthCreator, required } from '../../../utils/validators/validators.ts';
-import { Checkbox, Input } from '../../common/FormsControls/FormsControls.tsx'
+import { Checkbox, Input } from '../../common/FormsControls/FormsControls.tsx';
 import ProfileStatusWithHooks from '../ProfileStatus/ProfileStatusWithHooks.tsx';
 import MainButton from '../../common/Buttons/MainButton/MainButton.tsx';
 import UploadButtonControl from '../../common/UploadButtonControl/UploadButtonControl.tsx';
-import FormContacts from '../Contacts/FormContacts/FormContacts';
+import FormContacts from '../Contacts/FormContacts/FormContacts.tsx';
+import { ProfileType } from '../../../types/types.ts';
+import userPhoto from '../../../assets/images/userPhoto.png';
 
 const maxLength200 = maxLengthCreator(200);
-const ProfileInfoForm = ({
+type PropsType = {
+  profile: ProfileType ;
+  isOwner: boolean;
+  onProfilePhotoSelected: (e: ChangeEvent<HTMLInputElement>) => void;
+  status: string;
+  updateStatus: (status: string) => void;
+};
+const ProfileInfoForm: React.FC<InjectedFormProps<ProfileType, PropsType> & PropsType> = ({
   handleSubmit,
   profile,
-  userPhoto,
+  initialValues,
   isOwner,
   onProfilePhotoSelected,
   status,
   updateStatus,
-  initialValues,
 }) => {
   const [lookingForAJobMark, setLookingForAJobMark] = useState(initialValues.lookingForAJob);
   const [contactsChangeField, setContactsChangeField] = useState(false);
@@ -41,7 +49,6 @@ const ProfileInfoForm = ({
             <div className={styles.changeProfilePhotoField}>
               <div>
                 <UploadButtonControl
-                  className={styles.profilePhotoButton}
                   onChange={onProfilePhotoSelected}
                   accept="image/*">
                   <img
@@ -105,4 +112,6 @@ const ProfileInfoForm = ({
     </div>
   );
 };
-export default reduxForm({ form: 'profile-info-edit-form' })(ProfileInfoForm);
+export default reduxForm<ProfileType, PropsType>({ form: 'profile-info-edit-form' })(
+  ProfileInfoForm,
+);

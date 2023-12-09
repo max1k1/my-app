@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Profile from './Profile.jsx';
+import Profile from './Profile.tsx';
 import { connect } from 'react-redux';
 import {
   getUserProfile,
@@ -9,30 +9,30 @@ import {
   updateProfileInfo,
 } from '../../redux/profile-reducer.ts';
 import { compose } from 'redux';
-import { withRouter } from '../../hoc/withRouter.js';
+import { withRouter } from '../../hoc/withRouter.tsx';
 import { useNavigate } from 'react-router-dom';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect.js';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect.tsx';
 import { AppStateType } from '../../redux/store.ts';
 import { ProfileType } from '../../types/types.ts';
 
-type MapStatePropsType = {
-  profile: ProfileType | null;
-  status: string;
-  authorizedUserId: number | null;
-};
+type MapPropsType = ReturnType<typeof mapStateToProps>;
+
 type MapDispatchPropsType = {
   getUserProfile: (userId: number) => void;
   getStatus: (userId: number) => void;
-  updateStatus: () => void;
-  updatePhoto: () => void;
-  updateProfileInfo: () => void;
+  updateStatus: (status: string) => void;
+  updatePhoto: (file: File) => void;
+  updateProfileInfo: (profile: ProfileType) => Promise<any>;
 };
 type OwnPropsType = {
   match: any;
 };
-type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType;
+type PathParamsType = { // TODO by this path match.params.userId should be only userId, fix it
+  userId: string;
+};
+type PropsType = MapPropsType & MapDispatchPropsType & OwnPropsType & PathParamsType;
 
-const ProfileContainerWithHooks = ({
+const ProfileContainerWithHooks: React.FC<PropsType> = ({
   profile,
   status,
   authorizedUserId,
@@ -42,7 +42,7 @@ const ProfileContainerWithHooks = ({
   updateStatus,
   updatePhoto,
   updateProfileInfo,
-}: PropsType) => {
+}) => {
   const navigate = useNavigate();
   useEffect(() => {
     const redirect = (adress: string) => {
@@ -63,14 +63,13 @@ const ProfileContainerWithHooks = ({
       profile={profile}
       status={status}
       updateStatus={updateStatus}
-      authorizedUserId={authorizedUserId}
       isOwner={!match.params.userId}
       updatePhoto={updatePhoto}
       updateProfileInfo={updateProfileInfo}
     />
   );
 };
-const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
+const mapStateToProps = (state: AppStateType) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
   authorizedUserId: state.auth.id,
@@ -78,8 +77,8 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 
 // TODO <MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType> place it in coonect
 export default compose(
-  withAuthRedirect,
   withRouter,
+  withAuthRedirect,
   connect(mapStateToProps, {
     getUserProfile,
     getStatus,

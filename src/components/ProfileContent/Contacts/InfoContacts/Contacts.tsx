@@ -1,4 +1,3 @@
-import { React } from 'react';
 import { NavLink } from 'react-router-dom';
 import instagramLogoIcon from '../../../../assets/images/logos/instagramLogoIcon.png';
 import vkontakteLogoIcon from '../../../../assets/images/logos/vkontakteLogoIcon.png';
@@ -9,6 +8,7 @@ import githubLogoIcon from '../../../../assets/images/logos/githubLogoIcon.png';
 import facebookLogoIcon from '../../../../assets/images/logos/facebook.jpg';
 import websiteIcon from '../../../../assets/images/logos/randomWebsiteIcon.jpg' 
 import styles from './Contacts.module.css';
+import React from 'react';
 const Contacts = ({ contacts }) => {
   const logoDataBase = {
     facebook: facebookLogoIcon,

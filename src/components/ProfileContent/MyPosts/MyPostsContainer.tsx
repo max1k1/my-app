@@ -1,16 +1,17 @@
 import { actions } from '../../../redux/profile-reducer.ts';
-import MyPosts from './MyPosts';
+import { AppStateType } from '../../../redux/store.ts';
+import MyPosts from './MyPosts.tsx';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
   return {
-    profile: state.profilePage,
+    postsDate: state.profilePage.postsDate,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addPost: (newPostText) => {
-      dispatch(actions.addPost(newPostText));
+    addPost: (newPostText, img) => {
+      dispatch(actions.addPost(newPostText, img));
     },
   };
 };
