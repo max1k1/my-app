@@ -27,7 +27,8 @@ type MapDispatchPropsType = {
 type OwnPropsType = {
   match: any;
 };
-type PathParamsType = { // TODO by this path match.params.userId should be only userId, fix it
+type PathParamsType = {
+  // TODO by this path match.params.userId should be only userId, fix it
   userId: string;
 };
 type PropsType = MapPropsType & MapDispatchPropsType & OwnPropsType & PathParamsType;
@@ -75,8 +76,7 @@ const mapStateToProps = (state: AppStateType) => ({
   authorizedUserId: state.auth.id,
 });
 
-// TODO <MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType> place it in coonect
-export default compose(
+export default compose<React.ComponentType>(
   withRouter,
   withAuthRedirect,
   connect(mapStateToProps, {

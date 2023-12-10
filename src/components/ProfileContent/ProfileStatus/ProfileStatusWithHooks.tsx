@@ -6,7 +6,7 @@ type PropsType = {
   isOwner: boolean;
   updateStatus: (tempStatus: string) => void;
 };
-const ProfileStatusWithHooks = ({ status, isOwner, updateStatus }: PropsType) => {
+const ProfileStatusWithHooks: React.FC<PropsType> = ({ status, isOwner, updateStatus }) => {
   let [editMode, setEditMode] = useState(false);
   let [tempStatus, setStatus] = useState(status);
   useEffect(() => {

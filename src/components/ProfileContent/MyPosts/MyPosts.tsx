@@ -2,17 +2,15 @@ import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post.tsx';
 import AddNewPostForm from './AddNewPostForm/AddNewPostForm.tsx';
-import { PhotosType, PostType } from '../../../types/types.ts';
+import { PhotosType } from '../../../types/types.ts';
+import { DispatchPropsType, MapPropsType } from './MyPostsContainer.tsx';
 
 export type AddPostFormType = {
   newPostText: string;
   img: PhotosType;
 };
-type PropsType = {
-  postsDate: Array<PostType>;
-  addPost: (newPostText: string, img: PhotosType) => void;
-};
-const MyPosts: React.FC<PropsType> = ({ postsDate, addPost }) => {
+
+const MyPosts: React.FC<MapPropsType & DispatchPropsType> = ({ postsDate, addPost }) => {
   const postsElements = postsDate.map((postDate, i) => (
     <Post key={i} text={postDate.text} likeCount={postDate.likeCount} postImg={postDate.img} />
   ));

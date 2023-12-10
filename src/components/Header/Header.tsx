@@ -5,12 +5,9 @@ import headerImage from '../../assets/images/28638.jpg';
 import downArrow from '../../assets/images/down-arrow.png';
 import profilePicutreHeader from '../../assets/images/profilePicutreHeader.png';
 import { useState } from 'react';
-// type PropsType = {
-//   isAuth: boolean;
-//   login: string;
-//   logout: () => void;
-// };
-const Header = (props: any) => {
+import { DispatchPropsType, MapPropsType } from './HeaderContainer';
+
+const Header: React.FC<MapPropsType & DispatchPropsType> = (props) => {
   const [popUpMode, setPopUpMode] = useState(false);
   const popUpModeRef = React.useRef<HTMLDivElement>(null);
   React.useEffect(() => {
