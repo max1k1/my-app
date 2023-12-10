@@ -1,6 +1,6 @@
 import { usersAPI } from '../api/users-api.ts';
 import { UserDateType } from '../types/types';
-import { updateObjectInArray } from '../utils/validators/object-helpers';
+import { updateObjectInArray } from '../utils/validators/object-helpers.ts';
 import { BaseThunkType, InferActionsTypes } from './store';
 
 const initialState = {
